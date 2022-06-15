@@ -48,14 +48,20 @@ Contenu :
 - A propos de Lord Stampee
 - Inscription newsletter
 
+References :
+Horizontal scroll : https://codeburst.io/how-to-create-horizontal-scrolling-containers-d8069651e9c6 
+
 ## Catalogue
 
 Contenu :
 - Bannière Hero avec image
 - Filtres 
-    - Catégories
-    - Vendu / Non vendu
     - Champ de recherche "Chercher Lots"
+    - Catégories
+    - Enchere de depart (montant)
+    - Pays d'origine
+    - Condition (Parfaite, Excellente, Bonne, Moyenne, Endommagé)
+    
 - Tri 
     - Estimé : Bas à Haut  
     - Estimé : Haut à Bas
@@ -70,7 +76,7 @@ https://live.enchereschampagne.com/auctions/4-5IA3Z8/timbres-du-monde-world-stam
 
 Contenu :
 - Carte produit
-    - Description : Catégorie, Numéro de lot, Nom du lot, Prix estimé, Description, Dernière enchère
+    - Description : Catégorie, Numéro de lot, Nom du lot, Description (Pays d'origine, Condition, Tirage, Dimension, Certifié (oui/non)), Date de début/Fin, Prix plancher, Offre actuelle (Prix, Nom du membre, quantité de mises, coup de coeur du Lord)
     - Bouton "Miser"
     - Icone "Favoris"
 - Image principale et autres images en plus petit
