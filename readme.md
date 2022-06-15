@@ -3,10 +3,46 @@
 ## Consignes
 Faire un site web d'enchères pour des timbres, avec 3 pages : Accueil, Catalogue et Fiche Produit.
 
+## Navigation
+
+Contenu :
+- Logo / accueil
+- Ventes
+    - Calendrier
+        - En vedette
+        - A venir
+        - Passees
+    - Categories
+        - Canada
+        - Monde
+        - Royauté
+        - Faune
+        - Flore
+        - Aérien
+        - Maritime
+        - Commémoration
+        - Ferroviaire
+        - Sport
+        - Art
+        - Architecture
+- Mes encheres
+    - Passees
+    - En cours
+    - A venir
+- A propos
+    - A propos
+        - Lord Stampee
+        - Nos experts
+    - Support 
+        - Envoi et retour
+        - FAQ
+        - Contact
+
 ## Accueil
 
 Contenu :
-- Bannière Hero : annonce de la prochaine enchère à venir avec image
+- Bannière Hero avec phrase presentation site et lien catalogue
+- Annonce des prochaines enchères à venir avec image
 - Les coups de coeur du Lord Stampee
 - Notre catalogue
 - A propos de Lord Stampee
