@@ -38,6 +38,13 @@ Contenu :
         - FAQ
         - Contact
 
+References :
+menu deroulant full width
+https://www.w3schools.com/howto/howto_css_mega_menu.asp
+menu curtain mobile
+https://www.w3schools.com/howto/howto_js_curtain_menu.asp 
+
+
 ## Accueil
 
 Contenu :
