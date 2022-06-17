@@ -7,22 +7,155 @@
     <meta name="author" content="Pauline Huby e2194480">
     <title>Catalogue</title>
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <header>
+    <div>
+        <!----------------- NAVIGATION ------------------>
         <nav>
-            <div>Ventes</div>
-            <div>
-                Calendrier
-                <div>
-                    <a href="">En vedette</a>
-                    <a href="">A venir</a> 
-                    <a href="">Passees</a> 
+            <div class="logo-container">
+                <a class="logo">LOGO</a>
+            </div>
+            <!-- dropdowns container --> 
+            <div class="dropdowns-container" id="myNav">
+                <!-- <div class="logo-closebtn-wrapper"> -->
+                    <a class="logo-mobile">LOGO</a>
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeSideWindow()">&times;</a>
+                <!-- </div> -->
+                <div class="dropdown">
+                    <div class="dropbtn">Ventes</div> 
+                    <div class="dropdown-content dropdown-content1">
+                        <div>
+                            <h3>Catalogue</h3>
+                            <div>
+                                <a href="#">En vedette</a>
+                                <a href="#">En cours</a> 
+                                <a href="#">Passees</a> 
+                            </div>  
+                        </div>
+                        <div>
+                            <h3>Categories</h3>
+                            <div class="nav-categories-wrapper">
+                                <div>
+                                    <a href="#">Architecture</a>
+                                    <a href="#">Art</a>
+                                    <a href="#">Canada</a>
+                                </div>
+                                <div>
+                                    <a href="#">Commémoration</a>
+                                    <a href="#">Ferroviaire</a>
+                                    <a href="#">Maritime</a>
+                                </div>
+                                <div>
+                                    <a href="#">Monde</a>
+                                    <a href="#">Royauté</a>
+                                    <a href="#">Sport</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
+                <div class="dropdown">
+                    <div class="dropbtn">Mes enchères</div>
+                    <div class="dropdown-content dropdown-content2">
+                        <div>
+                            <h3>Passées</h3>
+                        </div>
+                        <div>
+                            <h3>En cours</h3>
+                        </div>
+                        <div>
+                            <h3>A venir</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <div class="dropbtn">A propos</div>
+                    <div class="dropdown-content dropdown-content3">
+                        <div>
+                            <h3>A propos</h3>
+                            <div>
+                                <a href="#">Lord Stampee</a>
+                                <a href="#">Nos experts</a>
+                            </div>
+                        </div>
+                        <div>
+                            <h3>Support</h3>
+                            <div>
+                                <a href="#">Envoi et retour</a>
+                                <a href="#">FAQ</a>
+                                <a href="#">Contact</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-and-log-wrapper">
+                <form action="" class="form-search">
+                    <input type="text" name="search" id="search" placeholder="Chercher..">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+                <button class="btn-login">Login</button>
+                <span onclick="openSideWindow()" class="openbtn"><i class="fa fa-bars" id="menu-icon"></i></span>
             </div>
         </nav>
+    </div>
+    <!----------------- HEADER ------------------>
+    <header class="banner">
+        <section class="text-hero-container">
+            <h1>Nos enchères en cours</h1>
+            <p>Explorez notre exceptionnelle sélection de timbres dont les enchères ont lieu en ce moment même !</p>
+        </section>
     </header>
-    
+    <!----------------- MAIN ------------------>
+    <main>
+        <div class="toolbar">
+            <span>250 résultats</span>
+            <div class="sort-wrapper">
+                <button>Trier par: Pertinence <span><i class="fa-solid fa-caret-down"></i></span></button>
+            </div>
+        </div>
+        <!----------------- FILTRES ------------------>
+        <aside class="filter-container">
+            <div>
+                <form action="" class="form-search">
+                    <input type="text" name="search" id="search" placeholder="Chercher timbres">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <div class="dropdown">
+                <div class="dropbtn">Categories<i class="fa-solid fa-chevron-down"></i></div>
+                <div class="dropdown-content">
+                    <ul>
+                        <li><label for="architecture">Architecture<input type="checkbox" name="category" id="architecture"></label></li>
+                        <li><label for="art">Art<input type="checkbox" name="category" id="art"></label></li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </aside>
+        <!--------------- GRILLE PRODUITS ---------------->
+        <section class="grid">
+            <div class="grid-item">
+                <div><img src="" alt=""></div>
+                <div>
+                    <h6>68</h6>
+                    <h6>Canada 1897 # 56 stamp vf</h6>
+                    <p class="light">18 juin - 21 juil. 22</p>
+                    <p>Offre actuelle : 120$</p>
+                </div>
+            </div>
+
+        </section>
+        <!----------------- PAGINATION ------------------>
+        <div class="pagination">
+
+        </div>
+    </main>
+    <!----------------- FOOTER ------------------>
+    <footer>
+
+    </footer>
+    <script src="./assets/script/slideWindow.js"></script>
 </body>
 </html>

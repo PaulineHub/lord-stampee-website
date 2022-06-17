@@ -1,0 +1,135 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: grey;
+    padding: 20px 60px;
+    color: white;
+    height: 30px;
+    overflow: hidden;
+}
+
+/* DROPDOWN */
+
+.dropdowns-container {
+    display: flex;
+}
+
+.dropdown {
+    margin: 0 40px;
+    height: 60px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    color: black;
+    font-size: 16px;
+    background-color: rgb(175, 175, 175);
+    width: 100%;
+    top: 65px;
+    left: 0;
+    z-index: 1;
+    justify-content: center;
+}
+
+.dropdown-content h3 {
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+.dropdown-content > div {
+    margin: 20px 40px;
+}
+
+nav a {
+    display: block;
+    padding-bottom: 10px;
+}
+
+.nav-categories-wrapper {
+    display: flex;
+}
+
+.nav-categories-wrapper > div {
+    padding-right: 40px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: flex;
+}
+
+/* DROPDOWN ARROWS */
+
+.dropdown-content:before {
+  content: "";
+  position: absolute;
+  border-color: rgb(175, 175, 175);
+  border: solid transparent;
+  border-bottom-color: rgb(175, 175, 175);
+  border-width: 11px;
+  margin-left: -10px;
+  top: -20px;
+  z-index: 2;
+} 
+
+.dropdown-content1:before {
+  left: 32%;
+} 
+
+.dropdown-content2:before {
+  left: 43%;
+} 
+
+.dropdown-content3:before {
+  left: 55%;
+}
+
+/* MOBILE ITEMS */
+
+.openbtn, .closebtn, .logo-mobile {
+    display: none;
+}
+
+/* SEARCH FORM AND LOGIN */
+
+.form-search input[type=text] {
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  float: left;
+  width: 50%;
+  background: #f1f1f1;
+}
+
+.form-search button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #f1f1f1;
+  color: grey;
+  font-size: 14px;
+  border: none;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+.form-search button:hover {
+  background: rgb(175, 175, 175);
+}
+
+.form-search::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.btn-login {
+    background-color: grey;
+    color: white;
+    font-size: 16px;
+}
+
+.form-and-log-wrapper {
+    display:flex ;
+    align-items: center;
+}

@@ -1,0 +1,18 @@
+header {
+    margin-bottom: 60px;
+}
+
+.banner {
+    position: relative;
+    background-color: rgb(175, 175, 175);
+    height: 400px;
+}
+
+.text-hero-container {
+    background-color: white;
+    width: 400px;
+    position: absolute;
+    top: 200px;
+    left: 60px;
+    padding: 20px;
+}
