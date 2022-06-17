@@ -42,7 +42,7 @@
                                     <a href="#">Canada</a>
                                 </div>
                                 <div>
-                                    <a href="#">Commémoration</a>
+                                    <a href="#">Europe</a>
                                     <a href="#">Ferroviaire</a>
                                     <a href="#">Maritime</a>
                                 </div>
@@ -116,37 +116,132 @@
             </div>
         </div>
         <!----------------- FILTRES ------------------>
-        <aside class="filter-container">
-            <div>
-                <form action="" class="form-search">
-                    <input type="text" name="search" id="search" placeholder="Chercher timbres">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </form>
-            </div>
-            <div class="dropdown">
-                <div class="dropbtn">Categories<i class="fa-solid fa-chevron-down"></i></div>
-                <div class="dropdown-content">
-                    <ul>
-                        <li><label for="architecture">Architecture<input type="checkbox" name="category" id="architecture"></label></li>
-                        <li><label for="art">Art<input type="checkbox" name="category" id="art"></label></li>
-                    </ul>
-                    
-                </div>
-            </div>
-        </aside>
-        <!--------------- GRILLE PRODUITS ---------------->
-        <section class="grid">
-            <div class="grid-item">
-                <div><img src="" alt=""></div>
+        <div class="filter-and-grid-wrapper">
+            <aside class="filter-container">
                 <div>
-                    <h6>68</h6>
-                    <h6>Canada 1897 # 56 stamp vf</h6>
-                    <p class="light">18 juin - 21 juil. 22</p>
-                    <p>Offre actuelle : 120$</p>
+                    <form action="" class="form-search">
+                        <input type="text" name="search" id="search" placeholder="Chercher timbres">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
                 </div>
-            </div>
+                <!-- categories filter -->
+                <div class="list-filter-wrapper">
+                    <div class="title-filter-wrapper">
+                        <h3>Categories</h3>
+                        <button class="filter-chevron-down"><i class="fa-solid fa-chevron-down"></i></button>
+                    </div> 
+                    <div id="categorie">
+                        <div>
+                            <form action="" class="form-search">
+                                <input type="text" name="search" id="search" placeholder="Chercher catégorie">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                        <ul>
+                            <li><input type="checkbox" name="category" id="architecture"><label for="architecture">Architecture</label></li>
+                            <li><input type="checkbox" name="category" id="art"><label for="art">Art</label></li>
+                            <li><input type="checkbox" name="category" id="canada"><label for="canada">Canada</label></li>
+                            <li><input type="checkbox" name="category" id="europe"><label for="europe">Europe</label></li>
+                            <li><input type="checkbox" name="category" id="ferroviaire"><label for="ferroviaire">Ferroviaire</label></li>
+                            <li><input type="checkbox" name="category" id="maritime"><label for="maritime">Maritime</label></li>
+                            <li><input type="checkbox" name="category" id="monde"><label for="monde">Monde</label></li>
+                            <li><input type="checkbox" name="category" id="royaute"><label for="royaute">Royauté</label></li>
+                            <li><input type="checkbox" name="category" id="sport"><label for="sport">Sport</label></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- prix filter -->
+                <div class="list-filter-wrapper">
+                    <div class="title-filter-wrapper">
+                        <h3>Enchère de départ</h3>
+                        <button class="filter-chevron-down"><i class="fa-solid fa-chevron-down"></i></button>
+                    </div>
+                    <div id="prix">
+                        
+                    </div>
+                </div>
+                <!-- pays filter -->
+                <div class="list-filter-wrapper">
+                    <div class="title-filter-wrapper">
+                        <h3>Pays</h3>
+                        <button class="filter-chevron-down"><i class="fa-solid fa-chevron-down"></i></button>
+                    </div>
+                    <div id="pays">
+                        <div>
+                            <form action="" class="form-search">
+                                <input type="text" name="search" id="search" placeholder="Chercher pays">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                        <ul>
+                            <li><input type="checkbox" name="pays" id="angleterre"><label for="angleterre">Angleterre</label></li>
+                            <li><input type="checkbox" name="pays" id="australie"><label for="australie">Australie</label></li>
+                            <li><input type="checkbox" name="pays" id="canada"><label for="canada">Canada</label></li>
+                            <li><input type="checkbox" name="pays" id="france"><label for="france">France</label></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- condition filter -->
+                <div class="list-filter-wrapper">
+                    <div class="title-filter-wrapper">
+                        <h3>Condition</h3>
+                        <button class="filter-chevron-down"><i class="fa-solid fa-chevron-down"></i></button>
+                    </div>
+                    <div id="condition">
+                        <div>
+                            <form action="" class="form-search">
+                                <input type="text" name="search" id="search" placeholder="Chercher condition">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                        <ul>
+                            <li><input type="checkbox" name="condition" id="parfaite"><label for="parfaite">Parfaite</label></li>
+                            <li><input type="checkbox" name="condition" id="excellente"><label for="excellente">Excellente</label></li>
+                            <li><input type="checkbox" name="condition" id="bonne"><label for="bonne">Bonne</label></li>
+                            <li><input type="checkbox" name="condition" id="moyenne"><label for="moyenne">Moyenne</label></li>
+                            <li><input type="checkbox" name="condition" id="endommagee"><label for="endommagee">Endommagée</label></li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+            <!--------------- GRILLE PRODUITS ---------------->
+            <section class="grid">
+                <div class="grid-item">
+                    <a href="#">
+                        <div class="image-container"><img src="" alt=""></div>
+                        <div class="grid-item-description">
+                            <h6>68</h6>
+                            <h6>Canada 1897 # 56 stamp vf</h6>
+                            <p class="light">18 juin - 21 juil. 22</p>
+                            <p>Offre actuelle : 120$</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="grid-item">
+                    <a href="#">
+                        <div class="image-container"><img src="" alt=""></div>
+                        <div class="grid-item-description">
+                            <h6>68</h6>
+                            <h6>Canada 1897 # 56 stamp vf</h6>
+                            <p class="light">18 juin - 21 juil. 22</p>
+                            <p>Offre actuelle : 120$</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="grid-item">
+                    <a href="#">
+                        <div class="image-container"><img src="" alt=""></div>
+                        <div class="grid-item-description">
+                            <h6>68</h6>
+                            <h6>Canada 1897 # 56 stamp vf</h6>
+                            <p class="light">18 juin - 21 juil. 22</p>
+                            <p>Offre actuelle : 120$</p>
+                        </div>
+                    </a>
+                </div>
 
-        </section>
+            </section>
+        </div>
         <!----------------- PAGINATION ------------------>
         <div class="pagination">
 

@@ -16,6 +16,7 @@ body {
 
 i {
     font-family: FontAwesome;
+    font-style: normal;
 }
 
 h1 {
@@ -38,7 +39,22 @@ a {
     color: black;
 }
 
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
 button {
     border: none;
     font-size: 16px;
+}
+
+main {
+    max-width: 1300px;
+    margin: auto;
+}
+
+.image-container {
+    background-color: grey;
 }

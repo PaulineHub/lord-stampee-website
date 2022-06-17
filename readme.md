@@ -77,7 +77,12 @@ Contenu :
 - Pagination
 
 Références : 
+design :
 https://live.enchereschampagne.com/auctions/4-5IA3Z8/timbres-du-monde-world-stamps-auction-13?page=2&limit=96
+checkbox personnalisees :
+https://moderncss.dev/pure-css-custom-checkbox-style/
+price filter "double range slider":
+https://www.youtube.com/watch?v=DfSYmk_6vk8
 
 ## Produit
 

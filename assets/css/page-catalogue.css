@@ -3,17 +3,98 @@
     justify-content: space-between;
 }
 
-/* ASIDE FILTRE */
+.filter-and-grid-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+/* ASIDE FILTER */
 
 .filter-container {
     background-color: grey;
-    width: 30%;
+    width: 20%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.filter-container .form-search input[type=text] {
+    width: 150px;
+}
+
+.filter-container > div:first-child {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .filter-container > div {
     border-bottom: 1px solid black;
-    margin-left: 10px;
-    margin-right: 10px;
+    
+}
+
+.list-filter-wrapper {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.title-filter-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.filter-chevron-down {
+    display: contents;
+}
+
+.list-filter-wrapper label {
+    padding-left: 10px;
+}
+
+/* filter list elements */
+
+input[type="checkbox"] {
+    appearance: none;
+    background-color: grey;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1em;
+    height: 1em;
+    border: 0.1em solid currentColor;
+    border-radius: 0.1em;
+    /* to place the checkmark : */
+    display: grid;
+    place-content: center;
+}
+
+input[type="checkbox"]::before {
+  content: "";
+  width: 0.6em;
+  height: 0.6em;
+  border-radius: 0.1em;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em black;
+  transform-origin: bottom left;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+input[type="checkbox"]:checked::before {
+  transform: scale(1);
+}
+
+.list-filter-wrapper ul {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.list-filter-wrapper li {
+    font-size: 16px;
+    display: flex;
 }
 
 /* GRILLE PRODUITS */
@@ -22,15 +103,24 @@
     display: grid;
     margin-left: auto;
     margin-right: auto;
-    grid-template-columns: repeat(3, 350px);;
-    column-gap: 20px;
-    row-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);;
+    column-gap: 24px;
+    row-gap: 24px;
     align-items: center;
-    width:70%;
+    width:80%;
 }
 
 .grid-item:hover{
     background-color: rgb(175, 175, 175);
+}
+
+.grid-item .image-container {
+    height: 320px;
+}
+
+.grid-item-description {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 p .light {
