@@ -1,4 +1,28 @@
+@media screen and (max-width: 1250px) {
+
+    main {
+        max-width: 828px;
+    }
+
+    /* FILTER CATALOGUE */
+
+    .sort-wrapper {
+        display: none;
+    }
+
+    .filter-container {
+        width: 0;
+        display: none;
+    }
+
+}
+
 @media screen and (max-width: 900px) {
+
+    main {
+        max-width: 732px;
+    }
+
 
     /* NAVIGATION */
 
@@ -78,4 +102,66 @@
     .btn-login {
         display: none;
     }
+
+
+}
+
+@media screen and (max-width: 840px) {
+
+    main {
+        /* width: 481px; */
+        width: 768px;
+    }
+
+    /* CATALOGUE GRID */
+
+    .grid {
+        grid-template-columns: repeat(2, 350px);
+    }
+}
+
+@media screen and (max-width: 560px) {
+
+    /* NAVIGATION */
+    nav {
+        padding: 20px 10px;;
+    }
+
+    /* HEADER */
+
+    .banner {
+        background: none;
+        height: auto;
+    }
+
+    .text-hero-container {
+        border-bottom: 1px solid black;
+        padding: 10px 0 20px 0;
+        margin: 10px;
+        position: initial;
+        width: fit-content;
+        display: block;
+    }
+
+    main {
+        width: 320px;
+        margin: auto;
+    }
+
+    /* CATALOGUE GRID */
+
+    .grid {
+        grid-template-columns: repeat(1, 320px);
+    }
+
+}
+
+@media screen and (max-width: 320px) {
+
+    /* CATALOGUE GRID */
+
+    .grid-item-description {
+        padding:10px 5px;
+}
+
 }

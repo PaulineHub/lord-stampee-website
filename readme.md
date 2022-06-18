@@ -83,6 +83,7 @@ checkbox personnalisees :
 https://moderncss.dev/pure-css-custom-checkbox-style/
 price filter "double range slider":
 https://www.youtube.com/watch?v=DfSYmk_6vk8
+https://www.cssportal.com/style-input-range/
 
 ## Produit
 
