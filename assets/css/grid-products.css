@@ -1,0 +1,46 @@
+/* GRILLE PRODUITS */
+
+.grid {
+  display: grid;
+  margin: 0;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(min-content,max-content);
+  gap: 24px;
+}
+
+.grid-item {
+    height: 100%;
+}
+
+.grid-item:hover {
+  background-color: rgb(175, 175, 175);
+}
+
+.grid-item .image-container {
+  display: block;
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    padding: 100% 0 0;
+}
+
+.grid-item .image-container img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+}
+
+.grid-item-description {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+p .light {
+  color: grey;
+}
+

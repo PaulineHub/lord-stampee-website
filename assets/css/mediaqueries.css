@@ -1,167 +1,210 @@
 @media screen and (max-width: 1250px) {
+  main {
+    max-width: 828px;
+  }
 
-    main {
-        max-width: 828px;
-    }
+  /* FILTER CATALOGUE */
 
-    /* FILTER CATALOGUE */
+  .sort-wrapper {
+    display: none;
+  }
 
-    .sort-wrapper {
-        display: none;
-    }
+  .sort-wrapper-mobile {
+    display: block;
+    margin-bottom: 20px;
+  }
 
-    .filter-container {
-        width: 0;
-        display: none;
-    }
+  .filter-container {
+    height: 100%;
+    width: 0%;
+    position: fixed;
+    flex-direction: column;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    /* background-color: white; /* Black fallback color */
+    background-color: white(0, 0, 0, 0.9); /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s;
+    transform: translateX(-100%);
+    box-shadow: 0 4px 15px rgb(0 0 0 / 20%);
+  }
 
+  .filter-container .closebtn {
+    display: block;
+    font-size: 60px;
+    color: black;
+    padding-bottom: 0;
+    padding-right: 10px;
+    text-align: end;
+    z-index: 1;
+  }
+
+  #openFilterBtn {
+    display: block;
+  }
+
+  .sidebar-backdrop-active {
+    z-index: 1;
+    opacity: 0.2;
+  }
 }
 
 @media screen and (max-width: 900px) {
+  main {
+    max-width: 732px;
+  }
 
-    main {
-        max-width: 732px;
-    }
+  /* NAVIGATION */
 
+  .dropdowns-container {
+    height: 100%;
+    width: 0%;
+    position: fixed;
+    flex-direction: column;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: white; /* Black fallback color */
+    background-color: white(0, 0, 0, 0.9); /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s;
+  }
 
-    /* NAVIGATION */
+  .dropdown-content:before {
+    display: none;
+  }
 
-    .dropdowns-container {
-        height: 100%;
-        width: 0%;
-        position: fixed; 
-        flex-direction: column;
-        z-index: 1; 
-        left: 0;
-        top: 0;
-        background-color: white; /* Black fallback color */
-        background-color: white(0,0,0, 0.9); /* Black w/opacity */
-        overflow-x: hidden; /* Disable horizontal scroll */
-        transition: 0.5s; 
-    }
+  .dropdown {
+    background-color: grey;
+    width: 100%;
+    margin: 0;
+    position: relative;
+    height: 100px;
+  }
 
-    .dropdown-content:before {
-        display: none;
-    }
+  .dropdown-content {
+    flex-direction: column;
+    position: none;
+  }
 
-    .dropdown {
-        background-color: grey;
-        width: 100%;
-        margin: 0;
-        position: relative;
-        height: 100px;
-    }
+  .dropdown:hover .dropdown-content {
+    display: block;
+    position: absolute;
+    top: 90px;
+    left: 0;
+  }
 
-    .dropdown-content {
-        flex-direction: column;
-        position: none;
-    }
+  .dropbtn {
+    padding: 40px;
+  }
 
-    .dropdown:hover .dropdown-content {
-        display: block;
-        position: absolute;
-        top:90px;
-        left: 0;
-    }
+  .nav-categories-wrapper {
+    flex-direction: column;
+  }
 
-    .dropbtn {
-        padding: 40px;
-    }
+  .dropdowns-container .closebtn {
+    display: block;
+    font-size: 60px;
+    color: black;
+    padding-bottom: 0;
+    padding-right: 10px;
+    text-align: end;
+    z-index: 1;
+  }
 
-    .nav-categories-wrapper {
-        flex-direction: column;
-    }
+  .logo-mobile {
+    display: block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: black;
+    padding-left: 10px;
+  }
 
-    .dropdowns-container .closebtn {
-        display: block;
-        font-size: 60px;
-        color: black;
-        padding-bottom: 0;
-        padding-right: 10px;
-        text-align: end;
-        z-index: 1;
-    }
+  .openbtn {
+    display: block;
+  }
 
-    .logo-mobile {
-        display: block;
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        color: black;
-        padding-left: 10px;
-    }
+  nav .form-search {
+    display: none;
+  }
 
-    .openbtn {
-        display: block;
-    }
-
-    .form-search {
-        display: none;
-    }
-
-    .btn-login {
-        display: none;
-    }
-
-
+  .btn-login {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 840px) {
+  main {
+    width: 768px;
+  }
 
-    main {
-        /* width: 481px; */
-        width: 768px;
-    }
+  /* CATALOGUE GRID */
 
-    /* CATALOGUE GRID */
+  .grid {
+    grid-template-columns: repeat(2, 350px);
+  }
+}
 
-    .grid {
-        grid-template-columns: repeat(2, 350px);
-    }
+@media screen and (max-width: 768px) {
+  /* FOOTER */
+
+  .navigation-footer {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .navigation-footer h4 {
+    margin-bottom: 20px;
+  }
+
+  .navigation-footer ul {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 560px) {
+  /* NAVIGATION */
 
-    /* NAVIGATION */
-    nav {
-        padding: 20px 10px;;
-    }
+  nav {
+    padding: 20px 10px;
+  }
 
-    /* HEADER */
+  /* HEADER */
 
-    .banner {
-        background: none;
-        height: auto;
-    }
+  .banner {
+    background: none;
+    height: auto;
+  }
 
-    .text-hero-container {
-        border-bottom: 1px solid black;
-        padding: 10px 0 20px 0;
-        margin: 10px;
-        position: initial;
-        width: fit-content;
-        display: block;
-    }
+  .text-hero-container {
+    border-bottom: 1px solid black;
+    padding: 10px 0 20px 0;
+    margin: 10px;
+    position: initial;
+    width: fit-content;
+    display: block;
+  }
 
-    main {
-        width: 320px;
-        margin: auto;
-    }
+  main {
+    width: 320px;
+    margin: auto;
+  }
 
-    /* CATALOGUE GRID */
+  /* CATALOGUE GRID */
 
-    .grid {
-        grid-template-columns: repeat(1, 320px);
-    }
-
+  .grid {
+    grid-template-columns: repeat(1, 320px);
+  }
 }
 
 @media screen and (max-width: 320px) {
+  /* CATALOGUE GRID */
 
-    /* CATALOGUE GRID */
-
-    .grid-item-description {
-        padding:10px 5px;
-}
-
+  .grid-item-description {
+    padding: 10px 5px;
+  }
 }

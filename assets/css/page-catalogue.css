@@ -1,7 +1,19 @@
+/* TOOLBAR */
+
 .toolbar {
   display: flex;
   justify-content: space-between;
 }
+
+.toolbar span {
+    font-size: 16px;
+}
+
+.fa-sliders {
+    font-size: 24px;
+}
+
+/* CONTAINERS */
 
 .filter-and-grid-wrapper {
   display: flex;
@@ -11,257 +23,30 @@
   margin-top: 24px;
 }
 
-/* ASIDE FILTER */
-
-.filter-container {
-  background-color: grey;
-  width: 224px;
-  padding-left: 10px;
-  padding-right: 10px;
+.grid-and-pagination-container {
+    width: 866px;
 }
 
-.filter-container .form-search input[type='text'] {
-  width: 130px;
-}
+/* PAGINATION */
 
-.filter-container > div:first-child {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.filter-container > div {
-  border-bottom: 1px solid black;
-}
-
-.filter-container h3 {
-  font-size: 14px;
-  text-transform: uppercase;
-}
-
-.list-filter-wrapper {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.title-filter-wrapper {
+.pagination {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 10px;
+  justify-content: center;
+  align-items: baseline;
+  margin-top: 60px;
 }
 
-.filter-chevron-down {
-  display: contents;
+.pagination i {
+    padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
 }
 
-.list-filter-wrapper label {
-  padding-left: 10px;
+.pagination span {
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
-/* filter list elements */
-
-input[type='checkbox'] {
-  appearance: none;
-  background-color: grey;
-  margin: 0;
-  font: inherit;
-  color: currentColor;
-  width: 1em;
-  height: 1em;
-  border: 0.1em solid currentColor;
-  border-radius: 0.1em;
-  /* to place the checkmark : */
-  display: grid;
-  place-content: center;
-}
-
-input[type='checkbox']::before {
-  content: '';
-  width: 0.6em;
-  height: 0.6em;
-  border-radius: 0.1em;
-  transform: scale(0);
-  transition: 120ms transform ease-in-out;
-  box-shadow: inset 1em 1em black;
-  transform-origin: bottom left;
-  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
-}
-
-input[type='checkbox']:checked::before {
-  transform: scale(1);
-}
-
-.list-filter-wrapper ul {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.list-filter-wrapper li {
-  font-size: 16px;
-  display: flex;
-}
-
-/* filter price element */
-
-.range-filter-container {
-  position: relative;
-  width: 90%;
-  height: 40px;
-}
-
-input[type=range] {
-  height: 20px;
-  -webkit-appearance: none;
-  margin: 5px 0;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  background-color: transparent;
-}
-
-input[type=range]:focus {
-  outline: none;
-}
-
-input[type=range]::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 1px;
-  cursor: pointer;
-  box-shadow: 1px 1px 1px #000000;
-  background: #000000;
-  border-radius: 2px;
-  border: 0px solid #010101;
-}
-
-input[type=range]::-webkit-slider-thumb {
-  box-shadow: 1px 1px 1px #000031;
-  border: 1px solid #00001E;
-  height: 12px;
-  width: 12px;
-  border-radius: 15px;
-  background: #000000;
-  cursor: pointer;
-  -webkit-appearance: none;
-  margin-top: -6px;
-}
-
-input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #000000;
-}
-
-input[type=range]::-moz-range-track {
-  width: 100%;
-  height: 1px;
-  cursor: pointer;
-  box-shadow: 1px 1px 1px #000000;
-  background: #000000;
-  border-radius: 2px;
-  border: 0px solid #010101;
-}
-
-input[type=range]::-moz-range-thumb {
-  box-shadow: 1px 1px 1px #000031;
-  border: 1px solid #00001E;
-  height: 12px;
-  width: 12px;
-  border-radius: 15px;
-  background: #000000;
-  cursor: pointer;
-}
-
-input[type=range]::-ms-track {
-  width: 100%;
-  height: 1px;
-  cursor: pointer;
-  background: transparent;
-  border-color: transparent;
-  color: transparent;
-}
-
-input[type=range]::-ms-fill-lower {
-  background: #000000;
-  border: 0px solid #010101;
-  border-radius: 4px;
-  box-shadow: 1px 1px 1px #000000;
-}
-
-input[type=range]::-ms-fill-upper {
-  background: #000000;
-  border: 0px solid #010101;
-  border-radius: 4px;
-  box-shadow: 1px 1px 1px #000000;
-}
-
-input[type=range]::-ms-thumb {
-  margin-top: 1px;
-  box-shadow: 1px 1px 1px #000031;
-  border: 1px solid #00001E;
-  height: 12px;
-  width: 12px;
-  border-radius: 15px;
-  background: #000000;
-  cursor: pointer;
-}
-
-input[type=range]:focus::-ms-fill-lower {
-  background: #000000;
-}
-
-input[type=range]:focus::-ms-fill-upper {
-  background: #000000;
-}
-
-.range-filter-value {
-    display: flex;
-    justify-content: space-between;
-    margin-right: 30px;
-    font-size: 16px;
-}
-
-/* GRILLE PRODUITS */
-
-.grid {
-  display: grid;
-  margin: 0;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: minmax(min-content,max-content);
-  gap: 24px;
-  width: 900px;
-}
-
-.grid-item {
-    height: 100%;
-}
-
-.grid-item:hover {
-  background-color: rgb(175, 175, 175);
-}
-
-.grid-item .image-container {
-  display: block;
-    width: 100%;
-    height: auto;
-    position: relative;
-    overflow: hidden;
-    padding: 100% 0 0;
-}
-
-.grid-item .image-container img {
-    display: block;
-    max-width: 100%;
-    max-height: 100%;
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    transform: translate(50%,-50%);
-}
-
-.grid-item-description {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-p .light {
-  color: grey;
+.page-selected {
+    border: 1px solid black;
 }

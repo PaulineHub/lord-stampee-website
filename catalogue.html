@@ -7,9 +7,12 @@
     <meta name="author" content="Pauline Huby e2194480">
     <title>Catalogue</title>
     <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="./assets/script/slideWindow.js" defer></script>
+    <script src="./assets/script/toggleList.js" defer></script>
 </head>
 <body>
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
     <div>
         <!----------------- NAVIGATION ------------------>
         <nav>
@@ -20,7 +23,7 @@
             <div class="dropdowns-container" id="myNav">
                 <!-- <div class="logo-closebtn-wrapper"> -->
                     <a class="logo-mobile">LOGO</a>
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeSideWindow()">&times;</a>
+                    <a href="#" class="closebtn" id="closeNavBtn">&times;</a>
                 <!-- </div> -->
                 <div class="dropdown">
                     <div class="dropbtn">Ventes</div> 
@@ -96,7 +99,7 @@
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
                 <button class="btn-login">Login</button>
-                <span onclick="openSideWindow()" class="openbtn"><i class="fa fa-bars" id="menu-icon"></i></span>
+                <span class="openbtn" id="openNavBtn"><i class="fa fa-bars" id="menu-icon"></i></span>
             </div>
         </nav>
     </div>
@@ -119,11 +122,21 @@
                     <option value="NumLot">Numéro de lot</option>
                 </select>
             </form>
+            <span id="openFilterBtn" class="openbtn"><i class="fa-solid fa-sliders" id="filter-icon"></i></span>
         </div>
         <!----------------- FILTRES ------------------>
         <div class="filter-and-grid-wrapper">
-            <aside class="filter-container">
-                <div>
+            <aside class="filter-container" id="filter-container">
+                <a href="#" class="closebtn" id="closeFilterBtn">&times;</a>
+                <div class="form-search-container">
+                    <form class="sort-wrapper sort-wrapper-mobile">
+                        <select name="tri" id="tri">
+                            <option value="defaut">Trier par: Pertinence</option>
+                            <option value="prixBasHaut">Enchere de depart : Bas à Haut</option>
+                            <option value="prixHautBas">Enchere de depart : Haut à Bas</option>
+                            <option value="NumLot">Numéro de lot</option>
+                        </select>
+                    </form>
                     <form action="" class="form-search">
                         <input type="text" name="search" id="search" placeholder="Chercher timbres">
                         <button type="submit"><i class="fa fa-search"></i></button>
@@ -133,7 +146,7 @@
                 <div class="list-filter-wrapper">
                     <div class="title-filter-wrapper">
                         <h3>Categories</h3>
-                        <button class="filter-chevron-down"><i class="fa-solid fa-chevron-down"></i></button>
+                        <button class="filter-chevron-up"><i class="fa-solid fa-chevron-up"></i></button>
                     </div> 
                     <div id="categorie">
                         <div>
@@ -159,22 +172,24 @@
                 <div class="list-filter-wrapper">
                     <div class="title-filter-wrapper">
                         <h3>Enchère de départ</h3>
-                        <button class="filter-chevron-down"><i class="fa-solid fa-chevron-down"></i></button>
+                        <button class="filter-chevron-up"><i class="fa-solid fa-chevron-up"></i></button>
                     </div>
-                    <div id="prix" class="range-filter-container">
-                        <input type="range" min="0" max="200" value="0" id="slider-1" oninput="slideOne()">
-                        <input type="range" min="0" max="200" value="200" id="slider-2" oninput="slideTwo()">
-                    </div>
-                    <div class="range-filter-value">
-                        <div id="value1">0CAD</div>
-                        <div id="value2">200CAD</div>
+                    <div id="prix" >
+                        <div class="range-filter-container">
+                            <input type="range" min="0" max="200" value="0" id="slider-1" oninput="slideOne()">
+                            <input type="range" min="0" max="200" value="200" id="slider-2" oninput="slideTwo()">
+                        </div>
+                        <div class="range-filter-value">
+                            <div id="value1">0CAD</div>
+                            <div id="value2">200CAD</div>
+                        </div>
                     </div>
                 </div>
                 <!-- pays filter -->
                 <div class="list-filter-wrapper">
                     <div class="title-filter-wrapper">
                         <h3>Pays</h3>
-                        <button class="filter-chevron-down"><i class="fa-solid fa-chevron-down"></i></button>
+                        <button class="filter-chevron-up"><i class="fa-solid fa-chevron-up"></i></button>
                     </div>
                     <div id="pays">
                         <div>
@@ -195,7 +210,7 @@
                 <div class="list-filter-wrapper">
                     <div class="title-filter-wrapper">
                         <h3>Condition</h3>
-                        <button class="filter-chevron-down"><i class="fa-solid fa-chevron-down"></i></button>
+                        <button class="filter-chevron-up"><i class="fa-solid fa-chevron-up"></i></button>
                     </div>
                     <div id="condition">
                         <div>
@@ -214,53 +229,103 @@
                     </div>
                 </div>
             </aside>
-            <!--------------- GRILLE PRODUITS ---------------->
-            <section class="grid">
-                <div class="grid-item">
-                    <a href="#">
-                        <div class="image-container"><img src="./assets/image/image.png" alt=""></div>
-                        <div class="grid-item-description">
-                            <h6>68</h6>
-                            <h6>Canada 1897 # 56 stamp vf</h6>
-                            <p class="light">18 juin - 21 juil. 22</p>
-                            <p>Offre actuelle : 120$</p>
-                        </div>
-                    </a>
+            <div class="grid-and-pagination-container">
+                <!--------------- GRILLE PRODUITS ---------------->
+                <section class="grid">
+                    <div class="grid-item">
+                        <a href="#">
+                            <div class="image-container"><img src="./assets/image/image.png" alt=""></div>
+                            <div class="grid-item-description">
+                                <h6>68</h6>
+                                <h6>Canada 1897 # 56 stamp vf</h6>
+                                <p class="light">18 juin - 21 juil. 22</p>
+                                <p>Offre actuelle : 120$</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="grid-item">
+                        <a href="#">
+                            <div class="image-container"><img src="./assets/image/image.png" alt=""></div>
+                            <div class="grid-item-description">
+                                <h6>68</h6>
+                                <h6>Canada 1897 # 56 stamp vf</h6>
+                                <p class="light">18 juin - 21 juil. 22</p>
+                                <p>Offre actuelle : 120$</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="grid-item">
+                        <a href="#">
+                            <div class="image-container"><img src="./assets/image/image.png" alt=""></div>
+                            <div class="grid-item-description">
+                                <h6>68</h6>
+                                <h6>Canada 1897 # 56 stamp vf</h6>
+                                <p class="light">18 juin - 21 juil. 22</p>
+                                <p>Offre actuelle : 120$</p>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+                <!----------------- PAGINATION ------------------>
+                <div class="pagination">
+                    <button class="filter-chevron-down"><i class="fa-solid fa-chevron-left"></i></button>
+                    <div>
+                        <span class="page-selected"><a href="">1</a></span>
+                        <span><a href="">2</a></span>
+                        <span><a href="">3</a></span>
+                    </div>
+                    <button class="filter-chevron-down"><i class="fa-solid fa-chevron-right"></i></button>
                 </div>
-                <div class="grid-item">
-                    <a href="#">
-                        <div class="image-container"><img src="./assets/image/image.png" alt=""></div>
-                        <div class="grid-item-description">
-                            <h6>68</h6>
-                            <h6>Canada 1897 # 56 stamp vf</h6>
-                            <p class="light">18 juin - 21 juil. 22</p>
-                            <p>Offre actuelle : 120$</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="grid-item">
-                    <a href="#">
-                        <div class="image-container"><img src="./assets/image/image.png" alt=""></div>
-                        <div class="grid-item-description">
-                            <h6>68</h6>
-                            <h6>Canada 1897 # 56 stamp vf</h6>
-                            <p class="light">18 juin - 21 juil. 22</p>
-                            <p>Offre actuelle : 120$</p>
-                        </div>
-                    </a>
-                </div>
-
-            </section>
+            </div>
         </div>
-        <!----------------- PAGINATION ------------------>
-        <div class="pagination">
-
-        </div>
+        
     </main>
     <!----------------- FOOTER ------------------>
     <footer>
-
+        <nav class="navigation-footer">
+            <div>
+                <h4>Devenir membre</h4>
+                <h4>Se connecter</h4>
+                <ul>
+                    <li>Votre profil</li>
+                </ul>
+                <h4>A propos de Lord Reginal Stampee III</h4>
+                <ul>
+                    <li>La philatélie, c’est la vie.</li>
+                    <li>Biographie du Lord</li>
+                </ul>
+                
+            </div>
+            <div>
+                <h4>Actualités</h4>
+                <ul>
+                    <li>Timbres</li>
+                    <li>Enchères</li>
+                </ul>
+                <h4>Fonctionnement de la plateforme</h4>
+                <ul>
+                    <li>Aide « Profil »</li>
+                    <li>Aide « Comment placer une offre »</li>
+                    <li>Aide « Suivre une enchère »</li>
+                    <li>Aide « Trouver l’enchère désirée »</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contactez-nous</h4>
+                <ul>
+                    <li>Angleterre</li>
+                    <li>Canada</li>
+                    <li>US</li>
+                    <li>Australie</li>
+                </ul>
+                <h4>Termes et conditions</h4>
+                <div class="social-media-wrapper">
+                    <span><i class="fa-brands fa-facebook-square"></i></span>
+                    <span><i class="fa-brands fa-instagram-square"></i></span>
+                </div>
+            </div>
+        </nav>
     </footer>
-    <script src="./assets/script/slideWindow.js"></script>
+    
 </body>
 </html>

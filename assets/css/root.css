@@ -20,6 +20,7 @@ body {
 i {
     font-family: FontAwesome;
     font-style: normal;
+    cursor: pointer;
 }
 
 h1 {
@@ -40,6 +41,7 @@ p {
 a {
     text-decoration: none;
     color: black;
+    cursor: pointer;
 }
 
 ul {
@@ -51,6 +53,7 @@ ul {
 button {
     border: none;
     font-size: 16px;
+    cursor: pointer;
 }
 
 main {
@@ -58,3 +61,18 @@ main {
     max-width: 1100px;
 }
 
+.sidebar-backdrop {
+    background: black;
+    z-index: -1;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.list-hidden {
+    height: 0;
+    overflow: hidden;
+}
