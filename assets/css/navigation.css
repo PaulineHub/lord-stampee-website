@@ -1,30 +1,48 @@
 nav {
     display: flex;
     justify-content: space-between;
-    background-color: grey;
-    padding: 20px 60px;
-    color: white;
-    height: 60px;
+    align-items: center;
+    background-color: var(--brown);
+    padding: 10px 60px;
+    color: var(--white);
+    height: 80px;
     overflow: hidden;
 }
+
+nav h3 {
+  font-weight: normal;
+  font-size: 1em;
+}
+
+/* LOGO */
+
+.logo-container {
+  width: 110px;
+  height: fit-content;
+}
+
+.logo {
+  padding-bottom: 0px;
+}
+
 
 /* DROPDOWN */
 
 .dropdowns-container {
     display: flex;
+    align-items: center;
 }
 
 .dropdown {
     margin: 0 40px;
-    height: 60px;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    color: black;
+    color: var(--white);
     font-size: 16px;
-    background-color: rgb(175, 175, 175);
+    background-color: var(--beige);
     width: 100%;
     top: 60px;
     left: 0;
@@ -32,8 +50,8 @@ nav {
     justify-content: center;
 }
 
-.dropdown-content h3 {
-    padding-bottom: 20px;
+.dropdown-content h4 {
+    padding-bottom: 10px;
     padding-top: 10px;
 }
 
@@ -44,6 +62,7 @@ nav {
 nav a {
     display: block;
     padding-bottom: 10px;
+    color: var(--white);
 }
 
 .nav-categories-wrapper {
@@ -63,9 +82,9 @@ nav a {
 .dropdown-content:before {
   content: "";
   position: absolute;
-  border-color: rgb(175, 175, 175);
+  border-color: var(--beige);
   border: solid transparent;
-  border-bottom-color: rgb(175, 175, 175);
+  border-bottom-color: var(--beige);
   border-width: 11px;
   margin-left: -10px;
   top: -20px;
@@ -86,8 +105,18 @@ nav a {
 
 /* MOBILE ITEMS */
 
+.nav-chevron-up, .nav-chevron-down {
+  display: none;
+  color: var(--white);
+  font-size: 20px;
+}
+
 .openbtn, .closebtn, .logo-mobile {
     display: none;
+}
+
+.form-and-log-wrapper-mobile {
+  display: none;
 }
 
 /* SEARCH FORM AND LOGIN */
@@ -114,7 +143,7 @@ nav a {
 }
 
 .form-search button:hover {
-  background: rgb(175, 175, 175);
+  background: var(--beige);
 }
 
 .form-search::after {
@@ -124,8 +153,8 @@ nav a {
 }
 
 .btn-login {
-    background-color: grey;
-    color: white;
+    background-color: var(--brown);;
+    color: var(--white);
     font-size: 16px;
 }
 

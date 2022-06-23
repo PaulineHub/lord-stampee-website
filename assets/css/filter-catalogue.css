@@ -2,10 +2,11 @@
 /* ASIDE FILTER */
 
 .filter-container {
-  background-color: grey;
+  background-color: var(--blue);
   width: 224px;
   padding-left: 10px;
   padding-right: 10px;
+  color: var(--white);
 }
 
 .sort-wrapper-mobile {
@@ -22,7 +23,7 @@
 }
 
 .filter-container > div {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--white);;
 }
 
 .filter-container h3 {
@@ -46,6 +47,10 @@
   display: contents;
 }
 
+.filter-chevron-down {
+  display: none;
+}
+
 .list-filter-wrapper label {
   padding-left: 10px;
 }
@@ -54,7 +59,7 @@
 
 input[type='checkbox'] {
   appearance: none;
-  background-color: grey;
+  background-color: var(--blue);
   margin: 0;
   font: inherit;
   color: currentColor;
@@ -68,6 +73,7 @@ input[type='checkbox'] {
   place-content: center;
 }
 
+  /* to do the checkmark */
 input[type='checkbox']::before {
   content: '';
   width: 0.6em;
@@ -75,7 +81,7 @@ input[type='checkbox']::before {
   border-radius: 0.1em;
   transform: scale(0);
   transition: 120ms transform ease-in-out;
-  box-shadow: inset 1em 1em black;
+  box-shadow: inset 1em 1em var(--white);
   transform-origin: bottom left;
   clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
 }
@@ -121,10 +127,10 @@ input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
   height: 1px;
   cursor: pointer;
-  box-shadow: 1px 1px 1px #000000;
-  background: #000000;
+  box-shadow: 1px 1px 1px var(--white);
+  background: var(--white);
   border-radius: 2px;
-  border: 0px solid #010101;
+  border: 0px solid var(--white);
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -133,24 +139,24 @@ input[type=range]::-webkit-slider-thumb {
   height: 12px;
   width: 12px;
   border-radius: 15px;
-  background: #000000;
+  background: var(--white);
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -6px;
 }
 
 input[type=range]:focus::-webkit-slider-runnable-track {
-  background: #000000;
+  background: var(--white);
 }
 
 input[type=range]::-moz-range-track {
   width: 100%;
   height: 1px;
   cursor: pointer;
-  box-shadow: 1px 1px 1px #000000;
-  background: #000000;
+  box-shadow: 1px 1px 1px var(--white);
+  background: var(--white);
   border-radius: 2px;
-  border: 0px solid #010101;
+  border: 0px solid var(--white);
 }
 
 input[type=range]::-moz-range-thumb {
@@ -159,7 +165,7 @@ input[type=range]::-moz-range-thumb {
   height: 12px;
   width: 12px;
   border-radius: 15px;
-  background: #000000;
+  background: var(--white);
   cursor: pointer;
 }
 
@@ -173,17 +179,17 @@ input[type=range]::-ms-track {
 }
 
 input[type=range]::-ms-fill-lower {
-  background: #000000;
-  border: 0px solid #010101;
+  background: var(--white);
+  border: 0px solid var(--white);
   border-radius: 4px;
-  box-shadow: 1px 1px 1px #000000;
+  box-shadow: 1px 1px 1px var(--white);
 }
 
 input[type=range]::-ms-fill-upper {
-  background: #000000;
-  border: 0px solid #010101;
+  background: var(--white);
+  border: 0px solid var(--white);
   border-radius: 4px;
-  box-shadow: 1px 1px 1px #000000;
+  box-shadow: 1px 1px 1px var(--white);
 }
 
 input[type=range]::-ms-thumb {
@@ -193,16 +199,16 @@ input[type=range]::-ms-thumb {
   height: 12px;
   width: 12px;
   border-radius: 15px;
-  background: #000000;
+  background: var(--white);
   cursor: pointer;
 }
 
 input[type=range]:focus::-ms-fill-lower {
-  background: #000000;
+  background: var(--white);
 }
 
 input[type=range]:focus::-ms-fill-upper {
-  background: #000000;
+  background: var(--white);
 }
 
 .range-filter-value {

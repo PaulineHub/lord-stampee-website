@@ -33,7 +33,7 @@
   .filter-container .closebtn {
     display: block;
     font-size: 60px;
-    color: black;
+    color: var(--white);
     padding-bottom: 0;
     padding-right: 10px;
     text-align: end;
@@ -48,6 +48,7 @@
     z-index: 1;
     opacity: 0.2;
   }
+
 }
 
 @media screen and (max-width: 900px) {
@@ -65,7 +66,7 @@
     z-index: 1;
     left: 0;
     top: 0;
-    background-color: white; /* Black fallback color */
+    background-color: var(--brown); /* Black fallback color */
     background-color: white(0, 0, 0, 0.9); /* Black w/opacity */
     overflow-x: hidden; /* Disable horizontal scroll */
     transition: 0.5s;
@@ -76,7 +77,7 @@
   }
 
   .dropdown {
-    background-color: grey;
+    background-color: var(--brown);
     width: 100%;
     margin: 0;
     position: relative;
@@ -97,6 +98,10 @@
 
   .dropbtn {
     padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 20px;
   }
 
   .nav-categories-wrapper {
@@ -106,7 +111,7 @@
   .dropdowns-container .closebtn {
     display: block;
     font-size: 60px;
-    color: black;
+    color: var(--white);
     padding-bottom: 0;
     padding-right: 10px;
     text-align: end;
@@ -118,7 +123,6 @@
     position: absolute;
     top: 20px;
     left: 20px;
-    color: black;
     padding-left: 10px;
   }
 
@@ -133,6 +137,42 @@
   .btn-login {
     display: none;
   }
+
+  .logo-close-btn-wrapper {
+    width: 100%;
+    margin-right: 85px;
+    margin-bottom: 40px;
+  }
+
+  .form-and-log-wrapper-mobile {
+    display: block;
+    height: 160px;
+    padding-left: 40px;
+    padding-bottom: 60px;
+    width: 100%;
+  }
+
+  .form-and-log-wrapper-mobile .btn-login {
+    display: block;
+    color: white;
+    font-size: 20px;
+  }
+
+  .form-and-log-wrapper-mobile .form-search {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 60px;
+  }
+
+  .form-and-log-wrapper-mobile .form-search input[type=text], .form-and-log-wrapper-mobile .form-search button  {
+    font-size: 15px;
+  }
+
+  .nav-chevron-down {
+    display: contents;
+    float: right;
+  }
+
 }
 
 @media screen and (max-width: 840px) {
@@ -181,7 +221,7 @@
   }
 
   .text-hero-container {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--black);
     padding: 10px 0 20px 0;
     margin: 10px;
     position: initial;

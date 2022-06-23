@@ -13,7 +13,7 @@
 }
 
 .grid-item:hover {
-  background-color: rgb(175, 175, 175);
+  background-color: var(--lightgrey);
 }
 
 .grid-item .image-container {

@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <script src="./assets/script/slideWindow.js" defer></script>
-    <script src="./assets/script/toggleList.js" defer></script>
+    <script src="./assets/script/toggleListNav.js" defer></script>
+    <script src="./assets/script/toggleListFilter.js" defer></script>
+    <script src="./assets/script/gridElements.js" defer></script>
 </head>
 <body>
     <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
@@ -17,19 +19,34 @@
         <!----------------- NAVIGATION ------------------>
         <nav>
             <div class="logo-container">
-                <a class="logo">LOGO</a>
+                <a class="logo" href="index.html"><img src="./assets/image/logo-stampee.png" alt="logo"></a>
             </div>
             <!-- dropdowns container --> 
             <div class="dropdowns-container" id="myNav">
-                <!-- <div class="logo-closebtn-wrapper"> -->
-                    <a class="logo-mobile">LOGO</a>
+                <div class="logo-close-btn-wrapper">
+                    <div class="logo-container logo-mobile">
+                        <a class=""><img src="./assets/image/logo-stampee.png" alt="logo"></a>
+                    </div>
+                    
                     <a href="#" class="closebtn" id="closeNavBtn">&times;</a>
-                <!-- </div> -->
+                </div>
+                
+                <div class="form-and-log-wrapper-mobile">
+                    <form action="" class="form-search">
+                        <input type="text" name="search" id="search" placeholder="Chercher...">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                    <button class="btn-login">Login</button>
+                </div>
                 <div class="dropdown">
-                    <div class="dropbtn">Ventes</div> 
+                    <div class="dropbtn">
+                        <h3>Ventes</h3>
+                        <button class="nav-chevron-up"><i class="fa-solid fa-chevron-up"></i></button>
+                        <button class="nav-chevron-down"><i class="fa-solid fa-chevron-down"></i></button>
+                    </div> 
                     <div class="dropdown-content dropdown-content1">
                         <div>
-                            <h3>Catalogue</h3>
+                            <h4>Catalogue</h4>
                             <div>
                                 <a href="#">En vedette</a>
                                 <a href="#">En cours</a> 
@@ -37,7 +54,7 @@
                             </div>  
                         </div>
                         <div>
-                            <h3>Categories</h3>
+                            <h4>Categories</h4>
                             <div class="nav-categories-wrapper">
                                 <div>
                                     <a href="#">Architecture</a>
@@ -59,31 +76,39 @@
                     </div>
                 </div>
                 <div class="dropdown">
-                    <div class="dropbtn">Mes enchères</div>
+                    <div class="dropbtn">
+                        <h3>Mes enchères</h3>
+                        <button class="nav-chevron-up"><i class="fa-solid fa-chevron-up"></i></button>
+                        <button class="nav-chevron-down"><i class="fa-solid fa-chevron-down"></i></button>
+                    </div>
                     <div class="dropdown-content dropdown-content2">
                         <div>
-                            <h3>Passées</h3>
+                            <h4>Passées</h4>
                         </div>
                         <div>
-                            <h3>En cours</h3>
+                            <h4>En cours</h4>
                         </div>
                         <div>
-                            <h3>A venir</h3>
+                            <h4>A venir</h4>
                         </div>
                     </div>
                 </div>
                 <div class="dropdown">
-                    <div class="dropbtn">A propos</div>
+                    <div class="dropbtn">
+                        <h3>A propos</h3>
+                        <button class="nav-chevron-up"><i class="fa-solid fa-chevron-up"></i></button>
+                        <button class="nav-chevron-down"><i class="fa-solid fa-chevron-down"></i></button>
+                    </div>
                     <div class="dropdown-content dropdown-content3">
                         <div>
-                            <h3>A propos</h3>
+                            <h4>A propos</h4>
                             <div>
                                 <a href="#">Lord Stampee</a>
                                 <a href="#">Nos experts</a>
                             </div>
                         </div>
                         <div>
-                            <h3>Support</h3>
+                            <h4>Support</h4>
                             <div>
                                 <a href="#">Envoi et retour</a>
                                 <a href="#">FAQ</a>
@@ -104,7 +129,7 @@
         </nav>
     </div>
     <!----------------- HEADER ------------------>
-    <header class="banner">
+    <header class="banner banner-catalogue">
         <section class="text-hero-container">
             <h1>Nos enchères en cours</h1>
             <p>Explorez notre exceptionnelle sélection de timbres dont les enchères ont lieu en ce moment même !</p>
@@ -147,6 +172,7 @@
                     <div class="title-filter-wrapper">
                         <h3>Categories</h3>
                         <button class="filter-chevron-up"><i class="fa-solid fa-chevron-up"></i></button>
+                        <button class="filter-chevron-down"><i class="fa-solid fa-chevron-down"></i></button>
                     </div> 
                     <div id="categorie">
                         <div>
@@ -173,6 +199,7 @@
                     <div class="title-filter-wrapper">
                         <h3>Enchère de départ</h3>
                         <button class="filter-chevron-up"><i class="fa-solid fa-chevron-up"></i></button>
+                        <button class="filter-chevron-down"><i class="fa-solid fa-chevron-down"></i></button>
                     </div>
                     <div id="prix" >
                         <div class="range-filter-container">
@@ -190,6 +217,7 @@
                     <div class="title-filter-wrapper">
                         <h3>Pays</h3>
                         <button class="filter-chevron-up"><i class="fa-solid fa-chevron-up"></i></button>
+                        <button class="filter-chevron-down"><i class="fa-solid fa-chevron-down"></i></button>
                     </div>
                     <div id="pays">
                         <div>
@@ -211,6 +239,7 @@
                     <div class="title-filter-wrapper">
                         <h3>Condition</h3>
                         <button class="filter-chevron-up"><i class="fa-solid fa-chevron-up"></i></button>
+                        <button class="filter-chevron-down"><i class="fa-solid fa-chevron-down"></i></button>
                     </div>
                     <div id="condition">
                         <div>
@@ -231,8 +260,9 @@
             </aside>
             <div class="grid-and-pagination-container">
                 <!--------------- GRILLE PRODUITS ---------------->
-                <section class="grid">
-                    <div class="grid-item">
+                <section class="grid" id="grid">
+                    <!-- TEMPLATE, GENERATED BY JAVASCRIPT -->
+                    <!-- <div class="grid-item">
                         <a href="#">
                             <div class="image-container"><img src="./assets/image/image.png" alt=""></div>
                             <div class="grid-item-description">
@@ -242,29 +272,7 @@
                                 <p>Offre actuelle : 120$</p>
                             </div>
                         </a>
-                    </div>
-                    <div class="grid-item">
-                        <a href="#">
-                            <div class="image-container"><img src="./assets/image/image.png" alt=""></div>
-                            <div class="grid-item-description">
-                                <h6>68</h6>
-                                <h6>Canada 1897 # 56 stamp vf</h6>
-                                <p class="light">18 juin - 21 juil. 22</p>
-                                <p>Offre actuelle : 120$</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="grid-item">
-                        <a href="#">
-                            <div class="image-container"><img src="./assets/image/image.png" alt=""></div>
-                            <div class="grid-item-description">
-                                <h6>68</h6>
-                                <h6>Canada 1897 # 56 stamp vf</h6>
-                                <p class="light">18 juin - 21 juil. 22</p>
-                                <p>Offre actuelle : 120$</p>
-                            </div>
-                        </a>
-                    </div>
+                    </div> -->
                 </section>
                 <!----------------- PAGINATION ------------------>
                 <div class="pagination">
