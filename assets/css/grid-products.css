@@ -18,11 +18,12 @@
 
 .grid-item .image-container {
   display: block;
-    width: 100%;
+    width: 98%;
     height: auto;
     position: relative;
     overflow: hidden;
     padding: 100% 0 0;
+    margin: auto;
 }
 
 .grid-item .image-container img {

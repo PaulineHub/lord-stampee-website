@@ -27,7 +27,7 @@
 }
 
 .filter-container h3 {
-  font-size: 14px;
+  font-size: 16px;
   text-transform: uppercase;
 }
 
@@ -45,6 +45,7 @@
 
 .filter-chevron-down,  .filter-chevron-up{
   display: contents;
+  color:white;
 }
 
 .filter-chevron-down {

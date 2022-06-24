@@ -21,7 +21,7 @@ elCloseNavBtn.addEventListener('click', () => {
 /* Open when someone clicks on the span element */
 elOpenFilterBtn.addEventListener('click', () => {
   document.getElementById("filter-container").style.transform = "translateX(0%)";
-  openSideWindow("filter-container", "50%");
+  openSideWindow("filter-container", "70%");
   addShadow();
 })
 

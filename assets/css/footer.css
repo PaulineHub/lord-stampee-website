@@ -12,6 +12,7 @@ footer {
   padding: 40px 0px;
   max-width: 1100px;
   margin: auto;
+  align-items: flex-start;
 }
 
 .navigation-footer > div {

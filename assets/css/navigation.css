@@ -7,11 +7,13 @@ nav {
     color: var(--white);
     height: 80px;
     overflow: hidden;
+    
 }
 
 nav h3 {
   font-weight: normal;
   font-size: 1em;
+  font-family: 'Playfair Display', serif;
 }
 
 /* LOGO */
@@ -44,7 +46,7 @@ nav h3 {
     font-size: 16px;
     background-color: var(--beige);
     width: 100%;
-    top: 60px;
+    top: 80px;
     left: 0;
     z-index: 1;
     justify-content: center;
@@ -53,6 +55,7 @@ nav h3 {
 .dropdown-content h4 {
     padding-bottom: 10px;
     padding-top: 10px;
+    font-size: 1.2em;
 }
 
 .dropdown-content > div {
@@ -92,7 +95,7 @@ nav a {
 } 
 
 .dropdown-content1:before {
-  left: 30%;
+  left: 31%;
 } 
 
 .dropdown-content2:before {
@@ -143,7 +146,7 @@ nav a {
 }
 
 .form-search button:hover {
-  background: var(--beige);
+  background-color: #d3d3d3;
 }
 
 .form-search::after {

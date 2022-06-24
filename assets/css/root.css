@@ -10,7 +10,7 @@
   --blue: #0f1634;
   --brown: #401c05;
   --gold: #d1a567;
-  --beige: #a88a76;
+  --beige: #aa978a;
   --lightgrey: #efeeee;
   --white: #ffffff;
   --black: black;
@@ -24,87 +24,100 @@
 /* 'Playfair Display', serif; */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-/* @import url('https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap');
- */
+/* @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap'); */
+
 /* GENERAL ELEMENTS */
 
 *,
 *:before,
-*:after{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+*:after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-
 body {
-    /* font-family: 'Roboto', serif; */
-    font-family: sans-serif;
-    font-size: 20px;
+  font-family: 'Roboto', serif;
+  /* font-family: sans-serif; */
+  font-size: 20px;
 }
 
 i {
-    font-family: FontAwesome;
-    font-style: normal;
-    cursor: pointer;
+  font-family: FontAwesome;
+  font-style: normal;
+  cursor: pointer;
 }
 
 h1 {
-    font-size: 1.8rem;
-    padding-bottom: 10px;
-    font-family: 'Playfair Display', serif;
-    text-transform: uppercase;
+  font-size: 1.8rem;
+  padding-bottom: 10px;
+  font-family: 'Playfair Display', serif;
+  text-transform: uppercase;
+}
+
+h3, h4 {
+  font-family: 'Times New Roman', Times, serif;
 }
 
 h6 {
-    font-weight: bold;
-    text-transform: uppercase;
-    font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 p {
-    font-size: 16px;
+  font-size: 16px;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 a {
-    text-decoration: none;
-    color: var(--black);
-    cursor: pointer;
+  text-decoration: none;
+  color: var(--black);
+  cursor: pointer;
+  font-family: 'Roboto', serif;
 }
 
 ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 button {
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 main {
-    margin :auto;
-    max-width: 1100px;
+  margin: auto;
+  max-width: 1100px;
 }
 
 .sidebar-backdrop {
-    background: var(--black);
-    z-index: -1;
-    opacity: 0;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
+  background: var(--black);
+  z-index: -1;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 
 .list-hidden {
-    height: 0;
-    overflow: hidden;
+  height: 0;
+  overflow: hidden;
 }
 
 img {
-    width: 100%;
+  width: 100%;
+}
+
+label,
+input,
+select,
+button {
+  font-family: 'Roboto', serif;
 }
