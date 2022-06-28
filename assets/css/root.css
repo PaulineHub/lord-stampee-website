@@ -38,7 +38,6 @@
 
 body {
   font-family: 'Roboto', serif;
-  /* font-family: sans-serif; */
   font-size: 20px;
 }
 
@@ -120,4 +119,15 @@ input,
 select,
 button {
   font-family: 'Roboto', serif;
+}
+
+.colored-button {
+  background-color: var(--blue);
+  color: var(--white);
+  padding: 8px 10px;
+  border-radius: 3px;
+}
+
+.colored-button:hover {
+  background-color: var(--gold);
 }
