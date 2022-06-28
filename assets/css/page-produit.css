@@ -1,0 +1,14 @@
+.product-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.product-images-little-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.image-little-container {
+    width: 100px;
+}

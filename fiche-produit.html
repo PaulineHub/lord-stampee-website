@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Pauline Huby e2194480">
+    <title>Catalogue</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <script src="./assets/script/slideWindow.js" defer></script>
+    <script src="./assets/script/toggleListNav.js" defer></script>
+    <script src="./assets/script/toggleListFilter.js" defer></script>
+    <script src="./assets/script/gridElements.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400&display=swap"
+            rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
+    <div>
+        <!----------------- NAVIGATION ------------------>
+        <nav>
+            <div class="logo-container">
+                <a class="logo" href="index.html"><img src="./assets/image/logo-stampee.png" alt="logo"></a>
+            </div>
+            <!-- dropdowns container --> 
+            <div class="dropdowns-container" id="myNav">
+                <div class="logo-close-btn-wrapper">
+                    <div class="logo-container logo-mobile">
+                        <a class=""><img src="./assets/image/logo-stampee.png" alt="logo"></a>
+                    </div>
+                    
+                    <a href="#" class="closebtn" id="closeNavBtn">&times;</a>
+                </div>
+                
+                <div class="form-and-log-wrapper-mobile">
+                    <form action="" class="form-search">
+                        <input type="text" name="search" id="search" placeholder="Chercher...">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                    <button class="btn-login">Login</button>
+                </div>
+                <div class="dropdown">
+                    <div class="dropbtn">
+                        <h3>Ventes</h3>
+                        <button class="nav-chevron-up"><i class="fa-solid fa-chevron-up"></i></button>
+                        <button class="nav-chevron-down"><i class="fa-solid fa-chevron-down"></i></button>
+                    </div> 
+                    <div class="dropdown-content dropdown-content1">
+                        <div>
+                            <h4>Catalogue</h4>
+                            <div>
+                                <a href="#">En vedette</a>
+                                <a href="#">En cours</a> 
+                                <a href="#">Passees</a> 
+                            </div>  
+                        </div>
+                        <div>
+                            <h4>Categories</h4>
+                            <div class="nav-categories-wrapper">
+                                <div>
+                                    <a href="#">Architecture</a>
+                                    <a href="#">Art</a>
+                                    <a href="#">Canada</a>
+                                </div>
+                                <div>
+                                    <a href="#">Europe</a>
+                                    <a href="#">Ferroviaire</a>
+                                    <a href="#">Maritime</a>
+                                </div>
+                                <div>
+                                    <a href="#">Monde</a>
+                                    <a href="#">Royauté</a>
+                                    <a href="#">Sport</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <div class="dropbtn">
+                        <h3>Mes enchères</h3>
+                        <button class="nav-chevron-up"><i class="fa-solid fa-chevron-up"></i></button>
+                        <button class="nav-chevron-down"><i class="fa-solid fa-chevron-down"></i></button>
+                    </div>
+                    <div class="dropdown-content dropdown-content2">
+                        <div>
+                            <h4>Passées</h4>
+                        </div>
+                        <div>
+                            <h4>En cours</h4>
+                        </div>
+                        <div>
+                            <h4>A venir</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <div class="dropbtn">
+                        <h3>A propos</h3>
+                        <button class="nav-chevron-up"><i class="fa-solid fa-chevron-up"></i></button>
+                        <button class="nav-chevron-down"><i class="fa-solid fa-chevron-down"></i></button>
+                    </div>
+                    <div class="dropdown-content dropdown-content3">
+                        <div>
+                            <h4>A propos</h4>
+                            <div>
+                                <a href="#">Lord Stampee</a>
+                                <a href="#">Nos experts</a>
+                            </div>
+                        </div>
+                        <div>
+                            <h4>Support</h4>
+                            <div>
+                                <a href="#">Envoi et retour</a>
+                                <a href="#">FAQ</a>
+                                <a href="#">Contact</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-and-log-wrapper">
+                <form action="" class="form-search">
+                    <input type="text" name="search" id="search" placeholder="Chercher..">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+                <button class="btn-login">Login</button>
+                <span class="openbtn" id="openNavBtn"><i class="fa fa-bars" id="menu-icon"></i></span>
+            </div>
+        </nav>
+    </div>
+    <!----------------- MAIN ------------------>
+    <main class="product-container">
+        <div class="product-images-container">
+            <div><img src="assets/image/stamps/stamp1.jpg" alt=""></div>
+            <div class="product-images-little-container">
+                <button><i class="fa-solid fa-chevron-left"></i></button>
+                <div class="image-little-container"><img src="assets/image/stamps/stamp1.jpg" alt=""></div>
+                <div class="image-little-container"><img src="assets/image/stamps/stamp1.jpg" alt="">
+                <button><i class="fa-solid fa-chevron-right"></i></button></div>
+            </div>
+        </div>
+        <aside class="product-infos-container">
+            <button><i class="fa fa-star-o"></i><i class="fa fa-star" aria-hidden="true"></i></button>
+            <div class="category"></div>
+            <div class="numLot"></div>
+            <div class="product-title"></div>
+            <div class="product-description"></div>
+            <button>Miser</button>
+        </aside>
+        
+    </main>
+    <!----------------- FOOTER ------------------>
+    <footer>
+        <nav class="navigation-footer">
+            <div>
+                <h4>Devenir membre</h4>
+                <h4>Se connecter</h4>
+                <ul>
+                    <li>Votre profil</li>
+                </ul>
+                <h4>A propos de Lord Reginal Stampee III</h4>
+                <ul>
+                    <li>La philatélie, c’est la vie.</li>
+                    <li>Biographie du Lord</li>
+                </ul>
+                
+            </div>
+            <div>
+                <h4>Actualités</h4>
+                <ul>
+                    <li>Timbres</li>
+                    <li>Enchères</li>
+                </ul>
+                <h4>Fonctionnement de la plateforme</h4>
+                <ul>
+                    <li>Aide « Profil »</li>
+                    <li>Aide « Comment placer une offre »</li>
+                    <li>Aide « Suivre une enchère »</li>
+                    <li>Aide « Trouver l’enchère désirée »</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Contactez-nous</h4>
+                <ul>
+                    <li>Angleterre</li>
+                    <li>Canada</li>
+                    <li>US</li>
+                    <li>Australie</li>
+                </ul>
+                <h4>Termes et conditions</h4>
+                <div class="social-media-wrapper">
+                    <span><i class="fa-brands fa-facebook-square"></i></span>
+                    <span><i class="fa-brands fa-instagram-square"></i></span>
+                </div>
+            </div>
+        </nav>
+    </footer>
+    
+</body>
+</html>
