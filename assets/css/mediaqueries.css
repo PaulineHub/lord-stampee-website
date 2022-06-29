@@ -1,4 +1,5 @@
 @media screen and (max-width: 1250px) {
+  
   main {
     max-width: 828px;
   }
@@ -52,6 +53,7 @@
 }
 
 @media screen and (max-width: 900px) {
+
   main {
     max-width: 732px;
   }
@@ -185,9 +187,17 @@
   .grid {
     grid-template-columns: repeat(2, 350px);
   }
+
+  /* PRODUCT ASIDE */
+
+  .product-container {
+    flex-direction: column;
+  }
+
 }
 
 @media screen and (max-width: 768px) {
+
   /* FOOTER */
 
   .navigation-footer {

@@ -8,6 +8,7 @@
 
 :root {
   --blue: #0f1634;
+  --light-blue: #1b255a;
   --brown: #401c05;
   --gold: #d1a567;
   --beige: #aa978a;
@@ -47,27 +48,29 @@ i {
   cursor: pointer;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Playfair Display', serif;
+}
+
 h1 {
   font-size: 1.8rem;
   padding-bottom: 10px;
-  font-family: 'Playfair Display', serif;
   text-transform: uppercase;
-}
-
-h3, h4 {
-  font-family: 'Times New Roman', Times, serif;
 }
 
 h6 {
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 16px;
-  font-family: 'Times New Roman', Times, serif;
+  font-size: 0.8em;
 }
 
 p {
   font-size: 16px;
-  font-family: 'Times New Roman', Times, serif;
 }
 
 a {
@@ -129,5 +132,5 @@ button {
 }
 
 .colored-button:hover {
-  background-color: var(--gold);
+  background-color: var(--light-blue);
 }

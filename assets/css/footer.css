@@ -13,10 +13,13 @@ footer {
   max-width: 1100px;
   margin: auto;
   align-items: flex-start;
+  justify-content: center;
 }
 
 .navigation-footer > div {
     width: 200px;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
 nav h4 {

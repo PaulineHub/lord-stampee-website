@@ -5,12 +5,13 @@
     align-items: flex-start;
     margin: 60px auto;
     gap: 40px;
+    max-width: 60vw;
 }
 
 /* PRODUCT IMAGES */
 
 .product-images-container {
-    flex: 1;
+    flex: 1.6;
 }
 
 .product-images-little-container {
@@ -18,6 +19,7 @@
     align-items: center;
     justify-content: flex-start;
     margin-left: 20px;
+    margin-top: 20px;
 }
 
 .product-images-little-container button {
@@ -41,8 +43,12 @@
     margin-bottom: 20px;
 }
 
-.product-infos-container h2 {
-    font-family: 'Playfair Display', serif;
+.product-infos-container h1 {
+    text-transform: capitalize;
+}
+
+.product-infos-container h3 {
+    font-size: 1em;
 }
 
 .product-infos-container .colored-button {
@@ -51,6 +57,19 @@
 
 .product-category {
     text-transform: uppercase;
+    font-size: 0.8em;
+}
+
+.product-description p{
+    margin-top: 10px;
+}
+
+.product-offer h3 {
+    margin-bottom: 10px;
+}
+
+.product-offer span {
+    font-size: 16px;
 }
 
 /* COUP DE COEUR */
@@ -75,5 +94,6 @@
 }
 
 .fa-star {
-    display: hidden;
+    font-size: 1.4em;
+    color: var(--blue);
 }
