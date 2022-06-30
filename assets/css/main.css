@@ -1,11 +1,10 @@
-
+@import "root.css";
 @import "header.css";
 @import "footer.css";
-@import "page-accueil.css";
 @import "page-produit.css";
 @import "page-catalogue.css";
 @import "filter-catalogue.css";
 @import "grid-products.css";
-@import "root.css";
 @import "navigation.css";
+@import "page-accueil.css";
 @import "mediaqueries.css";

@@ -8,12 +8,46 @@ header {
     height: 400px;
 }
 
+.colored-line {
+    width: 60px;
+    height: 3px;
+    background-color: var(--gold);
+    margin-bottom: 20px;
+}
+
 .text-hero-container {
     background-color: white;
-    width: 400px;
+    width: 460px;
     position: absolute;
     top: 200px;
     left: 60px;
     padding: 20px;
-    opacity: 0.9;
+    opacity: 1;
 }
+
+/* BANNER CATALOGUE */
+
+.banner-catalogue {
+  background-image: url('/assets/image/hero-catalogue.png');
+}
+
+/* BANNER INDEX */
+
+.banner-index {
+    background-image: url('../image/hero-index.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 600px;
+}
+
+.text-hero-container-index {
+    background-color: black;
+    color: white;
+    opacity: 0.9;
+    top: 300px;
+}
+
+.text-hero-container-index a {
+    color: white;
+}
+

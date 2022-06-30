@@ -11,12 +11,13 @@
     <script src="./assets/script/slideWindow.js" defer></script>
     <script src="./assets/script/toggleListNav.js" defer></script>
     <script src="./assets/script/star-favorite.js" defer></script>
+    <script src="./assets/script/zoom-image.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400&display=swap"
-            rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
@@ -136,12 +137,14 @@
     <!----------------- MAIN ------------------>
     <main class="product-container">
         <div class="product-images-container">
-            <div><img src="assets/image/stamps/stamp1.jpg" alt=""></div>
+            <div class="window-zoom-image">
+                <a href="#"  id="closeZoomBtn">&times;</a>
+                <div id="image-zoom-container"><img src="assets/image/stamps/stamp1.jpg" alt=""></div>
+            </div>
+            <div id="image-big-container"><img src="assets/image/stamps/stamp1.jpg" alt=""></div>
             <div class="product-images-little-container">
-                <button><i class="fa-solid fa-chevron-left"></i></button>
                 <div class="image-little-container"><img src="assets/image/stamps/stamp1.jpg" alt=""></div>
                 <div class="image-little-container"><img src="assets/image/stamps/stamp1.jpg" alt=""></div>
-                <button><i class="fa-solid fa-chevron-right"></i></button>
             </div>
         </div>
         <aside class="product-infos-container">
@@ -165,8 +168,8 @@
             </div>
             <div class="product-offer">
                 <h3>Offre actuelle : <span class="last-offer">200 CAD</span></h3>
-                <span class="bidder-name">Mr Albert Tremblay</span>
-                <p>Quantite de mises : <span class="bid-quantity">12</span></p>
+                <p class="bidder-name">Mr Albert Tremblay</p>
+                <p>Quantité de mises : <span class="bid-quantity">12</span></p>
             </div>
             <button class="colored-button">Miser</button>
         </aside>

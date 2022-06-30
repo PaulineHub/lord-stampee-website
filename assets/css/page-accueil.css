@@ -1,0 +1,74 @@
+section {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+section header {
+    display: flex;
+    border-bottom: 1px solid black;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+section button {
+    background-color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+section button:hover {
+    background-color: var(--blue);
+    color: white;
+}
+
+/* GRID */
+
+.container-items {
+    display: grid;
+    margin: 0;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(min-content,max-content);
+    gap: 24px;
+    overflow: hidden;
+}
+
+.catalog-grid-item:hover {
+    background-color: white;
+}
+
+.catalog-grid-item-description {
+    padding-bottom: 20px;
+}
+
+/* GRID PROCHAINES VENTES */
+
+.grid-vente {
+    display: grid;
+    margin: 0;
+/*     grid-template-columns: ;
+    grid-template-rows: ; */
+    gap: 24px;
+    overflow: hidden;
+}
+
+/* COLORED SECTION */
+
+.colored-section {
+    background-color: var(--blue);
+    color: white;
+    padding: 20px;
+}
+
+.colored-section header {
+    border-bottom: 1px solid white;
+}
+
+.colored-section button {
+    background-color: var(--blue);
+    color: white;
+}
+
+.colored-section button:hover {
+    background-color: white;
+    color: var(--blue);
+}

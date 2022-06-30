@@ -1,4 +1,3 @@
-const elParent = document.getElementById('grid');
 const stampInfos = [
                     {
                         num:'#56',
@@ -74,6 +73,8 @@ const stampInfos = [
                     }
 ];
 
+const elParentGrid = document.getElementById('grid');
+
 
 for (let i = 0; i < 12; i++) {
     const domString = `
@@ -89,5 +90,6 @@ for (let i = 0; i < 12; i++) {
                         </a>
                     </div>
                     `;
-    elParent.insertAdjacentHTML('beforeend', domString);
+    elParentGrid.insertAdjacentHTML('beforeend', domString);
 }
+

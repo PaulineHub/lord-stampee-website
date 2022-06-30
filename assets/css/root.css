@@ -19,13 +19,12 @@
 
 /* FONT FAMILY */
 
-/* 'Roboto', serif; */
+/* 'Roboto', serif; 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;1,400&display=swap');
 
-/* 'Playfair Display', serif; */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+'Playfair Display', serif; 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');  */
 
-/* @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap'); */
 
 /* GENERAL ELEMENTS */
 
@@ -38,7 +37,7 @@
 }
 
 body {
-  font-family: 'Roboto', serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 20px;
 }
 
@@ -51,16 +50,20 @@ i {
 h1,
 h2,
 h3,
-h4,
-h5,
-h6 {
-  font-family: 'Playfair Display', serif;
+h4 {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 100;
 }
 
 h1 {
   font-size: 1.8rem;
   padding-bottom: 10px;
   text-transform: uppercase;
+}
+
+h5 {
+  text-transform: uppercase;
+  font-weight: normal;
 }
 
 h6 {
@@ -77,7 +80,7 @@ a {
   text-decoration: none;
   color: var(--black);
   cursor: pointer;
-  font-family: 'Roboto', serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 ul {
@@ -121,7 +124,7 @@ label,
 input,
 select,
 button {
-  font-family: 'Roboto', serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .colored-button {
