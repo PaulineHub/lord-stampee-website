@@ -1,13 +1,13 @@
 section {
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-top: 80px;
+    margin-bottom: 80px;
 }
 
 section header {
     display: flex;
     border-bottom: 1px solid black;
     justify-content: space-between;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
 }
 
 section button {
@@ -45,10 +45,61 @@ section button:hover {
 .grid-vente {
     display: grid;
     margin: 0;
-/*     grid-template-columns: ;
-    grid-template-rows: ; */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+    "item1 item1 item2 item3"
+    "item1 item1 item2 item4";
     gap: 24px;
     overflow: hidden;
+}
+
+.grid-vente > div {
+    height: 310px;
+}
+
+.grid-vente img {
+    height: 100%;
+}
+
+.grid-vente .item {
+    height: 138px;
+}
+
+.item-img-ctn {
+    height: 280px;
+    overflow: hidden;
+    position: relative;
+}
+
+.item-img-ctn-small {
+    height: 118px;
+}
+
+.item-img-ctn img {
+    position: absolute;
+}
+
+.item-img-ctn-small img {
+    position: absolute;
+    height: auto;
+    top: -40px;
+}
+
+.item1 {
+    grid-area: item1;
+}
+
+.item2 {
+    grid-area: item2;
+}
+
+.item3 {
+    grid-area: item3;
+}
+
+.item4 {
+    grid-area: item4;
 }
 
 /* COLORED SECTION */
@@ -57,6 +108,29 @@ section button:hover {
     background-color: var(--blue);
     color: white;
     padding: 20px;
+}
+
+.colored-section p {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.colored-section-container {
+    display: flex;
+    gap: 44px;
+    margin: 20px;
+}
+
+.portrait-container {
+    border: 1px solid white;
+    min-width: 260px;
+    overflow: hidden;
+    position: relative;
+    min-height: 260px;
+}
+
+.portrait-container img {
+    position: absolute;
 }
 
 .colored-section header {
@@ -71,4 +145,53 @@ section button:hover {
 .colored-section button:hover {
     background-color: white;
     color: var(--blue);
+}
+
+/* NEWSLETTER */
+
+.newsletter-container {
+    background-color: var(--light-black);
+    color: white;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+    padding: 40px;
+}
+
+.newsletter-container header {
+    display: block;
+    border: none;
+}
+
+.newsletter-container label {
+    font-size: 1.2rem;
+}
+
+.newsletter-container input {
+    width: 50vw;
+    padding: 5px;
+    border: none;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(230, 230, 230);
+}
+
+.newsletter-container button {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    color: var(--white);
+    background-color: var(--light-black);
+    border: 1px solid white;
+}
+
+.newsletter-container button:hover {
+    background-color: var(--white);
+    border: 1px solid var(--light-black);
+    color: var(--black);
+}
+
+.newsletter-container + footer {
+    margin-top: 0;
 }

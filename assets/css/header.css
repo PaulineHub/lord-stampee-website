@@ -19,10 +19,10 @@ header {
     background-color: white;
     width: 460px;
     position: absolute;
-    top: 200px;
+    top: 120px;
     left: 60px;
     padding: 20px;
-    opacity: 1;
+    opacity: 0.9;
 }
 
 /* BANNER CATALOGUE */

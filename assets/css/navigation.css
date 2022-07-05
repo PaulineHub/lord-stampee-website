@@ -12,7 +12,7 @@ nav {
 
 nav h3 {
   font-weight: normal;
-  font-size: 1em;
+  font-size: 1.3rem;
 }
 
 /* LOGO */
@@ -43,7 +43,7 @@ nav h3 {
     position: absolute;
     color: var(--white);
     font-size: 16px;
-    background-color: var(--beige);
+    background-color: var(--light-black);
     width: 100%;
     top: 80px;
     left: 0;
@@ -54,7 +54,7 @@ nav h3 {
 .dropdown-content h4 {
     padding-bottom: 10px;
     padding-top: 10px;
-    font-size: 1.2em;
+    font-size: 1.3rem;
 }
 
 .dropdown-content > div {
@@ -84,9 +84,9 @@ nav a {
 .dropdown-content:before {
   content: "";
   position: absolute;
-  border-color: var(--beige);
+  border-color: var(--light-black);
   border: solid transparent;
-  border-bottom-color: var(--beige);
+  border-bottom-color: var(--light-black);
   border-width: 11px;
   margin-left: -10px;
   top: -20px;
@@ -125,7 +125,7 @@ nav a {
 
 .form-search input[type=text] {
   padding: 10px;
-  font-size: 14px;
+  font-size: 0.9rem;
   border: none;
   float: left;
   width: 50%;
@@ -138,7 +138,7 @@ nav a {
   padding: 10px;
   background: #f1f1f1;
   color: grey;
-  font-size: 14px;
+  font-size: 0.6rem;
   border: none;
   border-left: none; /* Prevent double borders */
   cursor: pointer;
@@ -152,6 +152,10 @@ nav a {
   content: "";
   clear: both;
   display: table;
+}
+
+.fa-search {
+  font-size: 1.15rem;
 }
 
 .btn-login {

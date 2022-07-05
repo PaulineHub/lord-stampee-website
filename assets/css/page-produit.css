@@ -61,7 +61,7 @@
     position: absolute;
     top: 10px;
     right: 20px;
-    font-size: 2em;
+    font-size: 2rem;
 }
 
 /* PRODUCT ASIDE */
@@ -83,7 +83,7 @@
 }
 
 .product-infos-container h3 {
-    font-size: 1em;
+    font-size: 1.4rem;
 }
 
 .product-infos-container .colored-button {
@@ -93,7 +93,7 @@
 
 .product-category {
     text-transform: uppercase;
-    font-size: 0.8em;
+    font-size: 1rem;
 }
 
 .product-description p{
@@ -101,7 +101,7 @@
 }
 
 .product-offer span {
-    font-size: 1em;
+    font-size: 1.2rem;
 }
 
 /* COUP DE COEUR */
