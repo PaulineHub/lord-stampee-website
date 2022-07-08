@@ -43,7 +43,7 @@ nav h3 {
     position: absolute;
     color: var(--white);
     font-size: 16px;
-    background-color: var(--light-black);
+    background-color: var(--brown);
     width: 100%;
     top: 80px;
     left: 0;
@@ -121,6 +121,10 @@ nav a {
   display: none;
 }
 
+.show-nav-mobile {
+  width: 100% !important;
+}
+
 /* SEARCH FORM AND LOGIN */
 
 .form-search input[type=text] {
@@ -138,7 +142,7 @@ nav a {
   padding: 10px;
   background: #f1f1f1;
   color: grey;
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   border: none;
   border-left: none; /* Prevent double borders */
   cursor: pointer;

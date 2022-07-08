@@ -3,10 +3,10 @@
 
 .filter-container {
   background-color: var(--blue);
-  width: 224px;
-  padding-left: 10px;
-  padding-right: 10px;
+  width: 244px;
+  padding: 20px;
   color: var(--white);
+  border-radius: 3px;
 }
 
 .sort-wrapper-mobile {
@@ -15,6 +15,7 @@
 
 .filter-container .form-search input[type='text'] {
   width: 130px;
+  margin-bottom: 20px;
 }
 
 .form-search-container {
@@ -27,13 +28,13 @@
 }
 
 .filter-container h3 {
-  font-size: 16px;
+  font-size: 1.2rem;
   text-transform: uppercase;
 }
 
 .list-filter-wrapper {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .title-filter-wrapper {
@@ -54,6 +55,11 @@
 
 .list-filter-wrapper label {
   padding-left: 10px;
+}
+
+.show-filter-mobile {
+  width: 70% !important;
+  transform: translateX(0%) !important;
 }
 
 /* filter list elements */
@@ -97,7 +103,7 @@ input[type='checkbox']:checked::before {
 }
 
 .list-filter-wrapper li {
-  font-size: 16px;
+  font-size: 1.2rem;
   display: flex;
 }
 

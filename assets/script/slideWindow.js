@@ -7,41 +7,31 @@ const elCloseFilterBtn = document.getElementById('closeFilterBtn');
 
 /* Open when someone clicks on the span element */
 elOpenNavBtn.addEventListener('click', () => {
-  openSideWindow("myNav", "100%");
+  document.getElementById('myNav').classList.add('show-nav-mobile');
 })
 
 /* Close when someone clicks on the "x" symbol inside the overlay */
 
 elCloseNavBtn.addEventListener('click', () => {
-  closeSideWindow("myNav");
+  document.getElementById('myNav').classList.remove('show-nav-mobile');
 })
 
 /* FILTERS */
 
 /* Open when someone clicks on the span element */
 elOpenFilterBtn.addEventListener('click', () => {
-  document.getElementById("filter-container").style.transform = "translateX(0%)";
-  openSideWindow("filter-container", "70%");
+  document.getElementById('filter-container').classList.add('show-filter-mobile');
   addShadow();
 })
 
 /* Close when someone clicks on the "x" symbol inside the overlay */
 elCloseFilterBtn.addEventListener('click', () => {
-  closeSideWindow("filter-container");
-  document.getElementById("filter-container").style.transform = "translateX(-100%)";
+  document.getElementById('filter-container').classList.remove('show-filter-mobile');
   removeShadow();
 })
 
 
 /*  FUNCTIONS */
-
-function openSideWindow(id, percent) {
-  document.getElementById(id).style.width = percent;
-}
-
-function closeSideWindow(id) {
-  document.getElementById(id).style.width = "0%";
-}
 
 function addShadow() {
     document.getElementById("sidebar-backdrop").classList.add('sidebar-backdrop-active');

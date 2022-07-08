@@ -10,7 +10,8 @@
 :root {
   --blue: #0f1634;
   --light-blue: #1b255a;
-  --brown: #382316;
+  /* --brown: #382316; */
+  --brown: rgb(59, 6, 6);
   --gold: #d1a567;
   --beige: #aa978a;
   --lightgrey: #efeeee;
