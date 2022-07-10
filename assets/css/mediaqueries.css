@@ -98,7 +98,7 @@
   .dropdown:hover .dropdown-content {
     display: block;
     position: absolute;
-    top: 90px;
+    top: 110px;
     left: 0;
   }
 
@@ -174,11 +174,6 @@
     font-size: 1.2rem;
   }
 
-  .nav-chevron-down {
-    display: contents;
-    float: right;
-  }
-
   /* CATALOGUE */
 
   .pagination {
@@ -192,7 +187,8 @@
   }
 
   .product-images-container {
-    width: 100vw;
+    width: 80vw;
+    margin: auto;
   }
 
   .product-infos-container { 
@@ -357,6 +353,13 @@
   .grid {
     grid-template-columns: repeat(1, 1fr);
   }
+
+  /*  */
+
+  .product-images-container {
+    width: 100vw;
+  }
+
 }
 
 @media screen and (max-width: 320px) {

@@ -5,7 +5,7 @@
     align-items: flex-start;
     margin: 120px auto;
     gap: 40px;
-    max-width: 900px;
+    /* max-width: 900px; */
 }
 
 /* PRODUCT IMAGES */
@@ -42,7 +42,7 @@
     position: relative;
     padding: 60px 20px;
     width: 60%;
-    height: 500px;
+    height: 90vh;
     overflow: scroll;
     overflow-x: hidden; /* Hide horizontal scrollbar */
     border: 1px solid black;
@@ -54,6 +54,8 @@
 
 .window-active {
     display: block;
+    position: absolute;
+    top: 80px;
 }
 
 #closeZoomBtn {
@@ -71,6 +73,7 @@
     padding: 40px 40px;
     border-radius: 3px;
     flex: 1;
+    
 }
 
 .product-infos-container > div {
@@ -96,8 +99,9 @@
     font-size: 1rem;
 }
 
-.product-description p{
-    margin-top: 10px;
+.product-infos-container p {
+    margin-top: 5px;
+    font-size: 1.2rem;
 }
 
 .product-offer span {
