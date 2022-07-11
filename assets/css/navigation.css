@@ -57,6 +57,10 @@ nav h3 {
   font-size: 1.3rem;
 }
 
+.dropdown-content a {
+  color: black;
+}
+
 .dropdown-content > div {
   margin: 10px 40px;
 }
