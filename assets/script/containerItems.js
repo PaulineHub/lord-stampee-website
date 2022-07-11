@@ -55,13 +55,13 @@ const stampInfos = [
                     },
                     {
                         num:'#64',
-                        title:'Reine Victoria (1868) brun fonce 6¢',
+                        title:'Reine Victoria (1868) brun 6¢',
                         date:'15juil  - 21 juil. 22',
                         price:80
                     },
                     {
                         num:'#65',
-                        title:'Reine Victoria (1868) brun jaune 6¢',
+                        title:'Reine Victoria (1868) jaune 6¢',
                         date:'18 juil - 21 aout 22',
                         price:1495
                     },
@@ -106,6 +106,7 @@ for (let i = 8; i < 12; i++) {
                                 <p class="light">${stampInfos[i].date}</p>
                                 <p>Offre actuelle : ${stampInfos[i].price}$</p>
                             </div>
+                            <button class="colored-button">Miser</button>
                         </a>
                     </div>
                     `;

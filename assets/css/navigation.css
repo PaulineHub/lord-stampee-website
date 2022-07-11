@@ -11,7 +11,7 @@ nav {
 
 nav h3 {
   font-weight: normal;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 }
 
 /* LOGO */
@@ -58,7 +58,7 @@ nav h3 {
 }
 
 .dropdown-content > div {
-  margin: 20px 40px;
+  margin: 10px 40px;
 }
 
 nav a {

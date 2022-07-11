@@ -7,13 +7,13 @@ const stampInfos = [
                     },
                     {
                         num:'#57',
-                        title:'HRH Prince Albert (1851) 6d',
+                        title:'HRH Prince Albert (1851)',
                         date:'18 juin - 21 juil. 22',
                         price:245
                     },
                     {
                         num:'#58',
-                        title:'Reine Victoria (1851) 12d',
+                        title:'Reine Victoria (1851)',
                         date:'23 juin - 05 aout 22',
                         price:2500
                     },
@@ -25,7 +25,7 @@ const stampInfos = [
                     },
                     {
                         num:'#60',
-                        title:'Jacques Cartier (1855) 10d',
+                        title:'Jacques Cartier (1855)',
                         date:'23 juin - 05 aout 22',
                         price:995
                     },
@@ -43,7 +43,7 @@ const stampInfos = [
                     },
                     {
                         num:'#63',
-                        title:'Reine Victoria (1868) ½¢',
+                        title:'Reine Victoria (1868) gris ½¢',
                         date:'15juil - 21 juil. 22',
                         price:135
                     },
@@ -87,6 +87,7 @@ for (let i = 0; i < 12; i++) {
                                 <p class="light">${stampInfos[i].date}</p>
                                 <p>Offre actuelle : ${stampInfos[i].price}$</p>
                             </div>
+                            <button class="colored-button">Miser</button>
                         </a>
                     </div>
                     `;

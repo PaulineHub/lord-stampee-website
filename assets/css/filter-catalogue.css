@@ -3,7 +3,7 @@
 
 .filter-container {
   background-color: var(--blue);
-  width: 244px;
+  width: 260px;
   padding: 20px;
   color: var(--white);
   border-radius: 3px;
@@ -14,7 +14,7 @@
 }
 
 .filter-container .form-search input[type='text'] {
-  width: 130px;
+  width: 150px;
   margin-bottom: 20px;
 }
 
@@ -28,7 +28,7 @@
 }
 
 .filter-container h3 {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   text-transform: uppercase;
 }
 
