@@ -162,7 +162,26 @@
     opacity: 0.2;
   }
 
+  /* ACCUEIL */
+
+  .grid-item .image-container {
+    min-height: auto;
+  }
+
 }
+
+@media screen and (min-width: 900px) and (max-width: 1250px){
+
+  /* ACCUEIL */
+
+  .item-img-ctn img {
+    width: auto;
+    left: -20px;
+  }
+
+}
+
+
 
 @media screen and (max-width: 900px) {
 
@@ -180,7 +199,7 @@
     margin-bottom: 60px;
   }
 
-  /* PRODUCT ASIDE */
+  /* PRODUCT PAGE */
 
   .main-product {
       margin-bottom: 0;
@@ -202,14 +221,19 @@
     height: 80vh;
   }
 
-  /* ACCUEIL GRID VENTE */
+  /* ACCUEIL GRID ACTUALITES */
 
   .grid-vente {
-      grid-template-columns: repeat(4, 260px);
-      grid-template-rows: 1fr ;
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: minmax(min-content,max-content);
+      gap: 24px;
       grid-template-areas: 
-      "item1 item2 item3 item4";
-      overflow-x:scroll;
+        "item1 item2"
+        "item3 item4";
+  }
+
+  .grid-vente img {
+    height: auto;
   }
 
   .item1 img {
@@ -218,11 +242,11 @@
   }
 
   .item-img-ctn-small {
-    height: 280px;
+    height: 260px;
   }
 
   .item-img-ctn-small img{
-    top: 0px;
+    top: -30px;
   }
 
   /* ACCUEIL COLORED SECTION A PROPOS */
@@ -278,12 +302,12 @@
   }
 
   .container-items {
-    overflow-x: scroll;
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .container-items > div {
-    min-width: 260px;
-  }
+  .portrait-container img {
+    left: -37px;
+}
 
   /* PAGE PRODUIT RETOUR*/
 
@@ -305,12 +329,11 @@
 
   .portrait-container {
     min-width: 100%;
-    min-height: 300px;
+    min-height: 500px;
   }
 
   .portrait-container img{
     width: 100%;
-    height: auto;
     left: 0px;
   }
 
@@ -367,6 +390,47 @@
     width: 95vw;
   }
 
+  /* ACCUEIL */
+
+  .grid-vente img {
+    height: 100%;
+  }
+
+  .portrait-container {
+    min-height: 350px;
+  }
+  
+}
+
+@media screen and (max-width: 425px) {
+
+  /* ACCUEIL */
+
+  .container-items {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .grid-vente .item {
+    height: inherit;
+  }
+
+  .grid-vente img {
+    height: auto;
+  }
+
+  .grid-vente {
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-areas: 
+        "item1"
+        "item2"
+        "item3"
+        "item4";
+  }
+
+  .portrait-container {
+    min-height: 300px;
+  }
+
 }
 
 @media screen and (max-width: 320px) {
@@ -376,4 +440,11 @@
   .grid-item-description {
     padding: 10px 5px;
   }
+
+  /* ACCUEIL */
+
+  .portrait-container {
+    min-height: 230px;
+  }
+
 }

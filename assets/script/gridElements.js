@@ -25,7 +25,7 @@ const stampInfos = [
                     },
                     {
                         num:'#60',
-                        title:'Jacques Cartier (1855)',
+                        title:'Reine Victoria (1855)',
                         date:'23 juin - 05 aout 22',
                         price:995
                     },
@@ -79,7 +79,7 @@ const elParentGrid = document.getElementById('grid');
 for (let i = 0; i < 12; i++) {
     const domString = `
                     <div class="grid-item"">
-                        <a href="#">
+                        <a href="fiche-produit.html">
                             <div class="image-container"><img src="./assets/image/stamps/stamp${i + 1}.jpg" alt=""></div>
                             <div class="grid-item-description">
                                 <h6>${stampInfos[i].num}</h6>
