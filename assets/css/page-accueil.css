@@ -101,7 +101,7 @@ section button:hover {
 /* COLORED SECTION */
 
 .colored-section {
-    background-color: var(--blue);
+    background-color: var(--dark-blue);
     color: white;
     padding: 20px;
 }
@@ -136,7 +136,7 @@ section button:hover {
 }
 
 .colored-section button {
-    background-color: var(--blue);
+    background-color: var(--dark-blue);
     color: white;
 }
 
@@ -148,7 +148,7 @@ section button:hover {
 /* NEWSLETTER */
 
 .newsletter-container {
-    background-color: var(--light-black);
+    background-color: var(--beige);
     color: white;
     margin-bottom: 0;
     margin-left: 0;
@@ -180,13 +180,13 @@ section button:hover {
     padding-top: 2px;
     padding-bottom: 2px;
     color: var(--white);
-    background-color: var(--light-black);
+    background-color: var(--beige);
     border: 1px solid white;
 }
 
 .newsletter-container button:hover {
     background-color: var(--white);
-    border: 1px solid var(--light-black);
+    border: 1px solid var(--beige);
     color: var(--black);
 }
 

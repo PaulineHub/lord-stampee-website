@@ -8,8 +8,9 @@
 /* COLORS */
 
 :root {
-  --blue: #0f1634;
-  --light-blue: #1b255a;
+  --dark-blue: #10183a;
+  --blue: #192557;
+  --light-blue: #243175;
   /* --brown: #382316; */
   --brown: rgb(59, 6, 6);
   --gold: #d1a567;

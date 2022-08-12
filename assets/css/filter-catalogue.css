@@ -2,7 +2,7 @@
 /* ASIDE FILTER */
 
 .filter-container {
-  background-color: var(--blue);
+  background-color: var(--dark-blue);
   width: 260px;
   padding: 20px;
   color: var(--white);
@@ -66,7 +66,7 @@
 
 input[type='checkbox'] {
   appearance: none;
-  background-color: var(--blue);
+  background-color: var(--dark-blue);
   margin: 0;
   font: inherit;
   color: currentColor;
