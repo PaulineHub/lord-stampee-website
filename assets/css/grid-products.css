@@ -12,9 +12,9 @@
     height: 100%;
 }
 
-/* .grid-item:hover {
+.grid-item:hover {
   background-color: var(--lightgrey);
-} */
+}
 
 .grid-item .image-container {
     display: block;

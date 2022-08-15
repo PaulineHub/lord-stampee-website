@@ -37,7 +37,7 @@
                 </div>
         
                 <div class="form-and-log-wrapper-mobile">
-                    <form action="" class="form-search">
+                    <form class="form-search">
                         <input type="text" name="search" id="search" placeholder="Chercher...">
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
@@ -101,8 +101,8 @@
                 </div>
             </div>
             <div class="form-and-log-wrapper">
-                <form action="" class="form-search">
-                    <input type="text" name="search" id="search" placeholder="Chercher...">
+                <form class="form-search">
+                    <input type="text" name="search" id="search-mobile" placeholder="Chercher...">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
                 <button class="btn-login">Login</button>
@@ -138,15 +138,15 @@
                 <a href="#" class="closebtn" id="closeFilterBtn">&times;</a>
                 <div class="form-search-container">
                     <form class="sort-wrapper sort-wrapper-mobile">
-                        <select name="tri" id="tri">
+                        <select name="tri" id="tri-mobile">
                             <option value="defaut">Trier par: Pertinence</option>
                             <option value="prixBasHaut">Enchere de depart : Bas à Haut</option>
                             <option value="prixHautBas">Enchere de depart : Haut à Bas</option>
                             <option value="NumLot">Numéro de lot</option>
                         </select>
                     </form>
-                    <form action="" class="form-search">
-                        <input type="text" name="search" id="search" placeholder="Chercher timbres">
+                    <form class="form-search">
+                        <input type="text" name="search" id="search-filter" placeholder="Chercher timbres">
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
                 </div>
@@ -167,7 +167,7 @@
                         <ul>
                             <li><input type="checkbox" name="category" id="architecture"><label for="architecture">Architecture</label></li>
                             <li><input type="checkbox" name="category" id="art"><label for="art">Art</label></li>
-                            <li><input type="checkbox" name="category" id="canada"><label for="canada">Canada</label></li>
+                            <li><input type="checkbox" name="category" id="canada-pays"><label for="canada-pays">Canada</label></li>
                             <li><input type="checkbox" name="category" id="europe"><label for="europe">Europe</label></li>
                             <li><input type="checkbox" name="category" id="ferroviaire"><label for="ferroviaire">Ferroviaire</label></li>
                             <li><input type="checkbox" name="category" id="maritime"><label for="maritime">Maritime</label></li>
@@ -203,12 +203,6 @@
                         <button class="filter-chevron-down"><i class="fa-solid fa-chevron-down"></i></button>
                     </div>
                     <div id="pays">
-                        <!-- <div>
-                            <form action="" class="form-search">
-                                <input type="text" name="search" id="search" placeholder="Chercher pays">
-                                <button type="submit"><i class="fa fa-search"></i></button>
-                            </form>
-                        </div> -->
                         <ul>
                             <li><input type="checkbox" name="pays" id="angleterre"><label for="angleterre">Angleterre</label></li>
                             <li><input type="checkbox" name="pays" id="australie"><label for="australie">Australie</label></li>
@@ -225,12 +219,6 @@
                         <button class="filter-chevron-down"><i class="fa-solid fa-chevron-down"></i></button>
                     </div>
                     <div id="condition">
-                        <!-- <div>
-                            <form action="" class="form-search">
-                                <input type="text" name="search" id="search" placeholder="Chercher condition">
-                                <button type="submit"><i class="fa fa-search"></i></button>
-                            </form>
-                        </div> -->
                         <ul>
                             <li><input type="checkbox" name="condition" id="parfaite"><label for="parfaite">Parfaite</label></li>
                             <li><input type="checkbox" name="condition" id="excellente"><label for="excellente">Excellente</label></li>

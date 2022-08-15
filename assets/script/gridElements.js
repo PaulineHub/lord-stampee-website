@@ -3,7 +3,7 @@ const stampInfos = [
                         num:'#56',
                         title:'HRH Prince Albert (1851)',
                         date:'18 juin - 21 juil. 22',
-                        price:1495
+                        price:195
                     },
                     {
                         num:'#57',
@@ -15,13 +15,13 @@ const stampInfos = [
                         num:'#58',
                         title:'Reine Victoria (1851)',
                         date:'23 juin - 05 aout 22',
-                        price:2500
+                        price:500
                     },
                     {
                         num:'#59',
                         title:'HRH Prince Albert (1851)',
                         date:'18 juin - 21 juil. 22',
-                        price:1495/*  */
+                        price:495
                     },
                     {
                         num:'#60',
@@ -63,7 +63,7 @@ const stampInfos = [
                         num:'#65',
                         title:'Reine Victoria (1868) brun jaune 6¢',
                         date:'18 juil - 21 aout 22',
-                        price:1495
+                        price:495
                     },
                     {
                         num:'#66',
