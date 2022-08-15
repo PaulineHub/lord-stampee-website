@@ -78,8 +78,8 @@ nav a {
   padding-right: 40px;
 }
 
-.dropdown:hover {
-  text-decoration: underline;
+.dropdown:hover .dropbtn {
+  border-bottom: solid 2px white;
 }
 
 .dropdown:hover .dropdown-content {
