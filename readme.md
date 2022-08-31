@@ -1,51 +1,12 @@
 # Site Web d'enchères pour timbre - Lord Stampee
 
+## Github Page
+https://paulinehub.github.io/lord-stampee-website/
+
 ## Consignes
 Faire un site web d'enchères pour des timbres, avec 3 pages : Accueil, Catalogue et Fiche Produit.
 
-## Navigation
-
-Contenu :
-- Logo / accueil
-- Ventes
-    - Calendrier
-        - En vedette
-        - A venir
-        - Passees
-    - Categories
-        - Canada
-        - Monde
-        - Royauté
-        - Faune
-        - Flore
-        - Aérien
-        - Maritime
-        - Commémoration
-        - Ferroviaire
-        - Sport
-        - Art
-        - Architecture
-- Mes encheres
-    - Passees
-    - En cours
-    - A venir
-- A propos
-    - A propos
-        - Lord Stampee
-        - Nos experts
-    - Support 
-        - Envoi et retour
-        - FAQ
-        - Contact
-
-References :
-menu deroulant full width
-https://www.w3schools.com/howto/howto_css_mega_menu.asp
-menu curtain mobile
-https://www.w3schools.com/howto/howto_js_curtain_menu.asp 
-
-
-## Accueil
+### Accueil
 
 Contenu :
 - Bannière Hero avec phrase presentation site et lien catalogue
@@ -55,10 +16,7 @@ Contenu :
 - A propos de Lord Stampee
 - Inscription newsletter
 
-References :
-Horizontal scroll : https://codeburst.io/how-to-create-horizontal-scrolling-containers-d8069651e9c6 
-
-## Catalogue
+### Catalogue
 
 Contenu :
 - Bannière Hero avec image
@@ -85,7 +43,7 @@ price filter "double range slider":
 https://www.youtube.com/watch?v=DfSYmk_6vk8
 https://www.cssportal.com/style-input-range/
 
-## Produit
+### Produit
 
 Contenu :
 - Carte produit
@@ -96,6 +54,6 @@ Contenu :
     - Fenêtre image grande taille au click sur l'image principale
 - Bouton "Retour au catalogue"
 
-## Sites référence
+### Sites référence
 - https://www.sothebys.com/en/
 - https://enchereschampagne.com/ 
