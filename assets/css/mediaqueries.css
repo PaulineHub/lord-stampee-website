@@ -181,8 +181,6 @@
 
 }
 
-
-
 @media screen and (max-width: 900px) {
 
   main {
@@ -191,6 +189,12 @@
 
   .product-container {
     margin-bottom: 0;
+  }
+
+  /* UTILISATEUR */
+
+  .form-row-wrapper {
+    flex-direction: column;
   }
 
   /* CATALOGUE */

@@ -78,39 +78,22 @@ nav a {
   padding-right: 40px;
 }
 
-.dropdown:hover .dropbtn {
-  border-bottom: solid 2px white;
+.dropbtn::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  transition: width .3s;
+}
+
+.dropdown:hover .dropbtn::after {
+  width: 100%;
 }
 
 .dropdown:hover .dropdown-content {
   display: flex;
 }
-
-/* DROPDOWN ARROWS */
-
-/* .dropdown-content:before {
-  content: '';
-  position: absolute;
-  border-color: var(--light-grey);
-  border: solid transparent;
-  border-bottom-color: var(--light-grey);
-  border-width: 11px;
-  margin-left: -10px;
-  top: -20px;
-  z-index: 2;
-}
-
-.dropdown-content1:before {
-  left: 31%;
-}
-
-.dropdown-content2:before {
-  left: 43%;
-}
-
-.dropdown-content3:before {
-  left: 55%;
-} */
 
 /* MOBILE ITEMS */
 
@@ -145,7 +128,7 @@ nav a {
   padding: 10px;
   background: #f1f1f1;
   color: grey;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   border: none;
   border-left: none; /* Prevent double borders */
   cursor: pointer;
@@ -168,7 +151,8 @@ nav a {
 .btn-login {
   background-color: var(--brown);
   color: var(--white);
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .form-and-log-wrapper {

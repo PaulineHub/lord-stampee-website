@@ -30,6 +30,7 @@ section button:hover {
     grid-auto-rows: minmax(min-content,max-content);
     gap: 24px;
     overflow: hidden;
+    padding: 5px;
 }
 
 .catalog-grid-item:hover {

@@ -13,7 +13,19 @@
 }
 
 .grid-item:hover {
-  background-color: var(--lightgrey);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.grid-item:hover .grid-item-description > h6:first-child {
+  border-bottom: 3px solid var(--gold);
+}
+
+.grid-item:hover .colored-button {
+  background-color: var(--dark-gold);
+}
+
+.grid-item:hover .colored-button:hover {
+  background-color: var(--gold);
 }
 
 .grid-item .image-container {
@@ -41,6 +53,12 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
+.grid-item-description > h6:first-child {
+  width: fit-content;
+  border-bottom: 3px white solid;
+}
+
 
 p .light {
   color: grey;

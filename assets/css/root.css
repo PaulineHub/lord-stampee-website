@@ -11,9 +11,10 @@
   --dark-blue: #10183a;
   --blue: #192557;
   --light-blue: #243175;
-  --brown: rgb(70, 1, 1);
+  --brown: rgb(80, 0, 0);
   --gold: #d1a567;
-  --beige: #7e6453;
+  --dark-gold: #a97428;
+  --beige: #6a4a36;
   --lightgrey: #efeeee;
   --white: #ffffff;
   --black: black;
@@ -145,4 +146,30 @@ select {
 
 .colored-button:hover {
   background-color: var(--light-blue);
+}
+
+.dynamic-underline::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #000;
+    transition: width .3s;
+}
+
+.dynamic-underline-white::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: width .3s;
+}
+
+.dynamic-underline-white:hover::after {
+    width: 100%;
+}
+
+.dynamic-underline:hover::after {
+    width: 100%;
 }
