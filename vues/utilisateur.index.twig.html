@@ -1,0 +1,32 @@
+{% extends "base.twig.html" %}
+
+{% block main %}
+    <!--- MAIN -->
+    <main>
+        <section class="box-container">
+            <h2>Connexion</h2>
+            <div class="colored-line"></div>
+            <form class="form-flex-wrapper" method="post" action="utilisateur/connexion">
+                <div>
+                    <div class="form-row-wrapper">
+                        <div>
+                            <label for="uti_courriel">Courriel</label>
+                            <input type="email" name="uti_courriel" id="uti_courriel">
+                        </div>
+                        <div>
+                            <label for="uti_mdp">Mot de passe</label>
+                            <input type="password" name="uti_mdp" id="uti_mdp">
+                        </div>
+                    </div>
+                    
+                </div>
+                <button class="colored-button">Connexion</button>
+                <span class="action-message"></span>
+            </form>
+            <div class="actions-right">
+                <a href="#" class="dynamic-underline">Mot de passe oublié ?</a>
+                <a href="utilisateur/nouveau" class="dynamic-underline">Créez votre compte !</a>
+            </div>
+        </section>
+    </main>
+{% endblock %}

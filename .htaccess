@@ -1,0 +1,12 @@
+### Réécriture d'URLs avec Mod_Rewrite
+## plat/tout ----> index.php?route=plat/tout
+
+RewriteEngine On
+
+## exclu les commandes commenceant par ressources
+## ! exclu, ^ commence par
+RewriteCond %{REQUEST_URI} !^/ressources/
+RewriteCond %{REQUEST_FILENAME} !-f 
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^(.*)$ index.php?route=$1 [QSA]

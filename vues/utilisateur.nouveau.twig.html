@@ -1,0 +1,40 @@
+{% extends "base.twig.html" %}
+
+{% block main %}
+    <!--- MAIN -->
+    <main>
+        <section class="box-container">
+            <h2>Ouverture de compte</h2>
+            <div class="colored-line"></div>
+            <form class="form-flex-wrapper" method="post" action="utilisateur/ajouter">
+                <div>
+                    <div class="form-row-wrapper">
+                        <div>
+                            <label for="uti_nom">Nom</label>
+                            <input type="texte" name="uti_nom" id="uti_nom">
+                        </div>
+                        <div>
+                            <label for="uti_courriel">Courriel</label>
+                            <input type="email" name="uti_courriel" id="uti_courriel">
+                        </div>
+                    </div>
+                    <div class="form-row-wrapper">
+                        <div>
+                            <label for="uti_mdp">Mot de passe</label>
+                            <input type="password" name="uti_mdp" id="uti_mdp">
+                        </div>
+                        <div>
+                            <label for="uti_mdp2">Confirmation du mot de passe</label>
+                            <input type="password" name="uti_mdp2" id="uti_mdp2">
+                        </div>
+                    </div>
+                </div>
+                <button class="colored-button">Création du compte</button>
+                <span class="action-message"></span>
+            </form>
+            <div class="actions-right">
+                <a href="#" class="dynamic-underline">Connexion</a>
+            </div>
+        </section>
+    </main>
+{% endblock %}
