@@ -24,9 +24,10 @@ class UtilisateurModele extends AccesBd
     public function ajouter($utilisateur)
     {
         extract($utilisateur);
-        // création du code de confirmation de 23 caractères (param true), avec préfixe de 5 caractères (nestor))
-        $cc = uniqid("nestor", true);
-        $this->creer("INSERT INTO utilisateur VALUES (0, :nom, :courriel, :mdp, NOW(), '$cc')", 
+        // création du code de confirmation de 23 caractères (param true), avec préfixe de 5 caractères (stampee))
+        $cc = uniqid("stampee", true);
+        $pri_id = 2; // statut privilege membre
+        $this->creer("INSERT INTO utilisateur VALUES (0, :nom, :courriel, :mdp, NOW(), '$cc', $pri_id)", 
                     [
                         "nom" => $uti_nom,
                         "courriel" => $uti_courriel,

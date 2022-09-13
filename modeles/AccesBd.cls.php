@@ -15,6 +15,11 @@ class AccesBd
             $this->pdo = new PDO("mysql:host=".BD_HOTE."; dbname=".BD_NOM."; charset=utf8",
                 BD_UTIL, BD_MDP, $options); 
         }
+
+        /* $conn = mysqli_connect(BD_HOTE, BD_UTIL, BD_MDP, BD_NOM);
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        } */
     }
         
     /**

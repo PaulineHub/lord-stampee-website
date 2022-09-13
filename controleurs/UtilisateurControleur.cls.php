@@ -6,7 +6,7 @@ class UtilisateurControleur extends Controleur
     {
         parent::__construct($modele, $module, $action);
         if (isset($_SESSION['utilisateur'])) {
-            Utilitaire::nouvelleRoute('contact/tout');
+            Utilitaire::nouvelleRoute('accueil/index');
         }
     }
 
@@ -43,6 +43,7 @@ class UtilisateurControleur extends Controleur
     {
         $courriel = $_POST['uti_courriel'];
         $mdp = $_POST['uti_mdp'];
+        var_dump($courriel);
         $utilisateur = $this->modele->un($courriel);
 
         $erreur = false;
@@ -56,7 +57,7 @@ class UtilisateurControleur extends Controleur
         if (!$erreur) {
             // Sauvegarder état de connexion
             $_SESSION['utilisateur'] = $utilisateur;
-            Utilitaire::nouvelleRoute('contact/tout');
+            Utilitaire::nouvelleRoute('accueil/index');
         } else {
             $this->gabarit->affecter('erreur', $erreur);
             $this->gabarit->affecterActionParDefaut('index');
@@ -70,6 +71,6 @@ class UtilisateurControleur extends Controleur
     public function deconnexion()
     {
         unset($_SESSION['utilisateur']);
-        Utilitaire::nouvelleRoute('utilisateur');
+        Utilitaire::nouvelleRoute('accueil');
     }
 }

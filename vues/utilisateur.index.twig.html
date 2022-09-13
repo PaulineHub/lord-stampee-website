@@ -21,7 +21,9 @@
                     
                 </div>
                 <button class="colored-button">Connexion</button>
-                <span class="action-message"></span>
+                {% if erreur !='' %}
+                <span class="action-message">{{erreur}}</span>
+                {% endif %}
             </form>
             <div class="actions-right">
                 <a href="#" class="dynamic-underline">Mot de passe oublié ?</a>
