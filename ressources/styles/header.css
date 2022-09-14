@@ -31,13 +31,13 @@ header {
 /* BANNER CATALOGUE */
 
 .banner-catalogue {
-  background-image: url('../image/hero-catalogue.png');
+  background-image: url('../images/hero-catalogue.png');
 }
 
 /* BANNER INDEX */
 
 .banner-index {
-  background-image: url('../image/hero-index.png');
+  background-image: url('../images/hero-index.png');
   height: 600px;
 }
 
