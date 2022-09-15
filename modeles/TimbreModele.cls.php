@@ -33,14 +33,13 @@ class TimbreModele extends AccesBd
     }
 
     /**
-     * Fait une requête à la BD et retourne le détail d'un timbre, ses images, l'enchère associée et la mise la plus haute sur celle-ci, sa categorie, son pays et son etat de conservation.
+     * Fait une requête à la BD et retourne le détail d'un timbre, sa categorie, son pays et son etat de conservation, ses images, l'enchère associée, la quantite de mises et la mise la plus haute sur celle-ci, .
      * @param string $param Chaine représentant l'id du timbre.
      * @return object Objet représentant les détails du timbre et ses téléphones associés.
      */
     public function un($idArray)
     {
         $id = (int)$idArray[0];
-        // SELECT * FROM timbre JOIN image ON tim_id=ima_tim_id_ce JOIN enchere ON tim_id=1 JOIN utilisateur ON enc_uti_id_ce=2 WHERE tim_id=1;
 
         $sql = "SELECT * FROM timbre 
                 JOIN image ON ima_tim_id_ce=:id
