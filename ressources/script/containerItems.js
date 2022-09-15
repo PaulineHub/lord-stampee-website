@@ -98,8 +98,8 @@ const elCatalogGridContainer = document.getElementById('catalog-grid-container')
 for (let i = 8; i < 12; i++) {
     const domString = `
                     <div class="grid-item"">
-                        <a href="#">
-                            <div class="image-container"><img src="./assets/image/stamps/stamp${i + 1}.jpg" alt=""></div>
+                        <a href="timbre/un">
+                            <div class="image-container"><img src="./ressources/images/timbres/stamp${i + 1}.jpg" alt=""></div>
                             <div class="grid-item-description">
                                 <h6>${stampInfos[i].num}</h6>
                                 <h6>${stampInfos[i].title}</h6>
@@ -116,7 +116,7 @@ for (let i = 8; i < 12; i++) {
 for (let i = 0; i < 4; i++) {
     const domString = `
                     <div class="grid-item catalog-grid-item"">
-                        <div class="image-container image-container-accueil"><img src="./assets/image/index-catalogue-img-${i + 1}.png" alt=""></div>
+                        <div class="image-container image-container-accueil"><img src="./ressources/images/index-catalogue-img-${i + 1}.png" alt=""></div>
                         <div class="grid-item-description catalog-grid-item-description">
                             <h4>${catalogItemInfos[i].title}</h4>
                             <p class="light">${catalogItemInfos[i].date}</p>

@@ -3,50 +3,55 @@
 {% block main %}
     <!----------------- MAIN ------------------>
     <main class="main-product">
-        
+        {% for infos in timbre %}
+            {% for info in infos %}
         <div class="product-container">
         <div class="product-images-container">
             <div class="window-zoom-image">
                 <a href="#"  id="closeZoomBtn">&times;</a>
-                <div id="image-zoom-container"><img src="assets/image/stamps/stamp1.jpg" alt=""></div>
+                <div id="image-zoom-container"><img src="{{info.ima_path}}" alt=""></div>
             </div>
-            <div id="image-big-container"><img src="assets/image/stamps/stamp1.jpg" alt=""></div>
+            <div id="image-big-container"><img src="{{info.ima_path}}" alt=""></div>
             <div class="product-images-little-container">
-                <div class="image-little-container"><img src="assets/image/stamps/stamp1.jpg" alt=""></div>
-                <div class="image-little-container"><img src="assets/image/stamps/stamp1.jpg" alt=""></div>
+                <div class="image-little-container"><img src="{{info.ima_path}}" alt=""></div>
+                <div class="image-little-container"><img src="{{info.ima_path}}" alt=""></div>
             </div>
         </div>
         <aside class="product-infos-container">
             <div class="coup-de-coeur-wrapper">
                 <div>
-                    <div class="coup-de-coeur-logo-container"><img src="assets/image/coup-de-coeur.png" alt=""></div>
+                    <div class="coup-de-coeur-logo-container"><img src="ressources/images/coup-de-coeur.png" alt=""></div>
                     <span>Coup de coeur du Lord</span>
                 </div>
-                <button id="fav-btn"><i class="fa-regular fa-star" id="fa-star"></i><!-- <i class="fa-solid fa-star"></i> --></button>
+                <button id="fav-btn"><i class="fa-regular fa-star" id="fa-star"></i></button>
             </div>
-            <div class="product-category">Categorie : <span>Canada</span></div>
+            <div class="product-category">Categorie : <span>{{info.cat_nom}}</span></div>
             <div class="product-title-container">
-                <h2 class="numLot">#3</h2>
-                <h1 class="product-title">Timbre Prince Albert</h1>
+                <h2 class="numLot">#{{info.enc_tim_id_ce}}</h2>
+                <h1 class="product-title">{{info.tim_nom}}</h1>
             </div>
             <div class="product-description">
                 <h3>Description</h3>
-                <p>Pays : Canada</p>
-                <p>Condition : Excellente</p>
-                <p>Tirage : 1855 Prince Albert 6d gris ardoise oblitéré.</p> 
-                <p>Dimensions : Le timbre possède 4 marges incluant 3 marges très claires.</p>
-                <p>Certifié : <span>oui</span></p>
+                <p>Pays : {{info.pay_nom}}</p>
+                <p>Condition : {{info.con_nom}}</p>
+                <p>Tirage : {{info.tim_tirage}}</p> 
+                <p>Dimensions : {{info.tim_dimensions}}</p>
+                <p>Certifié : <span>{{info.tim_certificat}}</span></p>
             </div>
             <div class="product-offer">
-                <h3>Offre actuelle : 200 CAD</h3>
-                <p class="bidder-name">Mr Albert Tremblay</p>
-                <p>Quantité de mises : 12</p>
-                <p>Prix plancher : 100 CAD</p>
-                <p>Début/Fin : 10 juil. 22 au 15 juil. 22</p>
+                {% if info.mis_montant %}
+                <h3>Offre actuelle : {{info.mis_montant}} CAD</h3>
+                <p class="bidder-name">{{info.mis_uti_nom}}</p>
+                <p>Quantité de mises : {{info.mis_sum}}</p>
+                {% endif %}
+                <p>Prix plancher : {{info.tim_prix_dep}} CAD</p>
+                <p>Début/Fin : {{info.enc_date_debut}} au {{info.enc_date_fin}}</p>
             </div>
             <button class="colored-button">Miser</button>
         </aside>
         </div>
+        {% endfor %}
+        {% endfor %}
         <div class="pagination return-wrapper">
             <a href="catalogue.html"><i class="fa-solid fa-chevron-left"></i>Retour</a>
         </div>

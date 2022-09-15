@@ -29,28 +29,28 @@ class TimbreControleur extends Controleur
     }
 
     /**
-     * Affichage de tous les timbres d'un utilisateur.
-     *  Route associée: timbre/utilisateur
-     */
-    public function utilisateur($params)
-    {
-        $this->gabarit->affecter('uti_timbres', $this->modele->tout($_SESSION["utilisateur"]->uti_id));
-    }
-
-    /**
       * Affichage du détail d’un timbre lorsqu’un timbre particulier est cliqué.
      *  Route associée : timbre/un
      */
-    public function un()
+    public function un($tim_id)
     {
         // Chercher les timbres de la BD 
-        $resultat = $this->modele->un($_POST['ctc_id']);
+        $resultat = $this->modele->un($tim_id);
 
         // Injecte le résultat dans la 'vue'
         $this->gabarit->affecter('timbre', $resultat);
 
         return $resultat;
         Utilitaire::nouvelleRoute('timbre/un');
+    }
+
+    /**
+     * Affichage de tous les timbres d'un utilisateur.
+     *  Route associée: timbre/utilisateur
+     */
+    public function utilisateur($params)
+    {
+        $this->gabarit->affecter('uti_timbres', $this->modele->tout($_SESSION["utilisateur"]->uti_id));
     }
 
     /**

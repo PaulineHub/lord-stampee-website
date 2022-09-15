@@ -47,6 +47,7 @@ class AccesBd
      */
     protected function lireTout(string $req, bool $groupe=true, array $params=[]) : array
     {
+        //var_dump($params);
         $this->soumettre($req, $params);
         if($groupe) {
             return $this->rp->fetchAll(PDO::FETCH_GROUP);
