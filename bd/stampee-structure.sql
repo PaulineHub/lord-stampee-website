@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : mer. 14 sep. 2022 à 17:56
+-- Généré le : jeu. 15 sep. 2022 à 20:59
 -- Version du serveur : 10.4.22-MariaDB
 -- Version de PHP : 8.0.13
 
@@ -230,7 +230,7 @@ CREATE TABLE `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`uti_id`, `uti_nom`, `uti_courriel`, `uti_mdp`, `uti_date`, `uti_confirmation`, `uti_pri_id_ce`) VALUES
-(2, 'test', 'test@test.com', '$2y$10$6YrfbU.PyHKQyEjNpQSQ2.gyDIQRz7QRwxwtcdfINgwQMSsIdh0FC', '2022-09-13 16:20:08', '', 2);
+(2, 'Odile Deray', 'test@test.com', '$2y$10$6YrfbU.PyHKQyEjNpQSQ2.gyDIQRz7QRwxwtcdfINgwQMSsIdh0FC', '2022-09-15 18:01:39', '', 2);
 
 --
 -- Index pour les tables déchargées
