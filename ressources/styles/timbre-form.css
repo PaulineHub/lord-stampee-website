@@ -1,0 +1,28 @@
+.timbre-form input {
+    display: block;
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.timbre-form select {
+    display: block;
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.timbre-form label {
+    font-weight: 600;
+}
+
+.timbre-form button {
+    margin-right: 0;
+    margin-left: auto;
+    display: block;
+}
+

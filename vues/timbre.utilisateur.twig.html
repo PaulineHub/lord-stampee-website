@@ -1,0 +1,104 @@
+{% extends "base.twig.html" %}
+
+{% block main %}
+    <header class="banner banner-profil">
+        <section class="text-hero-container">
+            <h1>Mon profil</h1>
+            <div class="colored-line"></div>
+            <p>Retrouvez toutes vos enchères en cours et timbres favoris.</p>
+        </section>
+    </header>
+    <!--- MAIN -->
+    <main>
+        <!-- SECTION PROCHAINES VENTES -->
+        <section>
+            <header>
+                <h2>Mes enchères crées</h2>
+                <div>
+                    <button><a href="timbre/creation">Créer une enchère</a></button>
+                    <button><a href="">Tout voir</a></button>
+                </div>
+            </header>
+            <section class="grid" id="grid">
+                {% for enchere in uti_encheres %}
+                    {% for infos in enchere %}
+                    <div class="grid-item" id="{{infos.enc_tim_id_ce}}">
+                        <a href="timbre/un/{{infos.enc_tim_id_ce}}">
+                            <div class="image-container"><img src="../{{infos.ima_path}}" alt="{{infos.tim_nom}}"></div>
+                            <div class="grid-item-description">
+                                <h6># {{infos.enc_tim_id_ce}}</h6>
+                                <h6>{{infos.tim_nom}}</h6>
+                                <p class="light">{{infos.enc_date_debut}} - {{infos.enc_date_fin}}</p>
+                                {% if infos.mis_montant %}
+                                <p>Offre actuelle : {{infos.mis_montant}}$</p>
+                                {% else %}
+                                <p>Offre actuelle : {{infos.tim_prix_dep}}$</p>
+                                {% endif %}
+                            </div>
+                            <button class="colored-button">Miser</button>
+                            <button class="colored-button">Modifier</button>
+                            <button class="colored-button">Supprimer</button>
+                        </a>
+                    </div>
+                    {% endfor %}
+                {% endfor %}
+            </section>
+        </section>
+        <section>
+            <header>
+                <h2>Mes mises en cours et passées</h2>
+                <button><a href="">Tout voir</a></button>
+            </header>
+            <section class="grid" id="grid">
+                {% for mise in uti_mises %}
+                    {% for infos in mise %}
+                    <div class="grid-item" id="{{infos.enc_tim_id_ce}}">
+                        <a href="timbre/un/{{infos.enc_tim_id_ce}}">
+                            <div class="image-container"><img src="../{{infos.ima_path}}" alt="{{infos.tim_nom}}"></div>
+                            <div class="grid-item-description">
+                                <h6># {{infos.enc_tim_id_ce}}</h6>
+                                <h6>{{infos.tim_nom}}</h6>
+                                <p class="light">{{infos.enc_date_debut}} - {{infos.enc_date_fin}}</p>
+                                {% if infos.mis_montant %}
+                                <p>Offre actuelle : {{infos.mis_montant}}$</p>
+                                {% else %}
+                                <p>Offre actuelle : {{infos.tim_prix_dep}}$</p>
+                                {% endif %}
+                            </div>
+                            <button class="colored-button">Miser</button>
+                        </a>
+                    </div>
+                    {% endfor %}
+                {% endfor %}
+            </section>
+        </section>
+        <section>
+            <header>
+                <h2>Mes timbres favoris</h2>
+                <button><a href="">Tout voir</a></button>
+            </header>
+            <section class="grid" id="grid">
+                {% for favoris in uti_favoris %}
+                    {% for infos in favoris %}
+                    <div class="grid-item" id="{{infos.enc_tim_id_ce}}">
+                        <a href="timbre/un/{{infos.enc_tim_id_ce}}">
+                            <div class="image-container"><img src="../{{infos.ima_path}}" alt="{{infos.tim_nom}}"></div>
+                            <div class="grid-item-description">
+                                <h6># {{infos.enc_tim_id_ce}}</h6>
+                                <h6>{{infos.tim_nom}}</h6>
+                                <p class="light">{{infos.enc_date_debut}} - {{infos.enc_date_fin}}</p>
+                                {% if infos.mis_montant %}
+                                <p>Offre actuelle : {{infos.mis_montant}}$</p>
+                                {% else %}
+                                <p>Offre actuelle : {{infos.tim_prix_dep}}$</p>
+                                {% endif %}
+                            </div>
+                            <button class="colored-button">Miser</button>
+                        </a>
+                    </div>
+                    {% endfor %}
+                {% endfor %}
+            </section>
+        </section>
+    </main>
+{% endblock %}

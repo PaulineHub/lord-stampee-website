@@ -1,0 +1,68 @@
+{% extends "base.twig.html" %}
+
+{% block main %}
+    <header class="banner banner-profil">
+        <section class="text-hero-container">
+            <h1>Mon profil</h1>
+            <div class="colored-line"></div>
+            <p>Retrouvez toutes vos enchères en cours et timbres favoris.</p>
+        </section>
+    </header>
+    <!--- MAIN -->
+    <main>
+        <section>
+            <header>
+                <h2>Modification d'un timbre et de son enchère</h2>
+            </header>
+            <form class="timbre-form" method="post" action="timbre/changer">
+                <label for="tim_nom">Nom du timbre</label>
+                <input type="text" name="tim_nom" id="tim_nom" placeholder="Nom du timbre">
+                <label for="tim_tirage">Tirage</label>
+                <input type="text" name="tim_tirage" id="tim_tirage" placeholder="Exemple: 900">
+                <label for="tim_dimensions">Dimensions</label>
+                <input type="text" name="tim_dimensions" id="tim_dimensions" placeholder="27 X 22 mm">
+                <label for="tim_prix_dep">Prix de départ (CAD)</label>
+                <input type="number" name="tim_prix_dep" id="tim_prix_dep" min="0" placeholder="0">
+                <label for="tim_certificat">Certificat</label>
+                <select name="tim_certificat" id="tim_certificat">
+                <option value="oui">oui</option>
+                <option value="oui">non</option>
+                </select>
+                <label for="tim_cat">Catégorie</label>
+                <select name="tim_cat" id="tim_cat">
+                {% for categorie in categories %}
+                    {% for infos in categorie %}
+                    <option value="{{infos.cat_id}}">{{infos.cat_nom}}</option>
+                    {% endfor %}
+                {% endfor %}
+                </select>
+                <label for="tim_con">Conservation</label>
+                <select name="tim_con" id="tim_con">
+                {% for conservation in conservations %}
+                    {% for infos in conservation %}
+                    <option value="{{infos.con_id}}">{{infos.con_etat}}</option>
+                    {% endfor %}
+                {% endfor %}
+                </select>
+                <label for="tim_pay">Pays</label>
+                <select name="tim_pay" id="tim_pay">
+                {% for pays_un in pays %}
+                    {% for infos in pays_un %}
+                    <option value="{{infos.pay_id}}">{{infos.pay_nom}}</option>
+                    {% endfor %}
+                {% endfor %}
+                </select>
+                <label for="enc_date_debut">Date de début de l'enchère</label>
+                <input type="date" name="enc_date_debut" id="enc_date_debut">
+                <label for="enc_date_fin">Date de fin de l'enchère</label>
+                <input type="date" name="enc_date_fin" id="enc_date_fin">
+                <label for="tim_ima">Téléverser vos images</label>
+                <input type="file" name="tim_ima" id="tim_ima">
+                <button type="submit" class="colored-button">Soumettre</button>
+            </form>
+            <div class="pagination return-wrapper">
+                <a href="timbre/utilisateur"><i class="fa-solid fa-chevron-left"></i>Retour</a>
+            </div>
+        </section>
+    </main>
+{% endblock %}

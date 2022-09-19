@@ -4,9 +4,6 @@ class TimbreControleur extends Controleur
     public function __construct($modele, $module, $action)
     {
         parent::__construct($modele, $module, $action);
-        /* if(!isset($_SESSION['utilisateur'])) {
-            Utilitaire::nouvelleRoute('utilisateur/index');
-        } */
     }
 
     /**
@@ -50,37 +47,72 @@ class TimbreControleur extends Controleur
      */
     public function utilisateur($params)
     {
-        $this->gabarit->affecter('uti_timbres', $this->modele->tout($_SESSION["utilisateur"]->uti_id));
+        if(!isset($_SESSION['utilisateur'])) {
+            Utilitaire::nouvelleRoute('utilisateur/index');
+        }
+        $this->gabarit->affecter('uti_encheres', $this->modele->toutEncheresCrees($_SESSION["utilisateur"]->uti_id));
+        $this->gabarit->affecter('uti_mises', $this->modele->toutMises($_SESSION["utilisateur"]->uti_id));
+        $this->gabarit->affecter('uti_favoris', $this->modele->toutFavoris($_SESSION["utilisateur"]->uti_id));
     }
 
     /**
-     * Ajout d'un timbre.
+     * Affichage du formulaire de creation d'un timbre et de son enchere.
+     *  Route associée: timbre/creation
+     */
+    public function creation($params)
+    {
+        if(!isset($_SESSION['utilisateur'])) {
+            Utilitaire::nouvelleRoute('utilisateur/index');
+        }
+        $this->gabarit->affecter('uti_id', $_SESSION["utilisateur"]->uti_id);
+        $this->gabarit->affecter('categories', $this->modele->toutCategories());
+        $this->gabarit->affecter('conservations', $this->modele->toutConservations());
+        $this->gabarit->affecter('pays', $this->modele->toutPays());
+    }
+
+    /**
+     * Affichage du formulaire de modification d'un timbre et de son enchere.
+     *  Route associée: timbre/modification
+     */
+    public function modification($params)
+    {
+        if(!isset($_SESSION['utilisateur'])) {
+            Utilitaire::nouvelleRoute('utilisateur/index');
+        }
+        $this->gabarit->affecter('uti_id', $_SESSION["utilisateur"]->uti_id);
+        $this->gabarit->affecter('categories', $this->modele->toutCategories());
+        $this->gabarit->affecter('conservations', $this->modele->toutConservations());
+        $this->gabarit->affecter('pays', $this->modele->toutPays());
+    }
+
+    /**
+     * Ajout d'un timbre, de ses images et de l'enchere associee.
      *  Route associée: timbre/ajouter
      */
     public function ajouter() 
     {
         $this->modele->ajouter($_POST, $_SESSION["utilisateur"]->uti_id);
-        Utilitaire::nouvelleRoute('timbre/tout');
+        Utilitaire::nouvelleRoute('timbre/utilisateur');
     }
 
     /**
-     * Modification d'un timbre.
+     * Modification d'un timbre, de ses images et de l'enchere associee.
      *  Route associée: timbre/changer
      */
     public function changer() 
     {
         $this->modele->changer($_POST, $_SESSION["utilisateur"]->uti_id);
-        Utilitaire::nouvelleRoute('timbre/tout');
+        Utilitaire::nouvelleRoute('timbre/utilisateur');
     }
 
     /**
-     * Suppression d'un timbre.
+     * Suppression d'un timbre, de ses images et de l'enchere associee.
      *  Route associée: timbre/retirer
      */
     public function retirer() 
     {
         $this->modele->retirer($_POST['ctc_id']);
-        Utilitaire::nouvelleRoute('timbre/tout');
+        Utilitaire::nouvelleRoute('timbre/utilisateur');
     }
 
     /**

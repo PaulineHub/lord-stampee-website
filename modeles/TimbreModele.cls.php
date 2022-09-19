@@ -32,6 +32,107 @@ class TimbreModele extends AccesBd
 
     }
 
+    public function toutEncheresCrees($idUti)
+    {
+        $sql = "SELECT * FROM timbre 
+                JOIN image ON tim_id=ima_tim_id_ce 
+                JOIN enchere ON tim_id=enc_tim_id_ce 
+                WHERE enc_uti_id_ce=$idUti
+                ORDER BY tim_id";
+        
+        $result = $this->lireTout($sql, true);
+        // Recherche de mise pour chaque enchère associée à chaque timbre
+        foreach ($result as $timbres) {
+            foreach($timbres as $timbre) {
+                $sql = "SELECT mis_id, MAX(mis_montant) as mis_montant_max, mis_date FROM mise 
+                        WHERE mis_enc_id_ce = $timbre->enc_id";
+                $misesArray =  $this->lireTout($sql);
+                foreach ($misesArray as $mises) {
+                    foreach ($mises as $mise) {
+                        $timbre->mis_montant =  $mise->mis_montant_max;
+                        $timbre->mis_date =  $mise->mis_date;
+                    }
+                }
+            }
+        }
+        return $result;
+    }
+
+    public function toutMises($idUti)
+    {
+        $sql = "SELECT * FROM timbre 
+                JOIN image ON tim_id=ima_tim_id_ce 
+                JOIN enchere ON tim_id=enc_tim_id_ce 
+                JOIN mise ON mis_enc_id_ce=tim_id
+                WHERE mis_uti_id_ce=$idUti
+                ORDER BY tim_id";
+        
+        $result = $this->lireTout($sql, true);
+        // Recherche de mise pour chaque enchère associée à chaque timbre
+        foreach ($result as $timbres) {
+            foreach($timbres as $timbre) {
+                $sql = "SELECT mis_id, MAX(mis_montant) as mis_montant_max, mis_date FROM mise 
+                        WHERE mis_enc_id_ce = $timbre->enc_id";
+                $misesArray =  $this->lireTout($sql);
+                foreach ($misesArray as $mises) {
+                    foreach ($mises as $mise) {
+                        $timbre->mis_montant =  $mise->mis_montant_max;
+                        $timbre->mis_date =  $mise->mis_date;
+                    }
+                }
+            }
+        }
+        return $result;
+    }
+
+    public function toutFavoris($idUti)
+    {
+        $sql = "SELECT * FROM timbre 
+                JOIN image ON tim_id=ima_tim_id_ce 
+                JOIN enchere ON tim_id=enc_tim_id_ce 
+                JOIN favoris ON fav_tim_id_ce=tim_id
+                WHERE fav_uti_id_ce=$idUti
+                ORDER BY tim_id";
+        
+        $result = $this->lireTout($sql, true);
+        // Recherche de mise pour chaque enchère associée à chaque timbre
+        foreach ($result as $timbres) {
+            foreach($timbres as $timbre) {
+                $sql = "SELECT mis_id, MAX(mis_montant) as mis_montant_max, mis_date FROM mise 
+                        WHERE mis_enc_id_ce = $timbre->enc_id";
+                $misesArray =  $this->lireTout($sql);
+                foreach ($misesArray as $mises) {
+                    foreach ($mises as $mise) {
+                        $timbre->mis_montant =  $mise->mis_montant_max;
+                        $timbre->mis_date =  $mise->mis_date;
+                    }
+                }
+            }
+        }
+        return $result;
+    }
+
+    public function toutCategories()
+    {
+        $sql = "SELECT * FROM categorie ORDER BY cat_nom";
+        $result = $this->lireTout($sql, true);
+        return $result;
+    }
+
+    public function toutConservations()
+    {
+        $sql = "SELECT * FROM conservation ORDER BY con_id";
+        $result = $this->lireTout($sql, true);
+        return $result;
+    }
+
+    public function toutPays()
+    {
+        $sql = "SELECT * FROM pays ORDER BY pay_nom";
+        $result = $this->lireTout($sql, true);
+        return $result;
+    }
+
     /**
      * Fait une requête à la BD et retourne le détail d'un timbre, sa categorie, son pays et son etat de conservation, ses images, l'enchère associée, la quantite de mises et la mise la plus haute sur celle-ci, .
      * @param string $param Chaine représentant l'id du timbre.
@@ -83,40 +184,26 @@ class TimbreModele extends AccesBd
     }
 
     /**
-     * Fait une requête à la BD et retourne tous les enregistrements de la table timbre crees par l'utilisateur.
-     * @param string $uti_id Chaine représentant l'id de l'utilisateur.
-     * @return object[] Un tableau d'objets représentant tous les timbres et leurs téléphones associés.
-     */
-    public function utilisateur($uti_id)
-    {
-
-        // $sql = "SELECT * FROM timbre 
-        //         JOIN image ON tim_id=ima_tim_id_ce 
-        //         JOIN enchere ON tim_id=enc_tim_id_ce 
-        //         ORDER BY tim_id";
-        
-        // return $this->lireTout($sql, true);
-    }
-
-    /**
      * Fait une requête à la BD et insert un nouveau timbre et ses nouveaux téléphones.
      * @param object[] $timbre Un tableau d'objets représentant toutes les informations du timbre et des téléphones.
      * @param string $uti_id Chaine représentant l'id de l'utilisateur.
      */
     public function ajouter($timbre, $uti_id)
     {
-        // extract($timbre);
-        // $ctc_uti_id_ce = $uti_id;
+        extract($timbre);
 
-        // // Faire une requete pour inserer un nouveau timbre
-        // $tel_ctc_id_ce = $this->creer(
-        //     "INSERT INTO timbre VALUES (0, :ctc_prenom, :ctc_nom, :ctc_categorie, :ctc_uti_id_ce)"
-        //     , [
-        //         "ctc_prenom"      => $ctc_prenom, 
-        //         "ctc_nom"         => $ctc_nom,
-        //         "ctc_categorie"   => $ctc_categorie,
-        //         "ctc_uti_id_ce"   => $ctc_uti_id_ce
-        //     ]);
+        // Faire une requete pour inserer un nouveau timbre
+        $tel_ctc_id_ce = $this->creer(
+            "INSERT INTO timbre VALUES (0, :ctc_prenom, :ctc_nom, :ctc_categorie, :ctc_uti_id_ce)"
+            , [
+                "ctc_prenom"      => $ctc_prenom, 
+                "ctc_nom"         => $ctc_nom,
+                "ctc_categorie"   => $ctc_categorie,
+                "ctc_uti_id_ce"   => $ctc_uti_id_ce
+            ]);
+        // Faire une requete pour inserer une nouvelle enchere
+
+        // Faire une requete pour inserer une nouvelle image
 
     }
 

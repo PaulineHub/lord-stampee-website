@@ -21,8 +21,8 @@ header {
   background-color: white;
   width: 500px;
   position: absolute;
-  top: 120px;
-  left: 60px;
+  top: 80px;
+  left: 200px;
   padding: 20px;
   opacity: 0.9;
   border-radius: 3px;
@@ -31,7 +31,13 @@ header {
 /* BANNER CATALOGUE */
 
 .banner-catalogue {
-  background-image: url('../images/hero-catalogue.png');
+  background-image: url('../images/hero-catalogue.jpg');
+}
+
+/* BANNER PROFIL */
+
+.banner-profil {
+  background-image: url('../images/hero-profil.jpg');
 }
 
 /* BANNER INDEX */
@@ -45,7 +51,7 @@ header {
   background-color: black;
   color: white;
   opacity: 0.9;
-  top: 300px;
+  top: 200px;
 }
 
 .text-hero-container-index a {

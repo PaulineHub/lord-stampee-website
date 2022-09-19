@@ -21,6 +21,11 @@ section button:hover {
     color: white;
 }
 
+section button:hover a{
+    background-color: var(--blue);
+    color: white;
+}
+
 /* GRID */
 
 .container-items {

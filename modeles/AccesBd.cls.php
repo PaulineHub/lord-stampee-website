@@ -1,8 +1,8 @@
 <?php
 class AccesBd 
 {
-    private PDO $pdo; // Objet de connexion PDO
-    private PDOStatement $rp; // Objet de requête paramétrée PDO
+    private $pdo; // Objet de connexion PDO
+    private $rp; // Objet de requête paramétrée PDO
 
     /**
      * Constructeur : initialise l'objet PDO
@@ -16,10 +16,6 @@ class AccesBd
                 BD_UTIL, BD_MDP, $options); 
         }
 
-        /* $conn = mysqli_connect(BD_HOTE, BD_UTIL, BD_MDP, BD_NOM);
-        if (!$conn) {
-            die("Connection failed: " . mysqli_connect_error());
-        } */
     }
         
     /**
@@ -30,7 +26,7 @@ class AccesBd
      *              passer à la requête au moment de son exécution
      * @return void
      */
-    private function soumettre(string $req, array $params) : void 
+    private function soumettre(string $req, array $params) 
     {
         $this->rp = $this->pdo->prepare($req);
         $this->rp->execute($params);
@@ -45,7 +41,7 @@ class AccesBd
      * 
      * @return object[] Tableau d'objets représentants les enregistrements
      */
-    protected function lireTout(string $req, bool $groupe=true, array $params=[]) : array
+    protected function lireTout(string $req, bool $groupe=true, array $params=[]) 
     {
         //var_dump($params);
         $this->soumettre($req, $params);
@@ -66,7 +62,7 @@ class AccesBd
      * 
      * @return object Objet représentant l'enregistrement retourné
      */
-    protected function lireUn(string $req, array $params=[]) : object
+    protected function lireUn(string $req, array $params=[]) 
     {
         $this->soumettre($req, $params);
         return $this->rp->fetch();
@@ -80,7 +76,7 @@ class AccesBd
      *              passer à la requête au moment de son exécution
      * @return int Identifiant de l'enregistrement ajouté, ou false
      */
-    protected function creer(string $req, array $params=[]) : int 
+    protected function creer(string $req, array $params=[])  
     {
         $this->soumettre($req, $params);
         return $this->pdo->lastInsertId();
@@ -94,7 +90,7 @@ class AccesBd
      *              passer à la requête au moment de son exécution
      * @return int Le nombre d'enregistrements modifiés
      */
-    protected function modifier(string $req, array $params=[]) : int
+    protected function modifier(string $req, array $params=[]) 
     {
         $this->soumettre($req, $params);
         return $this->rp->rowCount();
@@ -108,7 +104,7 @@ class AccesBd
      *              passer à la requête au moment de son exécution
      * @return int Le nombre d'enregistrements supprimés
      */
-    protected function supprimer(string $req, array $params=[]) : int
+    protected function supprimer(string $req, array $params=[]) 
     {
         // Simplement faire appel à la fonction modifier 
         // (puisque c'est la même implémentation)

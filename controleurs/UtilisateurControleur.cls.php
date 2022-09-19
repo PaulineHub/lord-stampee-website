@@ -43,7 +43,6 @@ class UtilisateurControleur extends Controleur
     {
         $courriel = $_POST['uti_courriel'];
         $mdp = $_POST['uti_mdp'];
-        var_dump($courriel);
         $utilisateur = $this->modele->un($courriel);
 
         $erreur = false;
