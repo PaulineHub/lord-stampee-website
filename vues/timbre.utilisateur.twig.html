@@ -13,7 +13,7 @@
         <!-- SECTION PROCHAINES VENTES -->
         <section>
             <header>
-                <h2>Mes enchères crées</h2>
+                <h2>Mes enchères créées</h2>
                 <div>
                     <button><a href="timbre/creation">Créer une enchère</a></button>
                     <button><a href="">Tout voir</a></button>
@@ -36,8 +36,8 @@
                                 {% endif %}
                             </div>
                             <button class="colored-button">Miser</button>
-                            <button class="colored-button">Modifier</button>
-                            <button class="colored-button">Supprimer</button>
+                            <button class="colored-button"><a href="timbre/modification/{{infos.enc_tim_id_ce}}">Modifier</a></button>
+                            <button class="colored-button"><a href="timbre/retirer/{{infos.enc_tim_id_ce}}/{{infos.enc_id}}">Supprimer</a></button>
                         </a>
                     </div>
                     {% endfor %}

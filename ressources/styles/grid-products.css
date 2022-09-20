@@ -28,6 +28,10 @@
   background-color: var(--gold);
 }
 
+.grid-item:hover .colored-button:hover a{
+  background-color: var(--gold);
+}
+
 .grid-item .image-container {
     display: block;
     min-height: 320px;

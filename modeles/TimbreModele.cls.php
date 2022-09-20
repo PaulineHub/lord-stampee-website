@@ -115,21 +115,21 @@ class TimbreModele extends AccesBd
     public function toutCategories()
     {
         $sql = "SELECT * FROM categorie ORDER BY cat_nom";
-        $result = $this->lireTout($sql, true);
+        $result = $this->lireTout($sql, false);
         return $result;
     }
 
     public function toutConservations()
     {
         $sql = "SELECT * FROM conservation ORDER BY con_id";
-        $result = $this->lireTout($sql, true);
+        $result = $this->lireTout($sql, false);
         return $result;
     }
 
     public function toutPays()
     {
         $sql = "SELECT * FROM pays ORDER BY pay_nom";
-        $result = $this->lireTout($sql, true);
+        $result = $this->lireTout($sql, false);
         return $result;
     }
 
@@ -188,68 +188,130 @@ class TimbreModele extends AccesBd
      * @param object[] $timbre Un tableau d'objets représentant toutes les informations du timbre et des téléphones.
      * @param string $uti_id Chaine représentant l'id de l'utilisateur.
      */
-    public function ajouter($timbre, $uti_id)
+    public function ajouter($timbre, $uti_id, $image)
     {
         extract($timbre);
-
+        extract($image);
+        var_dump($timbre);
+        var_dump($image);
         // Faire une requete pour inserer un nouveau timbre
-        $tel_ctc_id_ce = $this->creer(
-            "INSERT INTO timbre VALUES (0, :ctc_prenom, :ctc_nom, :ctc_categorie, :ctc_uti_id_ce)"
+        $tim_id = $this->creer(
+            "INSERT INTO timbre VALUES (0, :tim_nom, :tim_tirage, :tim_dimensions, :tim_prix_dep, :tim_certificat, :tim_cat_id_ce, :tim_con_id_ce, :tim_pay_id_ce, :tim_uti_id_ce)"
             , [
-                "ctc_prenom"      => $ctc_prenom, 
-                "ctc_nom"         => $ctc_nom,
-                "ctc_categorie"   => $ctc_categorie,
-                "ctc_uti_id_ce"   => $ctc_uti_id_ce
+                "tim_nom"         => $tim_nom, 
+                "tim_tirage"      => $tim_tirage,
+                "tim_dimensions"  => $tim_dimensions,
+                "tim_prix_dep"    => $tim_prix_dep,
+                "tim_certificat"  => $tim_certificat,
+                "tim_cat_id_ce"   => $tim_cat,
+                "tim_con_id_ce"   => $tim_con,
+                "tim_pay_id_ce"   => $tim_pay,
+                "tim_uti_id_ce"   => $uti_id
             ]);
         // Faire une requete pour inserer une nouvelle enchere
-
+        $this->creer(
+            "INSERT INTO enchere VALUES (0, :enc_date_debut, :enc_date_fin, :enc_tim_id_ce, :enc_uti_id_ce)"
+            , [
+                "enc_date_debut"  => $enc_date_debut, 
+                "enc_date_fin"    => $enc_date_fin,
+                "enc_tim_id_ce"   => $tim_id,
+                "enc_uti_id_ce"   => $uti_id
+            ]);
         // Faire une requete pour inserer une nouvelle image
-
+        $path = 'ressources/images/timbres/' . $name;
+        $this->creer(
+            "INSERT INTO image VALUES (0, :ima_nom, :ima_path, :ima_tim_id_ce)"
+            , [
+                "ima_nom"         => $name, 
+                "ima_path"        => $path,
+                "ima_tim_id_ce"   => $tim_id
+            ]);
     }
 
     /**
-     * Fait une requête à la BD et modifie les informations d'un timbre.
+     * Fait une requête à la BD et modifie les informations d'un timbre, de son enchere et de ses images.
      * @param object[] $timbre Un tableau d'objets représentant toutes les informations du timbre.
      * @param string $uti_id Chaine représentant l'id de l'utilisateur.
      */
-    public function changer($timbre, $uti_id)
+    public function changer($timbre, $uti_id, $image)
     {
-        // extract($timbre);
-
-        // $this->modifier("UPDATE timbre 
-        //                 SET 
-        //                     ctc_prenom = :ctc_prenom, 
-        //                     ctc_nom = :ctc_nom, 
-        //                     ctc_categorie = :ctc_categorie, 
-        //                     ctc_uti_id_ce = :ctc_uti_id_ce
-        //                 WHERE ctc_id = :ctc_id"
-        //     , [
-        //         "ctc_id"          => $ctc_id,
-        //         "ctc_prenom"      => $ctc_prenom, 
-        //         "ctc_nom"         => $ctc_nom,
-        //         "ctc_categorie"   => $ctc_categorie,
-        //         "ctc_uti_id_ce"   => $uti_id
-        //     ]);
-
+        extract($timbre);
+        extract($image);
+        // Faire une requete pour modifier le timbre
+        $this->modifier("UPDATE timbre SET 
+                tim_nom = :tim_nom, 
+                tim_tirage = :tim_tirage, 
+                tim_dimensions = :tim_dimensions, 
+                tim_prix_dep = :tim_prix_dep, 
+                tim_certificat = :tim_certificat, 
+                tim_cat_id_ce = :tim_cat_id_ce, 
+                tim_con_id_ce = :tim_con_id_ce, 
+                tim_pay_id_ce = :tim_pay_id_ce, 
+                tim_uti_id_ce = :tim_uti_id_ce
+                WHERE tim_id = :tim_id"
+            , [
+                "tim_nom"         => $tim_nom, 
+                "tim_tirage"      => $tim_tirage,
+                "tim_dimensions"  => $tim_dimensions,
+                "tim_prix_dep"    => $tim_prix_dep,
+                "tim_certificat"  => $tim_certificat,
+                "tim_cat_id_ce"   => $tim_cat,
+                "tim_con_id_ce"   => $tim_con,
+                "tim_pay_id_ce"   => $tim_pay,
+                "tim_uti_id_ce"   => $uti_id,
+                "tim_id"          => $tim_id
+            ]);
+        // Faire une requete pour modifier l'enchere
+        $this->modifier("UPDATE enchere SET 
+                enc_date_debut = :enc_date_debut, 
+                enc_date_fin = :enc_date_fin, 
+                enc_tim_id_ce = :enc_tim_id_ce, 
+                enc_uti_id_ce = :enc_uti_id_ce
+                WHERE enc_tim_id_ce = :enc_tim_id_ce"
+            , [
+                "enc_date_debut"  => $enc_date_debut, 
+                "enc_date_fin"    => $enc_date_fin,
+                "enc_tim_id_ce"   => $tim_id,
+                "enc_uti_id_ce"   => $uti_id
+            ]);
+        // Faire une requete pour l'image
+        $path = 'ressources/images/timbres/' . $name;
+        $this->modifier("UPDATE image SET 
+                ima_nom = :ima_nom, 
+                ima_path = :ima_path, 
+                ima_tim_id_ce = :ima_tim_id_ce
+                WHERE ima_tim_id_ce = :ima_tim_id_ce"
+            , [
+                "ima_nom"         => $name, 
+                "ima_path"        => $path,
+                "ima_tim_id_ce"   => $tim_id
+            ]);
     }
 
     /**
      * Fait une requête à la BD et supprime un timbre.
      * @param string Une chaine de caractères représentant l'id du timbre.
      */
-    public function retirer($ctc_id)
+    public function retirer($idArray)
     {
-        // //Supprimer les données des téléphones "enfants"
-        // $this->supprimer("DELETE FROM telephone WHERE tel_ctc_id_ce=:tel_ctc_id_ce" 
-        //     , ['tel_ctc_id_ce' => $ctc_id]);
-        // // Supprimer le timbre "parent"
-        // $this->supprimer("DELETE FROM timbre WHERE ctc_id=:ctc_id"
-        //     , ['ctc_id' => $ctc_id]);
+        $tim_id = (int)$idArray[0];
+        $enc_id = (int)$idArray[1];
+        //Supprimer les mises associees a l'enchere
+        $this->supprimer("DELETE FROM mise WHERE mis_enc_id_ce=:mis_enc_id_ce" 
+            , ['mis_enc_id_ce' => $enc_id]);
+        //Supprimer l'enchere associee au timbre
+        $this->supprimer("DELETE FROM enchere WHERE enc_id=:enc_id" 
+            , ['enc_id' => $enc_id]);
+        //Supprimer l'image associee au timbre
+        $this->supprimer("DELETE FROM image WHERE ima_tim_id_ce=:ima_tim_id_ce" 
+            , ['ima_tim_id_ce' => $tim_id]);
+        // Supprimer le timbre 
+        $this->supprimer("DELETE FROM timbre WHERE tim_id=:tim_id"
+            , ['tim_id' => $tim_id]);
 
     }
 
     
-
     /**
      * Fait une requête à la BD et retourne tous les enregistrements de la table timbre correspondant à l'expression recherchée.
      * @param string $expression Chaine représentant l'expression à rechercher.

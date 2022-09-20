@@ -74,7 +74,7 @@ class TimbreControleur extends Controleur
      * Affichage du formulaire de modification d'un timbre et de son enchere.
      *  Route associée: timbre/modification
      */
-    public function modification($params)
+    public function modification($tim_id)
     {
         if(!isset($_SESSION['utilisateur'])) {
             Utilitaire::nouvelleRoute('utilisateur/index');
@@ -83,6 +83,7 @@ class TimbreControleur extends Controleur
         $this->gabarit->affecter('categories', $this->modele->toutCategories());
         $this->gabarit->affecter('conservations', $this->modele->toutConservations());
         $this->gabarit->affecter('pays', $this->modele->toutPays());
+        $this->gabarit->affecter('timbre', $this->modele->un($tim_id));
     }
 
     /**
@@ -91,7 +92,7 @@ class TimbreControleur extends Controleur
      */
     public function ajouter() 
     {
-        $this->modele->ajouter($_POST, $_SESSION["utilisateur"]->uti_id);
+        $this->modele->ajouter($_POST, $_SESSION["utilisateur"]->uti_id, $_FILES['tim_ima']);
         Utilitaire::nouvelleRoute('timbre/utilisateur');
     }
 
@@ -101,7 +102,7 @@ class TimbreControleur extends Controleur
      */
     public function changer() 
     {
-        $this->modele->changer($_POST, $_SESSION["utilisateur"]->uti_id);
+        $this->modele->changer($_POST, $_SESSION["utilisateur"]->uti_id, $_FILES['tim_ima']);
         Utilitaire::nouvelleRoute('timbre/utilisateur');
     }
 
@@ -109,9 +110,9 @@ class TimbreControleur extends Controleur
      * Suppression d'un timbre, de ses images et de l'enchere associee.
      *  Route associée: timbre/retirer
      */
-    public function retirer() 
+    public function retirer($params) 
     {
-        $this->modele->retirer($_POST['ctc_id']);
+        $this->modele->retirer($params);
         Utilitaire::nouvelleRoute('timbre/utilisateur');
     }
 

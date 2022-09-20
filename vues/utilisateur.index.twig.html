@@ -7,18 +7,15 @@
             <h2>Connexion</h2>
             <div class="colored-line"></div>
             <form class="form-flex-wrapper" method="post" action="utilisateur/connexion">
-                <div>
-                    <div class="form-row-wrapper">
-                        <div>
-                            <label for="uti_courriel">Courriel</label>
-                            <input type="email" name="uti_courriel" id="uti_courriel">
-                        </div>
-                        <div>
-                            <label for="uti_mdp">Mot de passe</label>
-                            <input type="password" name="uti_mdp" id="uti_mdp">
-                        </div>
+                <div class="form-row-wrapper">
+                    <div>
+                        <label for="uti_courriel">Courriel</label>
+                        <input type="email" name="uti_courriel" id="uti_courriel">
                     </div>
-                    
+                    <div>
+                        <label for="uti_mdp">Mot de passe</label>
+                        <input type="password" name="uti_mdp" id="uti_mdp">
+                    </div>
                 </div>
                 <button class="colored-button">Connexion</button>
                 {% if erreur !='' %}

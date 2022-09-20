@@ -148,6 +148,10 @@ select {
   background-color: var(--light-blue);
 }
 
+.colored-button a {
+  color: var(--white);
+}
+
 .dynamic-underline::after {
     content: '';
     display: block;
