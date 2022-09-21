@@ -34,6 +34,7 @@
     justify-content: flex-start;
     margin-top: 20px;
     cursor: pointer;
+    overflow: hidden;
 }
 
 .image-little-container {

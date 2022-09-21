@@ -31,13 +31,16 @@ class TimbreControleur extends Controleur
      */
     public function un($tim_id)
     {
-        // Chercher les timbres de la BD 
-        $resultat = $this->modele->un($tim_id);
-
+        $result = $this->modele->un($tim_id);
+        $images = $this->modele->unImages($tim_id);
+        $ima_main = $images[1][0]->ima_path;
         // Injecte le résultat dans la 'vue'
-        $this->gabarit->affecter('timbre', $resultat);
+        $this->gabarit->affecter('timbre', $result);
+        $this->gabarit->affecter('images', $images);
+        $this->gabarit->affecter('ima_princ_path', $ima_main);
 
-        return $resultat;
+        return $result;
+
         Utilitaire::nouvelleRoute('timbre/un');
     }
 

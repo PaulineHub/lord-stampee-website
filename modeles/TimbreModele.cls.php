@@ -8,15 +8,18 @@ class TimbreModele extends AccesBd
     public function tout()
     {
         $sql = "SELECT * FROM timbre 
-                JOIN image ON tim_id=ima_tim_id_ce 
                 JOIN enchere ON tim_id=enc_tim_id_ce 
                 ORDER BY tim_id";
-        
         $result = $this->lireTout($sql, true);
-
-        // Recherche de mise pour chaque enchère associée à chaque timbre
+        
         foreach ($result as $timbres) {
             foreach($timbres as $timbre) {
+                // Recherche de la premiere image pour chaque timbre
+                $sql = "SELECT ima_path FROM image 
+                        WHERE ima_tim_id_ce = $timbre->enc_tim_id_ce";
+                $imagesArray =  $this->lireTout($sql, false);
+                $timbre->ima_path = $imagesArray[0]->ima_path;
+                // Recherche de mise pour chaque enchère associée à chaque timbre
                 $sql = "SELECT mis_id, MAX(mis_montant) as mis_montant_max, mis_date FROM mise 
                         WHERE mis_enc_id_ce = $timbre->enc_id";
                 $misesArray =  $this->lireTout($sql);
@@ -136,14 +139,13 @@ class TimbreModele extends AccesBd
     /**
      * Fait une requête à la BD et retourne le détail d'un timbre, sa categorie, son pays et son etat de conservation, ses images, l'enchère associée, la quantite de mises et la mise la plus haute sur celle-ci, .
      * @param string $param Chaine représentant l'id du timbre.
-     * @return object Objet représentant les détails du timbre et ses téléphones associés.
+     * @return object Objet représentant les détails du timbre.
      */
     public function un($idArray)
     {
         $id = (int)$idArray[0];
 
         $sql = "SELECT * FROM timbre 
-                JOIN image ON ima_tim_id_ce=:id
                 JOIN enchere ON enc_tim_id_ce=:id 
                 JOIN categorie ON cat_id=tim_cat_id_ce 
                 JOIN pays ON pay_id=tim_pay_id_ce
@@ -161,6 +163,7 @@ class TimbreModele extends AccesBd
                         JOIN utilisateur ON uti_id=mis_uti_id_ce
                         WHERE mis_enc_id_ce = $info->enc_id";
                 $misesArray =  $this->lireTout($sql);
+                // Ajouter la mise la plus haute a l'objet de resultats
                 foreach ($misesArray as $mises) {
                     foreach ($mises as $mise) {
                         $info->mis_montant =  $mise->mis_montant_max;
@@ -168,11 +171,12 @@ class TimbreModele extends AccesBd
                         $info->mis_uti_nom =  $mise->uti_nom;
                     }
                 }
-                // Recherche de la quantite de mise
+                // Recherche de la quantite de mises
                 $sql = "SELECT mis_id, COUNT(mis_id) as mis_montant_quant 
                         FROM mise 
                         WHERE mis_enc_id_ce = $info->enc_id";
                 $misesArray =  $this->lireTout($sql);
+                // Ajouter la quantite de mises a l'objet de resultats
                 foreach ($misesArray as $mises) {
                     foreach ($mises as $mise) {
                         $info->mis_sum = $mise->mis_montant_quant;
@@ -180,6 +184,21 @@ class TimbreModele extends AccesBd
                 }
             }
         }
+        return $result;
+    }
+
+    /**
+     * Fait une requête à la BD et retourne les images d'un timbre.
+     * @param string $param Chaine représentant l'id du timbre.
+     * @return object Objet représentant les images du timbre.
+     */
+    public function unImages($idArray)
+    {
+        $id = (int)$idArray[0];
+        // Recherche d'images associees au timbre
+        $sql = "SELECT * FROM image 
+                WHERE ima_tim_id_ce = :id";
+        $result = $this->lireTout($sql, true, ["id" => $id]);
         return $result;
     }
 
@@ -192,8 +211,6 @@ class TimbreModele extends AccesBd
     {
         extract($timbre);
         extract($image);
-        var_dump($timbre);
-        var_dump($image);
         // Faire une requete pour inserer un nouveau timbre
         $tim_id = $this->creer(
             "INSERT INTO timbre VALUES (0, :tim_nom, :tim_tirage, :tim_dimensions, :tim_prix_dep, :tim_certificat, :tim_cat_id_ce, :tim_con_id_ce, :tim_pay_id_ce, :tim_uti_id_ce)"
@@ -217,7 +234,8 @@ class TimbreModele extends AccesBd
                 "enc_tim_id_ce"   => $tim_id,
                 "enc_uti_id_ce"   => $uti_id
             ]);
-        // Faire une requete pour inserer une nouvelle image
+        // Faire une requete pour inserer plusieurs nouvelles images
+        
         $path = 'ressources/images/timbres/' . $name;
         $this->creer(
             "INSERT INTO image VALUES (0, :ima_nom, :ima_path, :ima_tim_id_ce)"
@@ -302,6 +320,9 @@ class TimbreModele extends AccesBd
         //Supprimer l'enchere associee au timbre
         $this->supprimer("DELETE FROM enchere WHERE enc_id=:enc_id" 
             , ['enc_id' => $enc_id]);
+        //Supprimer les favoris associes au timbre
+        $this->supprimer("DELETE FROM favoris WHERE fav_tim_id_ce=:fav_tim_id_ce" 
+            , ['fav_tim_id_ce' => $tim_id]);
         //Supprimer l'image associee au timbre
         $this->supprimer("DELETE FROM image WHERE ima_tim_id_ce=:ima_tim_id_ce" 
             , ['ima_tim_id_ce' => $tim_id]);

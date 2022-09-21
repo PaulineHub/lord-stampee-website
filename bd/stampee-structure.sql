@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : jeu. 15 sep. 2022 à 20:59
+-- Généré le : mer. 21 sep. 2022 à 14:57
 -- Version du serveur : 10.4.22-MariaDB
 -- Version de PHP : 8.0.13
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `stampee`
 --
+CREATE DATABASE IF NOT EXISTS `stampee` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `stampee`;
 
 -- --------------------------------------------------------
 
@@ -87,18 +89,21 @@ CREATE TABLE `enchere` (
 --
 
 INSERT INTO `enchere` (`enc_id`, `enc_date_debut`, `enc_date_fin`, `enc_tim_id_ce`, `enc_uti_id_ce`) VALUES
-(1, '2022-09-14', '2022-10-27', 1, 2),
-(2, '2022-09-14', '2022-10-14', 2, 2),
-(3, '2022-09-14', '2022-10-14', 3, 2),
-(4, '2022-09-14', '2022-11-14', 4, 2),
-(5, '2022-09-14', '2022-11-14', 5, 2),
-(6, '2022-09-14', '2022-11-24', 6, 2),
-(7, '2022-09-14', '2022-11-24', 7, 2),
-(8, '2022-09-14', '2022-10-24', 8, 2),
-(9, '2022-09-14', '2022-10-28', 9, 2),
-(10, '2022-09-14', '2022-11-11', 10, 2),
-(11, '2022-09-14', '2022-11-11', 11, 2),
-(12, '2022-09-14', '2022-11-11', 12, 2);
+(1, '2022-10-10', '2022-10-20', 1, 2),
+(2, '2022-10-10', '2022-10-20', 2, 2),
+(3, '2022-10-10', '2022-10-20', 3, 2),
+(4, '2022-10-10', '2022-10-20', 4, 2),
+(5, '2022-10-10', '2022-10-20', 5, 2),
+(6, '2022-10-10', '2022-10-20', 6, 2),
+(7, '2022-10-10', '2022-10-20', 7, 2),
+(8, '2022-10-10', '2022-10-20', 8, 2),
+(9, '2022-10-10', '2022-10-20', 9, 2),
+(10, '2022-10-10', '2022-10-20', 10, 2),
+(11, '2022-10-10', '2022-10-20', 11, 2),
+(12, '2022-10-10', '2022-10-20', 12, 3),
+(13, '2022-10-10', '2022-10-20', 13, 3),
+(14, '2022-10-10', '2022-10-20', 14, 3),
+(15, '2022-10-10', '2022-10-20', 15, 3);
 
 -- --------------------------------------------------------
 
@@ -129,7 +134,10 @@ INSERT INTO `image` (`ima_id`, `ima_nom`, `ima_path`, `ima_tim_id_ce`) VALUES
 (9, 'stamp9', 'ressources/images/timbres/stamp9.jpg', 9),
 (10, 'stamp10', 'ressources/images/timbres/stamp10.jpg', 10),
 (11, 'stamp11', 'ressources/images/timbres/stamp11.jpg', 11),
-(12, 'stamp12', 'ressources/images/timbres/stamp12.jpg', 12);
+(12, 'stamp12', 'ressources/images/timbres/stamp12.jpg', 12),
+(13, 'stamp9.jpg', 'ressources/images/timbres/stamp9.jpg', 13),
+(14, 'stamp9.jpg', 'ressources/images/timbres/stamp9.jpg', 14),
+(15, 'stamp6.jpg', 'ressources/images/timbres/stamp6.jpg', 15);
 
 -- --------------------------------------------------------
 
@@ -205,9 +213,12 @@ INSERT INTO `timbre` (`tim_id`, `tim_nom`, `tim_tirage`, `tim_dimensions`, `tim_
 (7, 'Reine Victoria (1859) rose 1¢', 200, '27 X 22 mm', 745, 'oui', 8, 1, 1, 2),
 (8, 'Reine Victoria (1868) gris ½¢', 900, '27 X 22 mm', 135, 'non', 8, 2, 1, 2),
 (9, 'Reine Victoria (1868) vert ½¢', 900, '27 X 22 mm', 125, 'non', 8, 2, 3, 2),
-(10, 'Reine Victoria (1868) brun fonce 6¢', 900, '27 X 22 mm', 80, 'non', 8, 2, 3, 2),
-(11, 'Reine Victoria (1868) brun jaune 6¢', 600, '27 X 22 mm', 495, 'oui', 8, 1, 3, 2),
-(12, 'Reine Victoria (1868) bleu 12½¢', 200, '27 X 22 mm', 995, 'oui', 8, 1, 3, 2);
+(10, 'Reine Victoria (1868) brun fonce 6¢', 900, '27 X 22 mm', 80, 'non', 8, 2, 3, 3),
+(11, 'Reine Victoria (1868) brun jaune 6¢', 600, '27 X 22 mm', 495, 'oui', 8, 1, 3, 3),
+(12, 'Reine Victoria (1868) bleu 12½¢', 200, '27 X 22 mm', 995, 'oui', 8, 1, 3, 3),
+(13, 'test', 566, '27 X 22 mm', 566, 'oui', 1, 1, 1, 3),
+(14, 'test', 566, '27 X 22 mm', 566, 'oui', 1, 1, 1, 3),
+(15, 'test4', 566, '27 X 22 mm', 566, 'oui', 1, 1, 1, 3);
 
 -- --------------------------------------------------------
 
@@ -230,7 +241,52 @@ CREATE TABLE `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`uti_id`, `uti_nom`, `uti_courriel`, `uti_mdp`, `uti_date`, `uti_confirmation`, `uti_pri_id_ce`) VALUES
-(2, 'Odile Deray', 'test@test.com', '$2y$10$6YrfbU.PyHKQyEjNpQSQ2.gyDIQRz7QRwxwtcdfINgwQMSsIdh0FC', '2022-09-15 18:01:39', '', 2);
+(2, 'Odile Deray', 'test@test.com', '$2y$10$6YrfbU.PyHKQyEjNpQSQ2.gyDIQRz7QRwxwtcdfINgwQMSsIdh0FC', '2022-09-15 18:01:39', '', 2),
+(3, 'Bernadette Dutruc', 'test2@test2.com', '$2y$10$RhhcdkbEdn7/qFVovIwG5.Ws0h4kDXfxPE94dmG6HWXb/wBGD0A3i', '2022-09-19 14:13:01', NULL, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `mise`
+--
+
+CREATE TABLE `mise` (
+  `mis_id` int(11) NOT NULL,
+  `mis_montant` int(11) NOT NULL,
+  `mis_date` date NOT NULL,
+  `mis_uti_id_ce` int(11) NOT NULL,
+  `mis_enc_id_ce` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `mise`
+--
+
+INSERT INTO `mise` (`mis_id`, `mis_montant`, `mis_date`, `mis_uti_id_ce`, `mis_enc_id_ce`) VALUES
+(1, 250, '2022-09-21', 3, 4),
+(2, 300, '2022-09-22', 3, 7),
+(3, 400, '2022-09-22', 2, 1),
+(4, 555, '2022-09-23', 2, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `favoris`
+--
+
+CREATE TABLE `favoris` (
+  `fav_id` int(11) NOT NULL,
+  `fav_tim_id_ce` int(11) NOT NULL,
+  `fav_uti_id_ce` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `favoris`
+--
+
+INSERT INTO `favoris` (`fav_id`, `fav_tim_id_ce`, `fav_uti_id_ce`) VALUES
+(1, 11, 3),
+(2, 3, 2);
 
 --
 -- Index pour les tables déchargées
@@ -293,6 +349,23 @@ ALTER TABLE `utilisateur`
   ADD KEY `uti_ibfk_1` (`uti_pri_id_ce`);
 
 --
+-- Index pour la table `mise`
+--
+ALTER TABLE `mise`
+  ADD PRIMARY KEY (`mis_id`),
+  ADD KEY `mis_enc_id_ce` (`mis_enc_id_ce`),
+  ADD KEY `mis_uti_id_ce` (`mis_uti_id_ce`);
+
+--
+-- Index pour la table `favoris`
+--
+ALTER TABLE `favoris`
+  ADD PRIMARY KEY (`fav_id`),
+  ADD KEY `fav_tim_id_ce` (`fav_tim_id_ce`),
+  ADD KEY `fav_uti_id_ce` (`fav_uti_id_ce`);
+
+
+--
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
@@ -312,13 +385,13 @@ ALTER TABLE `conservation`
 -- AUTO_INCREMENT pour la table `enchere`
 --
 ALTER TABLE `enchere`
-  MODIFY `enc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `enc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT pour la table `image`
 --
 ALTER TABLE `image`
-  MODIFY `ima_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ima_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT pour la table `pays`
@@ -336,13 +409,27 @@ ALTER TABLE `privilege`
 -- AUTO_INCREMENT pour la table `timbre`
 --
 ALTER TABLE `timbre`
-  MODIFY `tim_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `tim_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT pour la table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `uti_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `uti_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+
+--
+-- AUTO_INCREMENT pour la table `mise`
+--
+ALTER TABLE `mise`
+  MODIFY `mis_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+
+--
+-- AUTO_INCREMENT pour la table `favoris`
+--
+ALTER TABLE `favoris`
+  MODIFY `fav_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Contraintes pour les tables déchargées
@@ -376,6 +463,24 @@ ALTER TABLE `timbre`
 ALTER TABLE `utilisateur`
   ADD CONSTRAINT `uti_ibfk_1` FOREIGN KEY (`uti_pri_id_ce`) REFERENCES `utilisateur` (`uti_id`);
 COMMIT;
+
+--
+-- Contraintes pour la table `mise`
+--
+ALTER TABLE `mise`
+  ADD CONSTRAINT `mise_ibfk_1` FOREIGN KEY (`mis_enc_id_ce`) REFERENCES `enchere` (`enc_id`),
+  ADD CONSTRAINT `mise_ibfk_2` FOREIGN KEY (`mis_uti_id_ce`) REFERENCES `utilisateur` (`uti_id`);
+COMMIT;
+
+--
+-- Contraintes pour la table `favoris`
+--
+ALTER TABLE `favoris`
+  ADD CONSTRAINT `favoris_ibfk_1` FOREIGN KEY (`fav_tim_id_ce`) REFERENCES `timbre` (`tim_id`),
+  ADD CONSTRAINT `favoris_ibfk_2` FOREIGN KEY (`fav_uti_id_ce`) REFERENCES `utilisateur` (`uti_id`);
+COMMIT;
+
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
