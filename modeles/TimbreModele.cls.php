@@ -1,6 +1,20 @@
 <?php
 class TimbreModele extends AccesBd
 {
+    public function premiereImage($id) {
+        $sql = "SELECT ima_path FROM image 
+                        WHERE ima_tim_id_ce = $id";
+                $imagesArray =  $this->lireTout($sql, false);
+        return $imagesArray[0]->ima_path;
+    }
+
+    public function miseMax($id) {
+        $sql = "SELECT mis_id, MAX(mis_montant) as mis_montant_max, mis_date, uti_nom FROM mise 
+                    JOIN utilisateur ON uti_id=mis_uti_id_ce
+                    WHERE mis_enc_id_ce = $id";
+        return $this->lireTout($sql);
+    }
+
     /**
      * Fait une requête à la BD et retourne tous les enregistrements de la table timbre, des photos associées, de l'enchère associée et de la mise la plus haute réalisée sur cette enchère.
      * @return object[] Un tableau d'objets représentant tous les timbres, leurs enchères et mises les plus hautes associées.
@@ -15,14 +29,9 @@ class TimbreModele extends AccesBd
         foreach ($result as $timbres) {
             foreach($timbres as $timbre) {
                 // Recherche de la premiere image pour chaque timbre
-                $sql = "SELECT ima_path FROM image 
-                        WHERE ima_tim_id_ce = $timbre->enc_tim_id_ce";
-                $imagesArray =  $this->lireTout($sql, false);
-                $timbre->ima_path = $imagesArray[0]->ima_path;
+                $timbre->ima_path = $this->premiereImage($timbre->enc_tim_id_ce);
                 // Recherche de mise pour chaque enchère associée à chaque timbre
-                $sql = "SELECT mis_id, MAX(mis_montant) as mis_montant_max, mis_date FROM mise 
-                        WHERE mis_enc_id_ce = $timbre->enc_id";
-                $misesArray =  $this->lireTout($sql);
+                $misesArray = $this->miseMax($timbre->enc_id);
                 foreach ($misesArray as $mises) {
                     foreach ($mises as $mise) {
                         $timbre->mis_montant =  $mise->mis_montant_max;
@@ -38,18 +47,18 @@ class TimbreModele extends AccesBd
     public function toutEncheresCrees($idUti)
     {
         $sql = "SELECT * FROM timbre 
-                JOIN image ON tim_id=ima_tim_id_ce 
                 JOIN enchere ON tim_id=enc_tim_id_ce 
                 WHERE enc_uti_id_ce=$idUti
                 ORDER BY tim_id";
         
         $result = $this->lireTout($sql, true);
-        // Recherche de mise pour chaque enchère associée à chaque timbre
+        
         foreach ($result as $timbres) {
             foreach($timbres as $timbre) {
-                $sql = "SELECT mis_id, MAX(mis_montant) as mis_montant_max, mis_date FROM mise 
-                        WHERE mis_enc_id_ce = $timbre->enc_id";
-                $misesArray =  $this->lireTout($sql);
+                // Recherche de la premiere image pour chaque timbre
+                $timbre->ima_path = $this->premiereImage($timbre->enc_tim_id_ce);
+                // Recherche de mise pour chaque enchère associée à chaque timbre
+                $misesArray = $this->miseMax($timbre->enc_id);
                 foreach ($misesArray as $mises) {
                     foreach ($mises as $mise) {
                         $timbre->mis_montant =  $mise->mis_montant_max;
@@ -64,19 +73,18 @@ class TimbreModele extends AccesBd
     public function toutMises($idUti)
     {
         $sql = "SELECT * FROM timbre 
-                JOIN image ON tim_id=ima_tim_id_ce 
                 JOIN enchere ON tim_id=enc_tim_id_ce 
                 JOIN mise ON mis_enc_id_ce=tim_id
                 WHERE mis_uti_id_ce=$idUti
                 ORDER BY tim_id";
         
         $result = $this->lireTout($sql, true);
-        // Recherche de mise pour chaque enchère associée à chaque timbre
         foreach ($result as $timbres) {
             foreach($timbres as $timbre) {
-                $sql = "SELECT mis_id, MAX(mis_montant) as mis_montant_max, mis_date FROM mise 
-                        WHERE mis_enc_id_ce = $timbre->enc_id";
-                $misesArray =  $this->lireTout($sql);
+                // Recherche de la premiere image pour chaque timbre
+                $timbre->ima_path = $this->premiereImage($timbre->enc_tim_id_ce);
+                // Recherche de mise pour chaque enchère associée à chaque timbre
+                $misesArray = $this->miseMax($timbre->enc_id);
                 foreach ($misesArray as $mises) {
                     foreach ($mises as $mise) {
                         $timbre->mis_montant =  $mise->mis_montant_max;
@@ -91,19 +99,19 @@ class TimbreModele extends AccesBd
     public function toutFavoris($idUti)
     {
         $sql = "SELECT * FROM timbre 
-                JOIN image ON tim_id=ima_tim_id_ce 
                 JOIN enchere ON tim_id=enc_tim_id_ce 
                 JOIN favoris ON fav_tim_id_ce=tim_id
                 WHERE fav_uti_id_ce=$idUti
                 ORDER BY tim_id";
         
         $result = $this->lireTout($sql, true);
-        // Recherche de mise pour chaque enchère associée à chaque timbre
+        
         foreach ($result as $timbres) {
             foreach($timbres as $timbre) {
-                $sql = "SELECT mis_id, MAX(mis_montant) as mis_montant_max, mis_date FROM mise 
-                        WHERE mis_enc_id_ce = $timbre->enc_id";
-                $misesArray =  $this->lireTout($sql);
+                // Recherche de la premiere image pour chaque timbre
+                $timbre->ima_path = $this->premiereImage($timbre->enc_tim_id_ce);
+                // Recherche de mise pour chaque enchère associée à chaque timbre
+                $misesArray = $this->miseMax($timbre->enc_id);
                 foreach ($misesArray as $mises) {
                     foreach ($mises as $mise) {
                         $timbre->mis_montant =  $mise->mis_montant_max;
@@ -158,11 +166,7 @@ class TimbreModele extends AccesBd
         foreach ($result as $timbre) {
             foreach($timbre as $info) {
                 // Recherche de la mise la plus haute
-                $sql = "SELECT mis_id, MAX(mis_montant) as mis_montant_max, mis_date, uti_nom 
-                        FROM mise 
-                        JOIN utilisateur ON uti_id=mis_uti_id_ce
-                        WHERE mis_enc_id_ce = $info->enc_id";
-                $misesArray =  $this->lireTout($sql);
+                $misesArray = $this->miseMax($info->enc_id);
                 // Ajouter la mise la plus haute a l'objet de resultats
                 foreach ($misesArray as $mises) {
                     foreach ($mises as $mise) {
@@ -235,15 +239,17 @@ class TimbreModele extends AccesBd
                 "enc_uti_id_ce"   => $uti_id
             ]);
         // Faire une requete pour inserer plusieurs nouvelles images
-        
-        $path = 'ressources/images/timbres/' . $name;
-        $this->creer(
-            "INSERT INTO image VALUES (0, :ima_nom, :ima_path, :ima_tim_id_ce)"
-            , [
-                "ima_nom"         => $name, 
-                "ima_path"        => $path,
-                "ima_tim_id_ce"   => $tim_id
+        for ($i = 0; $i < count($name); $i++) {
+            $path = 'ressources/images/timbres/' . $name[$i];
+            $this->creer(
+                "INSERT INTO image VALUES (0, :ima_nom, :ima_path, :ima_tim_id_ce)"
+                , [
+                    "ima_nom"         => $name[$i], 
+                    "ima_path"        => $path,
+                    "ima_tim_id_ce"   => $tim_id
             ]);
+        }
+        
     }
 
     /**
@@ -292,18 +298,17 @@ class TimbreModele extends AccesBd
                 "enc_tim_id_ce"   => $tim_id,
                 "enc_uti_id_ce"   => $uti_id
             ]);
-        // Faire une requete pour l'image
-        $path = 'ressources/images/timbres/' . $name;
-        $this->modifier("UPDATE image SET 
-                ima_nom = :ima_nom, 
-                ima_path = :ima_path, 
-                ima_tim_id_ce = :ima_tim_id_ce
-                WHERE ima_tim_id_ce = :ima_tim_id_ce"
-            , [
-                "ima_nom"         => $name, 
-                "ima_path"        => $path,
-                "ima_tim_id_ce"   => $tim_id
+         // Faire une requete pour inserer plusieurs nouvelles images
+        for ($i = 0; $i < count($name); $i++) {
+            $path = 'ressources/images/timbres/' . $name[$i];
+            $this->creer(
+                "INSERT INTO image VALUES (0, :ima_nom, :ima_path, :ima_tim_id_ce)"
+                , [
+                    "ima_nom"         => $name[$i], 
+                    "ima_path"        => $path,
+                    "ima_tim_id_ce"   => $tim_id
             ]);
+        }
     }
 
     /**
@@ -323,7 +328,7 @@ class TimbreModele extends AccesBd
         //Supprimer les favoris associes au timbre
         $this->supprimer("DELETE FROM favoris WHERE fav_tim_id_ce=:fav_tim_id_ce" 
             , ['fav_tim_id_ce' => $tim_id]);
-        //Supprimer l'image associee au timbre
+        //Supprimer les images associees au timbre
         $this->supprimer("DELETE FROM image WHERE ima_tim_id_ce=:ima_tim_id_ce" 
             , ['ima_tim_id_ce' => $tim_id]);
         // Supprimer le timbre 

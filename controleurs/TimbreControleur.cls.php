@@ -33,7 +33,7 @@ class TimbreControleur extends Controleur
     {
         $result = $this->modele->un($tim_id);
         $images = $this->modele->unImages($tim_id);
-        $ima_main = $images[1][0]->ima_path;
+        $ima_main = $images[$tim_id[0]][0]->ima_path;
         // Injecte le résultat dans la 'vue'
         $this->gabarit->affecter('timbre', $result);
         $this->gabarit->affecter('images', $images);
@@ -95,7 +95,7 @@ class TimbreControleur extends Controleur
      */
     public function ajouter() 
     {
-        $this->modele->ajouter($_POST, $_SESSION["utilisateur"]->uti_id, $_FILES['tim_ima']);
+        $this->modele->ajouter($_POST, $_SESSION["utilisateur"]->uti_id, $_FILES['ima_files']);
         Utilitaire::nouvelleRoute('timbre/utilisateur');
     }
 
@@ -105,7 +105,7 @@ class TimbreControleur extends Controleur
      */
     public function changer() 
     {
-        $this->modele->changer($_POST, $_SESSION["utilisateur"]->uti_id, $_FILES['tim_ima']);
+        $this->modele->changer($_POST, $_SESSION["utilisateur"]->uti_id, $_FILES['ima_files']);
         Utilitaire::nouvelleRoute('timbre/utilisateur');
     }
 

@@ -58,8 +58,8 @@
                     <label for="enc_date_fin">Date de fin de l'enchère</label>
                     <input type="text" name="enc_date_fin" id="enc_date_fin" placeholder="aaaa/mm/jj" value="{{info.enc_date_fin}}" required>
                     <!--IMAGE-->
-                    <label for="tim_ima">Téléverser vos images</label>
-                    <input type="file" name="tim_ima" id="tim_ima" accept="image/png, image/jpeg" value="{{info.ima_path}}">
+                    <label for="ima_files">Téléverser vos images</label>
+                    <input type="file" name="ima_files[]" id="ima_files" accept="image/png, image/jpeg" multiple="multiple">
                     <button type="submit" class="colored-button">Soumettre</button>
                 </form>
             {% endfor %}
