@@ -123,21 +123,24 @@ CREATE TABLE `image` (
 --
 
 INSERT INTO `image` (`ima_id`, `ima_nom`, `ima_path`, `ima_tim_id_ce`) VALUES
-(1, 'stamp1', 'ressources/images/timbres/stamp1.jpg', 1),
-(2, 'stamp2', 'ressources/images/timbres/stamp2.jpg', 2),
-(3, 'stamp3', 'ressources/images/timbres/stamp3.jpg', 3),
-(4, 'stamp4', 'ressources/images/timbres/stamp4.jpg', 4),
-(5, 'stamp5', 'ressources/images/timbres/stamp5.jpg', 5),
-(6, 'stamp6', 'ressources/images/timbres/stamp6.jpg', 6),
-(7, 'stamp7', 'ressources/images/timbres/stamp7.jpg', 7),
-(8, 'stamp8', 'ressources/images/timbres/stamp8.jpg', 8),
-(9, 'stamp9', 'ressources/images/timbres/stamp9.jpg', 9),
-(10, 'stamp10', 'ressources/images/timbres/stamp10.jpg', 10),
-(11, 'stamp11', 'ressources/images/timbres/stamp11.jpg', 11),
-(12, 'stamp12', 'ressources/images/timbres/stamp12.jpg', 12),
+(1, 'stamp1.jpg', 'ressources/images/timbres/stamp1.jpg', 1),
+(2, 'stamp2.jpg', 'ressources/images/timbres/stamp2.jpg', 2),
+(3, 'stamp3.jpg', 'ressources/images/timbres/stamp3.jpg', 3),
+(4, 'stamp4.jpg', 'ressources/images/timbres/stamp4.jpg', 4),
+(5, 'stamp5.jpg', 'ressources/images/timbres/stamp5.jpg', 5),
+(6, 'stamp6.jpg', 'ressources/images/timbres/stamp6.jpg', 6),
+(7, 'stamp7.jpg', 'ressources/images/timbres/stamp7.jpg', 7),
+(8, 'stamp8.jpg', 'ressources/images/timbres/stamp8.jpg', 8),
+(9, 'stamp9.jpg', 'ressources/images/timbres/stamp9.jpg', 9),
+(10, 'stamp10.jpg', 'ressources/images/timbres/stamp10.jpg', 10),
+(11, 'stamp11.jpg', 'ressources/images/timbres/stamp11.jpg', 11),
+(12, 'stamp12.jpg', 'ressources/images/timbres/stamp12.jpg', 12),
 (13, 'stamp9.jpg', 'ressources/images/timbres/stamp9.jpg', 13),
-(14, 'stamp9.jpg', 'ressources/images/timbres/stamp9.jpg', 14),
-(15, 'stamp6.jpg', 'ressources/images/timbres/stamp6.jpg', 15);
+(15, 'stamp6.jpg', 'ressources/images/timbres/stamp6.jpg', 15),
+(16, 'stamp1.jpg', 'ressources/images/timbres/stamp10.jpg', 1),
+(17, 'stamp1.jpg', 'ressources/images/timbres/stamp10.jpg', 1),
+(25, 'stamp5.jpg', 'ressources/images/timbres/stamp5.jpg', 25),
+(26, 'stamp4.jpg', 'ressources/images/timbres/stamp4.jpg', 25);
 
 -- --------------------------------------------------------
 
@@ -241,8 +244,8 @@ CREATE TABLE `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`uti_id`, `uti_nom`, `uti_courriel`, `uti_mdp`, `uti_date`, `uti_confirmation`, `uti_pri_id_ce`) VALUES
-(2, 'Odile Deray', 'test@test.com', '$2y$10$6YrfbU.PyHKQyEjNpQSQ2.gyDIQRz7QRwxwtcdfINgwQMSsIdh0FC', '2022-09-15 18:01:39', '', 2),
-(3, 'Bernadette Dutruc', 'test2@test2.com', '$2y$10$RhhcdkbEdn7/qFVovIwG5.Ws0h4kDXfxPE94dmG6HWXb/wBGD0A3i', '2022-09-19 14:13:01', NULL, 2);
+(2, 'Lord Stampee', 'test@test.com', '$2y$10$6YrfbU.PyHKQyEjNpQSQ2.gyDIQRz7QRwxwtcdfINgwQMSsIdh0FC', '2022-09-15 18:01:39', '', 2),
+(3, 'Bernadette Dutruc', 'test2@test2.com', '$2y$10$RhhcdkbEdn7/qFVovIwG5.Ws0h4kDXfxPE94dmG6HWXb/wBGD0A3i', '2022-09-19 14:13:01', '', 2);
 
 -- --------------------------------------------------------
 
@@ -286,7 +289,11 @@ CREATE TABLE `favoris` (
 
 INSERT INTO `favoris` (`fav_id`, `fav_tim_id_ce`, `fav_uti_id_ce`) VALUES
 (1, 11, 3),
-(2, 3, 2);
+(2, 10, 2),
+(3, 9, 2),
+(4, 12, 2),
+(5, 11, 2);
+
 
 --
 -- Index pour les tables déchargées

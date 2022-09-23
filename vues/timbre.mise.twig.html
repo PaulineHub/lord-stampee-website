@@ -1,0 +1,38 @@
+{% extends "base.twig.html" %}
+
+{% block main %}
+    <!----------------- MAIN ------------------>
+    <main class="main-product">
+        <section >
+            <div class="mise-container">
+                <div class="image-container"><img src="../{{ima_princ_path}}" alt="{{ima_princ_path}}"></div>
+                {% for infos in timbre %}
+                    {% for info in infos %}
+                        <div class="grid-item-description">
+                            <h6># {{info.enc_tim_id_ce}}</h6>
+                            <h6>{{info.tim_nom}}</h6>
+                            <p class="light">{{info.enc_date_debut}} - {{info.enc_date_fin}}</p>
+                            {% if info.mis_montant %}
+                                <p>Offre actuelle : {{info.mis_montant}}$</p>
+                            {% else %}
+                                <p>Offre actuelle : {{info.tim_prix_dep}}$</p>
+                            {% endif %}
+                            <form method="POST" action="timbre/miser" class="form-mise">
+                                <input type="hidden" name="mis_enc_id_ce" value="{{info.enc_id}}">
+                                <label for="mis_montant">Montant de votre mise (CAD)</label>
+                                <input type="number" name="mis_montant" id="mis_montant" min="0" placeholder="0" required>
+                                <button class="colored-button">Miser</button>
+                            </form>
+                            <span>Votre mise a bien été enregistrée !</span>
+                        </div>
+                    </div>
+                    </section>
+                    
+                    {% endfor %}
+                {% endfor %}
+        <div class="pagination return-wrapper">
+            <a href="timbre/tout"><i class="fa-solid fa-chevron-left"></i>Retour</a>
+        </div>
+    </main>
+    
+{% endblock %}

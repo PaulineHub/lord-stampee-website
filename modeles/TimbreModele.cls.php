@@ -207,9 +207,10 @@ class TimbreModele extends AccesBd
     }
 
     /**
-     * Fait une requête à la BD et insert un nouveau timbre et ses nouveaux téléphones.
-     * @param object[] $timbre Un tableau d'objets représentant toutes les informations du timbre et des téléphones.
+     * Fait une requête à la BD et insert un nouveau timbre, son enchere et ses images.
+     * @param object[] $timbre Un tableau d'objets représentant toutes les informations du timbre et de l'enchere.
      * @param string $uti_id Chaine représentant l'id de l'utilisateur.
+     * @param object[] $image Un tableau d'objets représentant toutes les informations des images.
      */
     public function ajouter($timbre, $uti_id, $image)
     {
@@ -335,6 +336,25 @@ class TimbreModele extends AccesBd
         $this->supprimer("DELETE FROM timbre WHERE tim_id=:tim_id"
             , ['tim_id' => $tim_id]);
 
+    }
+
+    /**
+     * Fait une requête à la BD et insert une nouvelle mise.
+     * @param object[] $mise Un tableau d'objets représentant toutes les informations de la mise.
+     * @param string $uti_id Chaine représentant l'id de l'utilisateur.
+     */
+    public function miser($mise, $uti_id)
+    {
+        extract($mise);
+        // Faire une requete pour inserer une nouvelle mise
+        $result = $this->creer(
+            "INSERT INTO mise VALUES (0, :mis_montant, NOW(), :mis_uti_id_ce, :mis_enc_id_ce)"
+            , [
+                "mis_montant"    => $mis_montant, 
+                "mis_uti_id_ce"  => $uti_id,
+                "mis_enc_id_ce"  => $mis_enc_id_ce
+            ]);
+        var_dump($result);
     }
 
     

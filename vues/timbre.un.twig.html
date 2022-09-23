@@ -36,7 +36,7 @@
                     <div class="product-description">
                         <h3>Description</h3>
                         <p>Pays : {{info.pay_nom}}</p>
-                        <p>Condition : {{info.con_nom}}</p>
+                        <p>Condition : {{info.con_etat}}</p>
                         <p>Tirage : {{info.tim_tirage}}</p> 
                         <p>Dimensions : {{info.tim_dimensions}}</p>
                         <p>Certifié : <span>{{info.tim_certificat}}</span></p>
@@ -50,7 +50,7 @@
                         <p>Prix plancher : {{info.tim_prix_dep}} CAD</p>
                         <p>Début/Fin : {{info.enc_date_debut}} au {{info.enc_date_fin}}</p>
                     </div>
-                    <button class="colored-button">Miser</button>
+                    <button class="colored-button"><a href="timbre/mise/{{info.enc_tim_id_ce}}">Miser</a></button>
                 </aside>
                 </div>
             {% endfor %}

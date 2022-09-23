@@ -45,6 +45,24 @@ class TimbreControleur extends Controleur
     }
 
     /**
+      * Affichage du détail d’un timbre lorsqu’un timbre particulier est cliqué pour miser dessus.
+     *  Route associée : timbre/un
+     */
+    public function mise($tim_id)
+    {
+        $result = $this->modele->un($tim_id);
+        $images = $this->modele->unImages($tim_id);
+        $ima_main = $images[$tim_id[0]][0]->ima_path;
+        // Injecte le résultat dans la 'vue'
+        $this->gabarit->affecter('timbre', $result);
+        $this->gabarit->affecter('ima_princ_path', $ima_main);
+
+        return $result;
+
+        Utilitaire::nouvelleRoute('timbre/mise');
+    }
+
+    /**
      * Affichage de tous les timbres d'un utilisateur.
      *  Route associée: timbre/utilisateur
      */
@@ -97,6 +115,26 @@ class TimbreControleur extends Controleur
     {
         $this->modele->ajouter($_POST, $_SESSION["utilisateur"]->uti_id, $_FILES['ima_files']);
         Utilitaire::nouvelleRoute('timbre/utilisateur');
+    }
+
+    /**
+     * Ajout d'une mise.
+     *  Route associée: timbre/miser
+     */
+    public function miser() 
+    {
+        $this->modele->miser($_POST, $_SESSION["utilisateur"]->uti_id);
+
+        $result = $this->modele->un($tim_id);
+        $images = $this->modele->unImages($tim_id);
+        $ima_main = $images[$tim_id[0]][0]->ima_path;
+        // Injecte le résultat dans la 'vue'
+        $this->gabarit->affecter('timbre', $result);
+        $this->gabarit->affecter('ima_princ_path', $ima_main);
+
+        return $result;
+
+        Utilitaire::nouvelleRoute('timbre/mise');
     }
 
     /**

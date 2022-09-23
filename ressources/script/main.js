@@ -10,7 +10,7 @@ import ZoomImage from './ZoomImage.js';
     let pathname = window.location.pathname;
     if (pathname == "/accueil/index") new ContainerItems();
     if (pathname == "/timbre/tout") new Filters();
-    if (pathname == "/timbre/un") {
+    else {
         new StarFavorite();
         new ZoomImage();
     }
