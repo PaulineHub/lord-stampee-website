@@ -31,7 +31,7 @@ class TimbreControleur extends Controleur
      */
     public function un($tim_id)
     {
-        $result = $this->modele->un($tim_id);
+        $result = $this->modele->un($tim_id, $_SESSION['utilisateur']->uti_id);
         $images = $this->modele->unImages($tim_id);
         $ima_main = $images[$tim_id[0]][0]->ima_path;
         // Injecte le résultat dans la 'vue'
@@ -45,11 +45,25 @@ class TimbreControleur extends Controleur
     }
 
     /**
+      * Ajoute ou retire le timbre des favoris de l'utilisateur.
+     *  Route associée : timbre/favoris
+     */
+    public function favoris()
+    {
+        $this->modele->aimer($_POST, $_SESSION["utilisateur"]->uti_id);
+        Utilitaire::nouvelleRoute('timbre/tout');
+    }
+
+    /**
       * Affichage du détail d’un timbre lorsqu’un timbre particulier est cliqué pour miser dessus.
      *  Route associée : timbre/un
      */
     public function mise($tim_id)
     {
+        if(!isset($_SESSION['utilisateur'])) {
+            Utilitaire::nouvelleRoute('utilisateur/index');
+        }
+
         $result = $this->modele->un($tim_id);
         $images = $this->modele->unImages($tim_id);
         $ima_main = $images[$tim_id[0]][0]->ima_path;
@@ -124,17 +138,7 @@ class TimbreControleur extends Controleur
     public function miser() 
     {
         $this->modele->miser($_POST, $_SESSION["utilisateur"]->uti_id);
-
-        $result = $this->modele->un($tim_id);
-        $images = $this->modele->unImages($tim_id);
-        $ima_main = $images[$tim_id[0]][0]->ima_path;
-        // Injecte le résultat dans la 'vue'
-        $this->gabarit->affecter('timbre', $result);
-        $this->gabarit->affecter('ima_princ_path', $ima_main);
-
-        return $result;
-
-        Utilitaire::nouvelleRoute('timbre/mise');
+        Utilitaire::nouvelleRoute('timbre/tout');
     }
 
     /**
@@ -159,13 +163,13 @@ class TimbreControleur extends Controleur
 
     /**
      * Recherche d'un timbre.
-     *  Route associée: timbre/rechercher
+     *  Route associée: timbre/recherche
      */
-    public function rechercher() 
+    public function recherche() 
     {
         if($_POST['recherche'] != "") {
             $recherche = "%" . $_POST['recherche'] . "%";
-            $this->gabarit->affecter('timbres', $this->modele->rechercher($recherche, $_SESSION["utilisateur"]->uti_id));
+            $this->gabarit->affecter('timbres', $this->modele->rechercher($recherche));
         }
     }
 

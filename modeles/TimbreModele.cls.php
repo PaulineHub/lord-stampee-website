@@ -149,7 +149,7 @@ class TimbreModele extends AccesBd
      * @param string $param Chaine représentant l'id du timbre.
      * @return object Objet représentant les détails du timbre.
      */
-    public function un($idArray)
+    public function un($idArray, $uti_id)
     {
         $id = (int)$idArray[0];
 
@@ -186,6 +186,13 @@ class TimbreModele extends AccesBd
                         $info->mis_sum = $mise->mis_montant_quant;
                     }
                 }
+                // Recherche de favoris
+                $sql = "SELECT *  
+                        FROM favoris 
+                        WHERE fav_tim_id_ce = $info->enc_tim_id_ce AND fav_uti_id_ce=$uti_id";
+                $favoris =  $this->lireUn($sql);
+                if ($favoris) $info->favoris = true;
+                else $info->favoris = false;
             }
         }
         return $result;
@@ -342,6 +349,7 @@ class TimbreModele extends AccesBd
      * Fait une requête à la BD et insert une nouvelle mise.
      * @param object[] $mise Un tableau d'objets représentant toutes les informations de la mise.
      * @param string $uti_id Chaine représentant l'id de l'utilisateur.
+     * @return string Le dernier id insere
      */
     public function miser($mise, $uti_id)
     {
@@ -354,7 +362,29 @@ class TimbreModele extends AccesBd
                 "mis_uti_id_ce"  => $uti_id,
                 "mis_enc_id_ce"  => $mis_enc_id_ce
             ]);
-        var_dump($result);
+        return $result;
+    }
+
+    /**
+     * Si le favoris existe, le supprime de la BD, sinon l'ajoute a la BD.
+     * @param object[] $mise Un tableau d'objets représentant toutes les informations de la mise.
+     * @param string $uti_id Chaine représentant l'id de l'utilisateur.
+     * @return string Le dernier id insere
+     */
+    public function aimer($favoris, $uti_id)
+    {
+        extract($favoris);
+        if ($fav_exist == "true") {
+            $this->supprimer("DELETE FROM favoris WHERE fav_tim_id_ce=:fav_tim_id_ce" 
+            , ['fav_tim_id_ce' => $fav_tim_id_ce]);
+        } else {
+            $this->creer(
+            "INSERT INTO favoris VALUES (0, :fav_tim_id_ce, :fav_uti_id_ce)"
+            , [
+                "fav_tim_id_ce"  => $fav_tim_id_ce, 
+                "fav_uti_id_ce"  => $uti_id
+            ]);
+        }
     }
 
     
@@ -365,20 +395,58 @@ class TimbreModele extends AccesBd
      * @return object[] Un tableau d'objets représentant tous les timbres et leur téléphones associés.
      *
      */
-    public function rechercher($expression, $uti_id)
+    public function rechercher($expression)
     {
+        // $sql = "SELECT * FROM timbre 
+        //         JOIN enchere ON tim_id=enc_tim_id_ce 
+        //         ORDER BY tim_id";
+        // $result = $this->lireTout($sql, true);
+        
+        // foreach ($result as $timbres) {
+        //     foreach($timbres as $timbre) {
+        //         // Recherche de la premiere image pour chaque timbre
+        //         $timbre->ima_path = $this->premiereImage($timbre->enc_tim_id_ce);
+        //         // Recherche de mise pour chaque enchère associée à chaque timbre
+        //         $misesArray = $this->miseMax($timbre->enc_id);
+        //         foreach ($misesArray as $mises) {
+        //             foreach ($mises as $mise) {
+        //                 $timbre->mis_montant =  $mise->mis_montant_max;
+        //                 $timbre->mis_date =  $mise->mis_date;
+        //             }
+        //         }
+        //     }
+        // }
+        // return $result;
 
-        // return $this->lireTout("SELECT ctc_id, ctc_nom, ctc_prenom, ctc_categorie, telephone.*  FROM telephone 
-        //                         JOIN timbre ON ctc_id=tel_ctc_id_ce 
-        //                         WHERE ctc_nom LIKE :ctc_nom OR ctc_prenom LIKE :ctc_prenom OR tel_numero LIKE :tel_numero 
-        //                         AND ctc_uti_id_ce = '$uti_id'
-        //                         ORDER BY ctc_prenom"
-        //                         , true, // on veut les données groupées par timbre
-        //                         [
-        //                         "ctc_nom"          => $expression,
-        //                         "ctc_prenom"      => $expression, 
-        //                         "tel_numero"        => $expression
-        //                     ]);
+
+
+        $sql = "SELECT * FROM timbre  
+                JOIN enchere ON tim_id=enc_tim_id_ce
+                WHERE tim_nom LIKE :tim_nom OR tim_id LIKE :tim_id  
+                ORDER BY tim_id";
+         $result = $this->lireTout($sql
+                                , true, // on veut les données groupées par timbre
+                                [
+                                "tim_nom"          => $expression,
+                                "tim_id"      => $expression
+                            ]);
+
+        foreach ($result as $timbres) {
+            foreach($timbres as $timbre) {
+                // Recherche de la premiere image pour chaque timbre
+                $timbre->ima_path = $this->premiereImage($timbre->enc_tim_id_ce);
+                // Recherche de mise pour chaque enchère associée à chaque timbre
+                $misesArray = $this->miseMax($timbre->enc_id);
+                foreach ($misesArray as $mises) {
+                    foreach ($mises as $mise) {
+                        $timbre->mis_montant =  $mise->mis_montant_max;
+                        $timbre->mis_date =  $mise->mis_date;
+                    }
+                }
+            }
+        }
+        //var_dump($result);
+        return $result;
     }
     
 

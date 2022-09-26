@@ -38,14 +38,14 @@
                 </div>
 
                 <div class="form-and-log-wrapper-mobile">
-                    <form class="form-search">
-                        <input type="text" name="search" id="search" placeholder="Chercher...">
+                    <form class="form-search" method="POST" action="timbre/recherche">
+                        <input type="text" name="recherche" id="search" placeholder="Chercher...">
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
                     {% if session.utilisateur %}
                         <a href="utilisateur/deconnexion">Déconnexion</a>
                     {% else %}
-                    <a href="utilisateur/index" class="btn-login">Connexion</a>
+                        <a href="utilisateur/index" class="btn-login">Connexion</a>
                     {% endif %}
                 </div>
                 <div class="dropdown">
@@ -128,8 +128,8 @@
                 </div>
             </div>
             <div class="form-and-log-wrapper">
-                <form class="form-search">
-                    <input type="text" name="search" id="search-mobile" placeholder="Chercher...">
+                <form class="form-search" method="POST" action="timbre/recherche">
+                    <input type="text" name="recherche" id="search-mobile" placeholder="Chercher...">
                     <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
                 {% if session.utilisateur %}

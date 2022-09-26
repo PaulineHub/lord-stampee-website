@@ -1,0 +1,157 @@
+{% extends "base.twig.html" %}
+
+{% block main %}
+    <!----------------- HEADER ------------------>
+    <header class="banner banner-catalogue">
+        <section class="text-hero-container">
+            <h1>Nos enchères en cours</h1>
+            <div class="colored-line"></div>
+            <p>Explorez notre exceptionnelle sélection de timbres dont les enchères ont lieu en ce moment même !</p>
+        </section>
+    </header>
+    <!----------------- MAIN ------------------>
+    <main class="catalogue-container">
+        <div class="toolbar">
+            <span>250 résultats</span>
+            <form class="sort-wrapper">
+                <select name="tri" id="tri">
+                    <option value="defaut">Trier par: Pertinence</option>
+                    <option value="prixBasHaut">Enchere de depart : Bas à Haut</option>
+                    <option value="prixHautBas">Enchere de depart : Haut à Bas</option>
+                    <option value="NumLot">Numéro de lot</option>
+                </select>
+            </form>
+            <span id="openFilterBtn" class="openbtn"><i class="fa-solid fa-sliders" id="filter-icon"></i></span>
+        </div>
+        <pre>
+        </pre>
+        <!----------------- FILTRES ------------------>
+        <div class="filter-and-grid-wrapper">
+            <aside class="filter-container" id="filter-container">
+                <a href="#" class="closebtn" id="closeFilterBtn">&times;</a>
+                <div class="form-search-container">
+                    <form class="sort-wrapper sort-wrapper-mobile">
+                        <select name="tri" id="tri-mobile">
+                            <option value="defaut">Trier par: Pertinence</option>
+                            <option value="prixBasHaut">Enchere de depart : Bas à Haut</option>
+                            <option value="prixHautBas">Enchere de depart : Haut à Bas</option>
+                            <option value="NumLot">Numéro de lot</option>
+                        </select>
+                    </form>
+                    <form class="form-search">
+                        <input type="text" name="search" id="search-filter" placeholder="Chercher timbres">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+                <!-- categories filter -->
+                <div class="list-filter-wrapper">
+                    <div class="title-filter-wrapper">
+                        <h3>Categories</h3>
+                        <button class="filter-chevron-up"><i class="fa-solid fa-chevron-up"></i></button>
+                        <button class="filter-chevron-down"><i class="fa-solid fa-chevron-down"></i></button>
+                    </div> 
+                    <div id="categorie">
+                        <ul>
+                            <li><input type="checkbox" name="category" id="architecture"><label for="architecture">Architecture</label></li>
+                            <li><input type="checkbox" name="category" id="art"><label for="art">Art</label></li>
+                            <li><input type="checkbox" name="category" id="canada-pays"><label for="canada-pays">Canada</label></li>
+                            <li><input type="checkbox" name="category" id="europe"><label for="europe">Europe</label></li>
+                            <li><input type="checkbox" name="category" id="ferroviaire"><label for="ferroviaire">Ferroviaire</label></li>
+                            <li><input type="checkbox" name="category" id="maritime"><label for="maritime">Maritime</label></li>
+                            <li><input type="checkbox" name="category" id="monde"><label for="monde">Monde</label></li>
+                            <li><input type="checkbox" name="category" id="royaute"><label for="royaute">Royauté</label></li>
+                            <li><input type="checkbox" name="category" id="sport"><label for="sport">Sport</label></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- prix filter -->
+                <div class="list-filter-wrapper">
+                    <div class="title-filter-wrapper">
+                        <h3>Prix</h3>
+                        <button class="filter-chevron-up"><i class="fa-solid fa-chevron-up"></i></button>
+                        <button class="filter-chevron-down"><i class="fa-solid fa-chevron-down"></i></button>
+                    </div>
+                    <div id="prix" >
+                        <div class="range-filter-container">
+                            <input type="range" min="0" max="200" value="0" id="slider-1" oninput="slideOne()">
+                            <input type="range" min="0" max="200" value="200" id="slider-2" oninput="slideTwo()">
+                        </div>
+                        <div class="range-filter-value">
+                            <div id="value1">0CAD</div>
+                            <div id="value2">200CAD</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- pays filter -->
+                <div class="list-filter-wrapper">
+                    <div class="title-filter-wrapper">
+                        <h3>Pays</h3>
+                        <button class="filter-chevron-up"><i class="fa-solid fa-chevron-up"></i></button>
+                        <button class="filter-chevron-down"><i class="fa-solid fa-chevron-down"></i></button>
+                    </div>
+                    <div id="pays">
+                        <ul>
+                            <li><input type="checkbox" name="pays" id="angleterre"><label for="angleterre">Angleterre</label></li>
+                            <li><input type="checkbox" name="pays" id="australie"><label for="australie">Australie</label></li>
+                            <li><input type="checkbox" name="pays" id="canada"><label for="canada">Canada</label></li>
+                            <li><input type="checkbox" name="pays" id="france"><label for="france">France</label></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- condition filter -->
+                <div class="list-filter-wrapper">
+                    <div class="title-filter-wrapper">
+                        <h3>Condition</h3>
+                        <button class="filter-chevron-up"><i class="fa-solid fa-chevron-up"></i></button>
+                        <button class="filter-chevron-down"><i class="fa-solid fa-chevron-down"></i></button>
+                    </div>
+                    <div id="condition">
+                        <ul>
+                            <li><input type="checkbox" name="condition" id="parfaite"><label for="parfaite">Parfaite</label></li>
+                            <li><input type="checkbox" name="condition" id="excellente"><label for="excellente">Excellente</label></li>
+                            <li><input type="checkbox" name="condition" id="bonne"><label for="bonne">Bonne</label></li>
+                            <li><input type="checkbox" name="condition" id="moyenne"><label for="moyenne">Moyenne</label></li>
+                            <li><input type="checkbox" name="condition" id="endommagee"><label for="endommagee">Endommagée</label></li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+            <div class="grid-and-pagination-container">
+                <!--------------- GRILLE PRODUITS ---------------->
+                <section class="grid" id="grid">
+                    {% for timbre in timbres %}
+                        {% for infos in timbre %}
+                        <div class="grid-item" id="{{infos.enc_tim_id_ce}}">
+                            <a href="timbre/un/{{infos.enc_tim_id_ce}}">
+                                <div class="image-container"><img src="../{{infos.ima_path}}" alt="{{infos.tim_nom}}"></div>
+                                <div class="grid-item-description">
+                                    <h6># {{infos.enc_tim_id_ce}}</h6>
+                                    <h6>{{infos.tim_nom}}</h6>
+                                    <p class="light">{{infos.enc_date_debut}} - {{infos.enc_date_fin}}</p>
+                                    {% if infos.mis_montant %}
+                                    <p>Offre actuelle : {{infos.mis_montant}}$</p>
+                                    {% else %}
+                                    <p>Offre actuelle : {{infos.tim_prix_dep}}$</p>
+                                    {% endif %}
+                                </div>
+                                <button class="colored-button"><a href="timbre/mise/{{infos.enc_tim_id_ce}}">Miser</a></button>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    {% endfor %}
+                </section>
+                <!----------------- PAGINATION ------------------>
+                <div class="pagination">
+                    <button><i class="fa-solid fa-chevron-left"></i></button>
+                    <div>
+                        <span class="page-selected"><a href="">1</a></span>
+                        <span><a href="">2</a></span>
+                        <span><a href="">3</a></span>
+                    </div>
+                    <button><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+    {% endblock %}

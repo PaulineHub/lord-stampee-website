@@ -26,7 +26,16 @@
                             <div class="coup-de-coeur-logo-container"><img src="ressources/images/coup-de-coeur.png" alt=""></div>
                             <span>Coup de coeur du Lord</span>
                         </div>
-                        <button id="fav-btn"><i class="fa-regular fa-star" id="fa-star"></i></button>
+                        <form method="POST" action="timbre/favoris">
+                            <input type="hidden" name="fav_tim_id_ce" value="{{info.enc_tim_id_ce}}">
+                            {% if info.favoris %}
+                            <input type="hidden" name="fav_exist" value="true">
+                            <button id="fav-btn"><i class="fa-solid fa-star" id="fa-star"></i></button>
+                            {% else %}
+                            <input type="hidden" name="fav_exist" value="false">
+                            <button id="fav-btn"><i class="fa-regular fa-star" id="fa-star"></i></button>
+                            {% endif %}
+                        </form>
                     </div>
                     <div class="product-category">Categorie : <span>{{info.cat_nom}}</span></div>
                     <div class="product-title-container">

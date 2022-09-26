@@ -18,12 +18,15 @@
                                 <p>Offre actuelle : {{info.tim_prix_dep}}$</p>
                             {% endif %}
                             <form method="POST" action="timbre/miser" class="form-mise">
+                                <input type="hidden" name="tim_id" value="{{info.enc_tim_id_ce}}">
                                 <input type="hidden" name="mis_enc_id_ce" value="{{info.enc_id}}">
                                 <label for="mis_montant">Montant de votre mise (CAD)</label>
                                 <input type="number" name="mis_montant" id="mis_montant" min="0" placeholder="0" required>
                                 <button class="colored-button">Miser</button>
                             </form>
-                            <span>Votre mise a bien été enregistrée !</span>
+                            {% if miseReussie %}
+                                <span>Votre mise a bien été enregistrée !</span>
+                            {% endif %}
                         </div>
                     </div>
                     </section>
