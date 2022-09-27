@@ -9,10 +9,10 @@ class TimbreControleur extends Controleur
     /**
      * Méthode invoquée par défaut si aucune action n'est indiquée.
      */
-    public function index($params)
+    public function index()
     {
         $this->gabarit->affecterActionParDefaut('tout');
-        $this->tout($params);
+        $this->tout();
 
     }
 
@@ -20,7 +20,7 @@ class TimbreControleur extends Controleur
      * Affichage de tous les timbres.
      *  Route associée: timbre/tout
      */
-    public function tout($params)
+    public function tout()
     {
         $this->gabarit->affecter('timbres', $this->modele->tout());
     }
@@ -28,12 +28,21 @@ class TimbreControleur extends Controleur
     /**
       * Affichage du détail d’un timbre lorsqu’un timbre particulier est cliqué.
      *  Route associée : timbre/un
+     * @param array $idArray Tableau contenant l'id du timbre en chaine de caractères.
+     * @return object Objet représentant les détails du timbre.
      */
     public function un($tim_id)
     {
-        $result = $this->modele->un($tim_id, $_SESSION['utilisateur']->uti_id);
+        $result;
+        if (isset($_SESSION['utilisateur'])) {
+            $result = $this->modele->un($tim_id, $_SESSION['utilisateur']->uti_id);
+        } else {
+            $result = $this->modele->un($tim_id);
+        }
+        
         $images = $this->modele->unImages($tim_id);
-        $ima_main = $images[$tim_id[0]][0]->ima_path;
+        $key = array_key_first($images);
+        $ima_main = $images[$key][0]->ima_path;
         // Injecte le résultat dans la 'vue'
         $this->gabarit->affecter('timbre', $result);
         $this->gabarit->affecter('images', $images);
@@ -50,13 +59,15 @@ class TimbreControleur extends Controleur
      */
     public function favoris()
     {
-        $this->modele->aimer($_POST, $_SESSION["utilisateur"]->uti_id);
-        Utilitaire::nouvelleRoute('timbre/tout');
+        if (isset($_SESSION['utilisateur'])) {
+            $this->modele->aimer($_POST, $_SESSION["utilisateur"]->uti_id);
+        }
+        Utilitaire::nouvelleRoute('timbre/un/' . $_POST['fav_tim_id_ce']);
     }
 
     /**
       * Affichage du détail d’un timbre lorsqu’un timbre particulier est cliqué pour miser dessus.
-     *  Route associée : timbre/un
+     *  Route associée : timbre/mise
      */
     public function mise($tim_id)
     {
@@ -91,7 +102,7 @@ class TimbreControleur extends Controleur
     }
 
     /**
-     * Affichage du formulaire de creation d'un timbre et de son enchere.
+     * Affichage du formulaire de création d'un timbre et de son enchère.
      *  Route associée: timbre/creation
      */
     public function creation($params)
@@ -106,7 +117,7 @@ class TimbreControleur extends Controleur
     }
 
     /**
-     * Affichage du formulaire de modification d'un timbre et de son enchere.
+     * Affichage du formulaire de modification d'un timbre et de son enchère.
      *  Route associée: timbre/modification
      */
     public function modification($tim_id)
@@ -122,7 +133,7 @@ class TimbreControleur extends Controleur
     }
 
     /**
-     * Ajout d'un timbre, de ses images et de l'enchere associee.
+     * Ajout d'un timbre, de ses images et de l'enchère associée.
      *  Route associée: timbre/ajouter
      */
     public function ajouter() 
@@ -137,12 +148,14 @@ class TimbreControleur extends Controleur
      */
     public function miser() 
     {
-        $this->modele->miser($_POST, $_SESSION["utilisateur"]->uti_id);
-        Utilitaire::nouvelleRoute('timbre/tout');
+        $result = $this->modele->miser($_POST, $_SESSION["utilisateur"]->uti_id);
+
+        Utilitaire::nouvelleRoute('timbre/mise/' . $_POST['tim_id']);
+
     }
 
     /**
-     * Modification d'un timbre, de ses images et de l'enchere associee.
+     * Modification d'un timbre, de ses images et de l'enchère associée.
      *  Route associée: timbre/changer
      */
     public function changer() 
@@ -152,7 +165,7 @@ class TimbreControleur extends Controleur
     }
 
     /**
-     * Suppression d'un timbre, de ses images et de l'enchere associee.
+     * Suppression d'un timbre, de ses images et de l'enchère associée.
      *  Route associée: timbre/retirer
      */
     public function retirer($params) 

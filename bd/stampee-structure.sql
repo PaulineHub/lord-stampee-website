@@ -102,8 +102,7 @@ INSERT INTO `enchere` (`enc_id`, `enc_date_debut`, `enc_date_fin`, `enc_tim_id_c
 (11, '2022-10-10', '2022-10-20', 11, 2),
 (12, '2022-10-10', '2022-10-20', 12, 3),
 (13, '2022-10-10', '2022-10-20', 13, 3),
-(14, '2022-10-10', '2022-10-20', 14, 3),
-(15, '2022-10-10', '2022-10-20', 15, 3);
+(25, '2022-10-10', '2022-10-19', 25, 3);
 
 -- --------------------------------------------------------
 
@@ -136,11 +135,11 @@ INSERT INTO `image` (`ima_id`, `ima_nom`, `ima_path`, `ima_tim_id_ce`) VALUES
 (11, 'stamp11.jpg', 'ressources/images/timbres/stamp11.jpg', 11),
 (12, 'stamp12.jpg', 'ressources/images/timbres/stamp12.jpg', 12),
 (13, 'stamp9.jpg', 'ressources/images/timbres/stamp9.jpg', 13),
-(15, 'stamp6.jpg', 'ressources/images/timbres/stamp6.jpg', 15),
 (16, 'stamp1.jpg', 'ressources/images/timbres/stamp10.jpg', 1),
 (17, 'stamp1.jpg', 'ressources/images/timbres/stamp10.jpg', 1),
 (25, 'stamp5.jpg', 'ressources/images/timbres/stamp5.jpg', 25),
 (26, 'stamp4.jpg', 'ressources/images/timbres/stamp4.jpg', 25);
+
 
 -- --------------------------------------------------------
 
@@ -220,8 +219,8 @@ INSERT INTO `timbre` (`tim_id`, `tim_nom`, `tim_tirage`, `tim_dimensions`, `tim_
 (11, 'Reine Victoria (1868) brun jaune 6¢', 600, '27 X 22 mm', 495, 'oui', 8, 1, 3, 3),
 (12, 'Reine Victoria (1868) bleu 12½¢', 200, '27 X 22 mm', 995, 'oui', 8, 1, 3, 3),
 (13, 'test', 566, '27 X 22 mm', 566, 'oui', 1, 1, 1, 3),
-(14, 'test', 566, '27 X 22 mm', 566, 'oui', 1, 1, 1, 3),
-(15, 'test4', 566, '27 X 22 mm', 566, 'oui', 1, 1, 1, 3);
+(25, 'test6', 400, '27 x 23', 200, 'oui', 3, 1, 2, 3);
+
 
 -- --------------------------------------------------------
 
@@ -269,7 +268,29 @@ INSERT INTO `mise` (`mis_id`, `mis_montant`, `mis_date`, `mis_uti_id_ce`, `mis_e
 (1, 250, '2022-09-21', 3, 4),
 (2, 300, '2022-09-22', 3, 7),
 (3, 400, '2022-09-22', 2, 1),
-(4, 555, '2022-09-23', 2, 2);
+(4, 555, '2022-09-23', 2, 2),
+(7, 1000, '2022-09-23', 3, 12),
+(8, 135, '2022-09-26', 3, 9),
+(9, 135, '2022-09-26', 3, 9),
+(10, 135, '2022-09-26', 3, 9),
+(11, 140, '2022-09-26', 3, 9),
+(12, 140, '2022-09-26', 3, 9),
+(13, 140, '2022-09-26', 3, 9),
+(14, 140, '2022-09-26', 3, 9),
+(15, 140, '2022-09-26', 3, 9),
+(16, 140, '2022-09-26', 3, 9),
+(17, 145, '2022-09-26', 3, 9),
+(18, 145, '2022-09-26', 3, 9),
+(19, 145, '2022-09-26', 3, 9),
+(20, 150, '2022-09-26', 3, 9),
+(21, 151, '2022-09-26', 3, 9),
+(22, 152, '2022-09-26', 3, 9),
+(23, 153, '2022-09-26', 3, 9),
+(24, 154, '2022-09-26', 3, 9),
+(25, 155, '2022-09-26', 3, 9),
+(26, 160, '2022-09-27', 3, 9),
+(27, 161, '2022-09-27', 3, 9),
+(28, 162, '2022-09-27', 3, 9);
 
 -- --------------------------------------------------------
 
@@ -288,12 +309,12 @@ CREATE TABLE `favoris` (
 --
 
 INSERT INTO `favoris` (`fav_id`, `fav_tim_id_ce`, `fav_uti_id_ce`) VALUES
-(1, 11, 3),
+(1, 11, 2),
 (2, 10, 2),
 (3, 9, 2),
 (4, 12, 2),
-(5, 11, 2);
-
+(5, 12, 3),
+(10, 25, 3);
 
 --
 -- Index pour les tables déchargées
@@ -392,13 +413,13 @@ ALTER TABLE `conservation`
 -- AUTO_INCREMENT pour la table `enchere`
 --
 ALTER TABLE `enchere`
-  MODIFY `enc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `enc_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT pour la table `image`
 --
 ALTER TABLE `image`
-  MODIFY `ima_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `ima_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT pour la table `pays`
@@ -416,7 +437,7 @@ ALTER TABLE `privilege`
 -- AUTO_INCREMENT pour la table `timbre`
 --
 ALTER TABLE `timbre`
-  MODIFY `tim_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `tim_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT pour la table `utilisateur`
@@ -429,14 +450,14 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour la table `mise`
 --
 ALTER TABLE `mise`
-  MODIFY `mis_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `mis_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 
 --
 -- AUTO_INCREMENT pour la table `favoris`
 --
 ALTER TABLE `favoris`
-  MODIFY `fav_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `fav_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Contraintes pour les tables déchargées

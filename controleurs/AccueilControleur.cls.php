@@ -7,9 +7,9 @@ class AccueilControleur extends Controleur
     }
 
     /**
-     * Méthode invoquée par défaut si aucune action n'est indiquée.
+     * Affiche les timbres favoris du Lord Stampee.
      */
-    public function index($params)
+    public function index()
     {
         $stampee_id = 2;
         $this->gabarit->affecter('stampee_favoris', $this->modele->toutFavoris($stampee_id));

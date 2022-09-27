@@ -18,7 +18,7 @@ class Controleur
        $this->gabarit->genererVue(); 
     }
 
-    public function index($params)
+    public function index()
     {
 
     }

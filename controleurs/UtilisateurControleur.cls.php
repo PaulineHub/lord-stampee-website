@@ -14,7 +14,7 @@ class UtilisateurControleur extends Controleur
      * Méthode invoquée par défaut.
      */
 
-    public function index($params)
+    public function index()
     {
 
     }
@@ -22,13 +22,13 @@ class UtilisateurControleur extends Controleur
     /**
      * Méthode nouveau pour rediriger vers la page de nouvel utilisateur.
      */
-    public function nouveau($params)
+    public function nouveau()
     {
         
     }
 
     /**
-     * Méthode ajouter.
+     * Méthode ajouter pour ajouter un nouvel utilisateur.
      */
     public function ajouter()
     {
@@ -37,7 +37,7 @@ class UtilisateurControleur extends Controleur
     }
 
     /**
-     * Méthode connexion.
+     * Méthode connexion pour connecter l'utilisateur.
      */
     public function connexion()
     {
@@ -65,11 +65,11 @@ class UtilisateurControleur extends Controleur
     }
 
     /**
-     * Méthode déconnexion.
+     * Méthode déconnexion pour déconnecter l'utilisateur.
      */
     public function deconnexion()
     {
         unset($_SESSION['utilisateur']);
-        Utilitaire::nouvelleRoute('accueil');
+        Utilitaire::nouvelleRoute('accueil/index');
     }
 }
